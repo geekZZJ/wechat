@@ -1,0 +1,15 @@
+<!--pages/firstPage/first.wxml-->
+<include src="../temp/temp" />
+<text>pages/firstPage/first.wxml</text>
+<button type="default"> default </button>
+<button type="primary" bindtap='btnClick'> {{btnText}} </button>
+<view wx:if="{{show}}">{{text}}1</view>
+<view wx:else>{{text}}2</view>
+
+<view wx:for="{{news}}" wx:for-item="itemx">
+  {{index+1}}-{{itemx}}
+</view>
+
+<import src="../footer/footer"/>
+<template is="footer1"/>
+<template is="footer2" data="{{text:'导入设置的内容...'}}"/>
