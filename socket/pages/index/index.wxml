@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <button type='default'>开启连接</button>
+  <button type='default'>发送消息</button>
+  <button type='default'>关闭连接</button>
+  <view wx:for="{{message}}">{{item}}</view>
+</view>
