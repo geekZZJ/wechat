@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/welcome/welcome",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/hot/hot",
+    "pages/welcome/welcome"
   ],
   "window": {
     "navigationBarBackgroundColor": "#b3d4db",
