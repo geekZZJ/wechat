@@ -1,4 +1,5 @@
 <!--pages/hot/hot.wxml-->
+<import src="./hot-item/hot-item-template.wxml" />
 <view>
     <view></view><!--此处导航栏-->
     <swiper indicator-dots="true" autoplay="true" interval="4000" circular="true">
@@ -13,22 +14,6 @@
         </swiper-item>
     </swiper>
     <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
-        <view class="hot-container">
-            <view class="hot-title">
-                <text>{{item.title}}</text>
-            </view>
-            <view class="hot-abstract">
-                <text>{{item.abstract}}...</text>
-            </view>
-            <view class="hot-other">
-                <view>
-                    <text class="heat">{{item.heat}}热度</text>
-                </view>
-                <view class="hot-like">
-                    <text class="iconfont iconbuoumaotubiao44 hot-collection"></text>
-                    <text class="iconfont iconpinglun hot-comments"></text>
-                </view>
-            </view>
-        </view>
+        <template is="hotItem" data="{{item}}" />
     </block>
 </view>

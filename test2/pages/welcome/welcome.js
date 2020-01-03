@@ -7,6 +7,15 @@ Page({
   data: {
 
   },
+  onTap:function(){
+/*    wx.navigateTo({
+        url:"../hot/hot"
+    })*/
+    //未实现阻止页面返回
+    wx.redirectTo({
+      url:"../hot/hot"
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
