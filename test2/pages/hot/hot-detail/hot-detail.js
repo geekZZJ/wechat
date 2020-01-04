@@ -1,4 +1,5 @@
 // pages/hot/hot-detail/hot-detail.js
+let hotData = require('../../../data/hot-data')
 Page({
 
   /**
@@ -12,7 +13,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    let hotId = options.id
+    console.log(hotId)
+    let hotDetail = hotData.hotList[hotId]
+    this.setData({
+        hotDetail: hotDetail
+    })
   },
 
   /**

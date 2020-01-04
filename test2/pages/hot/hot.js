@@ -19,9 +19,9 @@ Page({
   },
   onPostTap: function(event) {
     let hotId = event.currentTarget.dataset.hotid
-    console.log(hotId)
+    // console.log(hotId)
     wx.navigateTo({
-      url: "./hot-detail/hot-detail"
+      url: "./hot-detail/hot-detail?id="+hotId
     })
   },
 

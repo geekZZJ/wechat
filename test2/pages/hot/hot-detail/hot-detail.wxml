@@ -1,14 +1,14 @@
 <!--pages/hot/hot-detail/hot-detail.wxml-->
 <view class="container">
   <view class="title-container">
-    <text class="title">python合并多个txt文件</text>
+    <text class="title">{{hotDetail.title}}</text>
   </view>
   <view class="author">
-    <image src="/images/avatar/2.png" class="avatar"></image>
-    <text class="author-name">樱桃木</text>
-    <text class="context-time">发表时间</text>
+    <image src="{{hotDetail.headImgSrc}}" class="avatar"></image>
+    <text class="author-name">{{hotDetail.author}}</text>
+    <text class="context-time">{{hotDetail.dateTime}}</text>
   </view>
   <view class="content-container">
-    <text class="content">随着 2019 的过去，2020 迎来了第六年的码农生涯，过往如烟挥之即散，所以我习惯通过一些关键词来凝结这一年的收获，而 2019 我总结的关键词是：技术大会、焦虑、耐心、学习、竞争力。</text>
+    <text class="content">{{hotDetail.content}}</text>
   </view>
 </view>
