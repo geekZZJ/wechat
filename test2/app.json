@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/hot/hot-detail/hot-detail",
     "pages/welcome/welcome",
-    "pages/hot/hot",
-    "pages/hot/hot-detail/hot-detail"
+    "pages/hot/hot"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#b3d4db",
+    "navigationBarBackgroundColor": "#405f80",
     "navigationBarTitleText": "深度博客"
   },
   "style": "v2",

@@ -1,21 +1,37 @@
 <!--pages/hot/hot.wxml-->
 <import src="./hot-item/hot-item-template.wxml" />
 <view>
-    <view></view><!--此处导航栏-->
-    <swiper indicator-dots="true" autoplay="true" interval="4000" circular="true">
-        <swiper-item>
-            <image src="/images/wx.png"></image>
-        </swiper-item>
-        <swiper-item>
-            <image src="/images/vr.png"></image>
-        </swiper-item>
-        <swiper-item>
-            <image src="/images/iqiyi.png"></image>
-        </swiper-item>
-    </swiper>
-    <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
-        <view catchtap="onPostTap" data-hotId="{{item.hotId}}">
-            <template is="hotItem" data="{{...item}}" />
+  <view></view>
+  <!--此处导航栏-->
+  <swiper indicator-dots="true" autoplay="true" interval="4000" circular="true">
+    <swiper-item>
+      <image src="/images/wx.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/vr.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/iqiyi.png"></image>
+    </swiper-item>
+  </swiper>
+  <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
+    <!--<template is="hotItem" data="{{...item}}" />-->
+    <view class="hot-container">
+      <view class="hot-title" catchtap="onPostTap" data-hotId="{{item.hotId}}">
+        <text>{{item.title}}</text>
+      </view>
+      <view class="hot-abstract" catchtap="onPostTap" data-hotId="{{item.hotId}}">
+        <text>{{item.abstract}}...</text>
+      </view>
+      <view class="hot-other">
+        <view>
+          <text class="heat">{{item.heat}}热度</text>
         </view>
-    </block>
+        <view class="hot-like">
+          <text class="iconfont iconbuoumaotubiao44 hot-collection"></text>
+          <text class="iconfont iconpinglun hot-comments"></text>
+        </view>
+      </view>
+    </view>
+  </block>
 </view>

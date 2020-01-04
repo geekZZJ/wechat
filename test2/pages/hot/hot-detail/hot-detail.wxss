@@ -1,1 +1,53 @@
 /* pages/hot/hot-detail/hot-detail.wxss */
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.title-container{
+    margin-top: 30rpx;
+    margin-left: 40rpx;
+}
+
+.title{
+    font-size: 36rpx;
+    font-weight: 700;
+    color: #4b556c;
+}
+
+.author{
+    display: flex;
+    flex-direction: row;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+
+.avatar{
+    height: 64rpx;
+    width: 64rpx;
+}
+
+.author-name{
+    font-size: 30rpx;
+    font-weight: 300;
+    margin-left: 20rpx;
+    color: #666;
+    line-height: 64rpx;
+}
+
+.context-time{
+    font-size: 24rpx;
+    color: #999;
+    margin-left: 20rpx;
+    line-height: 64rpx;
+}
+
+.content-container{
+    margin: 60rpx 30rpx 0 30rpx;
+}
+
+.content{
+    color: #666;
+    line-height: 44rpx;
+    font-size: 24rpx;
+}
