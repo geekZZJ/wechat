@@ -1,14 +1,14 @@
 <template name="hotItem">
     <view class="hot-container">
         <view class="hot-title">
-            <text>{{item.title}}</text>
+            <text>{{title}}</text>
         </view>
         <view class="hot-abstract">
-            <text>{{item.abstract}}...</text>
+            <text>{{abstract}}...</text>
         </view>
         <view class="hot-other">
             <view>
-                <text class="heat">{{item.heat}}热度</text>
+                <text class="heat">{{heat}}热度</text>
             </view>
             <view class="hot-like">
                 <text class="iconfont iconbuoumaotubiao44 hot-collection"></text>

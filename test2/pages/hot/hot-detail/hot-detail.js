@@ -1,5 +1,4 @@
-// pages/hot/hot.js
-let hotData = require('../../data/hot-data')
+// pages/hot/hot-detail/hot-detail.js
 Page({
 
   /**
@@ -13,16 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-        contents:hotData.hotList
-    })
-  },
-  onPostTap:function(event){
-    let hotId = event.currentTarget.dataset.hotid
-    // console.log(hotId)
-    wx.navigateTo({
-        url:"./hot-detail/hot-detail"
-    })
+
   },
 
   /**

@@ -14,6 +14,8 @@
         </swiper-item>
     </swiper>
     <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
-        <template is="hotItem" data="{{item}}" />
+        <view catchtap="onPostTap" data-hotId="{{item.hotId}}">
+            <template is="hotItem" data="{{...item}}" />
+        </view>
     </block>
 </view>
