@@ -17,11 +17,36 @@ Page({
       contents: hotData.hotList
     })
   },
-  onPostTap: function(event) {
+
+  //实现页面跳转
+  onHotTap: function(event) {
     let hotId = event.currentTarget.dataset.hotid
-    // console.log(hotId)
     wx.navigateTo({
-      url: "./hot-detail/hot-detail?id="+hotId
+      url: "./hot-detail/hot-detail?id=" + hotId
+    })
+  },
+  //轮播图跳转
+  onSwiperTap: function(event) {
+      let hotId = event.target.dataset.hotid
+      console.log(hotId)
+      wx.navigateTo({
+          url: "./hot-detail/hot-detail?id=" + hotId
+      })
+  },
+  //实现点赞，取消点赞
+  onCollectionTap: function(event) {
+    let hotId = event.currentTarget.dataset.hotid
+    let temp = 'contents[' + hotId + '].collected'
+    let collected = this.data.contents[hotId].collected
+    collected = !collected
+    //向后台发送收藏数据未做
+    this.setData({
+      [temp]: collected
+    })
+    wx.showToast({
+      title: collected ? "收藏成功" : "取消收藏",
+      duration: 1000,
+      icon: "success"
     })
   },
 

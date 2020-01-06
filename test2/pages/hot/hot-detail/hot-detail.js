@@ -17,7 +17,7 @@ Page({
     console.log(hotId)
     let hotDetail = hotData.hotList[hotId]
     this.setData({
-        hotDetail: hotDetail
+      hotDetail: hotDetail
     })
   },
 

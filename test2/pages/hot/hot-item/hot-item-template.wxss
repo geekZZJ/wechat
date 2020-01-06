@@ -60,10 +60,19 @@
 }
 
 .hot-like{
-    color: #666;
+    color: #999;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 }
 
 .hot-collection{
+    font-size: 24rpx;
+    margin-right: 40rpx;
+}
+
+.hot-collection1{
+    color: #333;
     font-size: 24rpx;
     margin-right: 40rpx;
 }

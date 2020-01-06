@@ -3,24 +3,24 @@
 <view>
   <view></view>
   <!--此处导航栏-->
-  <swiper indicator-dots="true" autoplay="true" interval="4000" circular="true">
+  <swiper catchtap="onSwiperTap" indicator-dots="true" autoplay="true" interval="4000" circular="true">
     <swiper-item>
-      <image src="/images/wx.png"></image>
+      <image src="/images/wx.png" data-hotId="3"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/vr.png"></image>
+      <image src="/images/vr.png" data-hotId="4"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/iqiyi.png"></image>
+      <image src="/images/iqiyi.png" data-hotId="2"></image>
     </swiper-item>
   </swiper>
   <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
     <!--<template is="hotItem" data="{{...item}}" />-->
     <view class="hot-container">
-      <view class="hot-title" catchtap="onPostTap" data-hotId="{{item.hotId}}">
+      <view class="hot-title" catchtap="onHotTap" data-hotId="{{item.hotId}}">
         <text>{{item.title}}</text>
       </view>
-      <view class="hot-abstract" catchtap="onPostTap" data-hotId="{{item.hotId}}">
+      <view class="hot-abstract" catchtap="onHotTap" data-hotId="{{item.hotId}}">
         <text>{{item.abstract}}...</text>
       </view>
       <view class="hot-other">
@@ -28,8 +28,11 @@
           <text class="heat">{{item.heat}}热度</text>
         </view>
         <view class="hot-like">
-          <text class="iconfont iconbuoumaotubiao44 hot-collection"></text>
-          <text class="iconfont iconpinglun hot-comments"></text>
+          <view wx:if="{{item.collected}}" class="iconfont iconbuoumaotubiao44 hot-collection1" catchtap="onCollectionTap" data-hotId="{{item.hotId}}"></view>
+          <view wx:else class="iconfont iconbuoumaotubiao44 hot-collection" catchtap="onCollectionTap" data-hotId="{{item.hotId}}"></view>
+          <view class="iconfont iconpinglun hot-comments">
+            <text wx:if="{{item.commentCount > 0}}">{{item.commentCount}}</text>
+          </view>
         </view>
       </view>
     </view>
