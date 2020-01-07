@@ -1,8 +1,15 @@
 <!--pages/hot/hot.wxml-->
 <import src="./hot-item/hot-item-template.wxml" />
+<import src="./hot-header/hot-header-template.wxml" />
+<import src="./hot-nav/hot-nav-template.wxml" />
 <view>
-  <view></view>
-  <!--此处导航栏-->
+  <!--此处搜索栏-->
+  <template is="hotHeader" data="{{...view}}" />
+  <!--此处为导航栏-->
+  <template is="hotNav" data="{{...view}}" />
+  <!--占位-->
+  <view style="height:{{view.posHeight}}rpx"></view>
+  <!--轮播图-->
   <swiper catchtap="onSwiperTap" indicator-dots="true" autoplay="true" interval="4000" circular="true">
     <swiper-item>
       <image src="/images/wx.png" data-hotId="3"></image>

@@ -2,11 +2,45 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/hot/hot",
-    "pages/hot/hot-detail/hot-detail"
+    "pages/hot/hot-detail/hot-detail",
+    "pages/recommend/recommend",
+    "pages/subscribe/subscribe",
+    "pages/my/my"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#405f80",
-    "navigationBarTitleText": "深度博客"
+    "navigationBarTitleText": "深度博客",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#d81e06",
+    "list": [
+      {
+        "pagePath": "pages/hot/hot",
+        "text": "热门",
+        "iconPath": "/images/tab/hot.png",
+        "selectedIconPath": "/images/tab/hot_hl.png"
+      },
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "推荐",
+        "iconPath": "/images/tab/recommend.png",
+        "selectedIconPath": "/images/tab/recommend_hl.png"
+      },
+      {
+        "pagePath": "pages/subscribe/subscribe",
+        "text": "订阅",
+        "iconPath": "/images/tab/subscribe.png",
+        "selectedIconPath": "/images/tab/subscribe_hl.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/tab/my.png",
+        "selectedIconPath": "/images/tab/my_hl.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

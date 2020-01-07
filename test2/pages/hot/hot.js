@@ -16,6 +16,20 @@ Page({
     this.setData({
       contents: hotData.hotList
     })
+    try {
+        const res = wx.getSystemInfoSync()
+        console.log(res.statusBarHeight)
+        this.setData({
+            view:{
+                headerPT: res.statusBarHeight + 32,
+                navMT: res.statusBarHeight + 92,
+                posHeight: res.statusBarHeight + 231
+            }
+        })
+    } catch (e) {
+        // Do something when catch error
+        console.log(e)
+    }
   },
 
   //实现页面跳转

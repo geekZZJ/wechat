@@ -1,5 +1,8 @@
 /* pages/hot/hot.wxss */
-@import "hot-item/hot-item-template.wxss";
+@import "hot-item/hot-item-template.wxss"
+@import "hot-header/hot-header-template.wxss"
+@import "hot-nav/hot-nav-template.wxss"
+
 swiper image{
     width: 100%;
     height: 500rpx;
