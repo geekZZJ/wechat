@@ -1,14 +1,18 @@
 <!--pages/hot/hot-detail/hot-detail.wxml-->
-<view class="container">
-  <view class="title-container">
-    <text class="title">{{hotDetail.title}}</text>
+<import src="../hot-bottom/hot-bottom-template" />
+<view>
+  <view class="container">
+    <view class="title-container">
+      <text class="title">{{hotDetail.title}}</text>
+    </view>
+    <view class="author">
+      <image src="{{hotDetail.headImgSrc}}" class="avatar"></image>
+      <text class="author-name">{{hotDetail.author}}</text>
+      <text class="context-time">{{hotDetail.dateTime}}</text>
+    </view>
+    <view class="content-container">
+      <text class="content">{{hotDetail.content}}</text>
+    </view>
   </view>
-  <view class="author">
-    <image src="{{hotDetail.headImgSrc}}" class="avatar"></image>
-    <text class="author-name">{{hotDetail.author}}</text>
-    <text class="context-time">{{hotDetail.dateTime}}</text>
-  </view>
-  <view class="content-container">
-    <text class="content">{{hotDetail.content}}</text>
-  </view>
+  <template is="hotBottom" data="{{...hotDetail}}" />
 </view>

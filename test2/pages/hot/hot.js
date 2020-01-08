@@ -18,7 +18,7 @@ Page({
     })
     try {
         const res = wx.getSystemInfoSync()
-        console.log(res.statusBarHeight)
+        // console.log(res.statusBarHeight)
         this.setData({
             view:{
                 headerPT: res.statusBarHeight + 32,

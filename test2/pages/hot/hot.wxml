@@ -1,5 +1,5 @@
 <!--pages/hot/hot.wxml-->
-<import src="./hot-item/hot-item-template.wxml" />
+<!--<import src="./hot-item/hot-item-template.wxml" />-->
 <import src="./hot-header/hot-header-template.wxml" />
 <import src="./hot-nav/hot-nav-template.wxml" />
 <view>

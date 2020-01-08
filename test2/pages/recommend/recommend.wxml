@@ -1,2 +1,36 @@
 <!--pages/recommend/recommend.wxml-->
-<text>pages/recommend/recommend.wxml</text>
+<import src="../hot/hot-item/hot-item-template.wxml" />
+<view class="recommend">
+  <view class="recommend-nav">
+    <view class="recommend-nav-title">
+      <view class="recomend-nav-title-selected" catchtap="maybe">你可能喜欢</view>
+      <view catchtap="allLook">大家都在看</view>
+    </view>
+    <view class="recommend-nav-change" catchtap="change">
+      <text class="iconfont iconweibiaoti--"></text>
+      <text>换一换</text>
+    </view>
+  </view>
+  <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
+    <view class="hot-container">
+      <view class="hot-title" catchtap="onRecTap" data-hotId="{{item.hotId}}">
+        <text>{{item.title}}</text>
+      </view>
+      <view class="hot-abstract" catchtap="onRecTap" data-hotId="{{item.hotId}}">
+        <text>{{item.abstract}}...</text>
+      </view>
+      <view class="hot-other">
+        <view>
+          <text class="heat">{{item.heat}}热度</text>
+        </view>
+        <view class="hot-like">
+          <view wx:if="{{item.collected}}" class="iconfont iconbuoumaotubiao44 hot-collection1" catchtap="onCollectionTap" data-hotId="{{item.hotId}}"></view>
+          <view wx:else class="iconfont iconbuoumaotubiao44 hot-collection" catchtap="onCollectionTap" data-hotId="{{item.hotId}}"></view>
+          <view class="iconfont iconpinglun hot-comments">
+            <text wx:if="{{item.commentCount > 0}}">{{item.commentCount}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -67,17 +67,17 @@
 }
 
 .hot-collection{
-    font-size: 24rpx;
+    font-size: 24rpx !important;
     margin-right: 40rpx;
 }
 
 .hot-collection1{
     color: #333;
-    font-size: 24rpx;
+    font-size: 24rpx !important;
     margin-right: 40rpx;
 }
 
 .hot-comments{
-    font-size: 22rpx;
+    font-size: 22rpx !important;
     margin-right: 10rpx;
 }

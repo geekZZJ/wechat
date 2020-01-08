@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+
   },
 
   /**
@@ -16,33 +17,6 @@ Page({
     let hotDetail = hotData.hotList[hotId]
     this.setData({
       hotDetail: hotDetail
-    })
-  },
-
-  // 点赞功能
-  fixLike:function(event) {
-    let temp = 'hotDetail.like'
-    let like = this.data.hotDetail.like
-    like = !like
-    //向后台发送收藏数据未做
-    this.setData({
-        [temp]:like
-    })
-  },
-
-  // 点击收藏
-  fixCollection:function(event) {
-    let temp = 'hotDetail.collected'
-    let collected = this.data.hotDetail.collected
-    collected = !collected
-    //向后台发送收藏数据未做
-    this.setData({
-        [temp]:collected
-    })
-    wx.showToast({
-        title: collected ? "收藏成功" : "取消收藏",
-        duration: 1000,
-        icon: "success"
     })
   },
 
