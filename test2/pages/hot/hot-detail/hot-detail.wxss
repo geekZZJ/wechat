@@ -1,8 +1,10 @@
 /* pages/hot/hot-detail/hot-detail.wxss */
 @import "../hot-bottom/hot-bottom-template.wxss"
+@import "../hot-comment/hot-comment-template.wxss"
 .container{
     display: flex;
     flex-direction: column;
+    margin-bottom: 120rpx;
 }
 
 .title-container{
@@ -19,8 +21,29 @@
 .author{
     display: flex;
     flex-direction: row;
-    margin-left: 30rpx;
-    margin-top: 20rpx;
+    margin: 20rpx 30rpx 0 30rpx;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.author-left{
+    display: flex;
+    align-items: flex-start;
+}
+
+.author-right{
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 22rpx;
+    color: red;
+    text-align: center;
+}
+
+.look-author{
+    height: 36rpx;
+    border: 1px solid red;
+    border-radius: 3px;
+    padding: 2px 9px;
 }
 
 .avatar{
@@ -51,4 +74,8 @@
     color: #666;
     line-height: 44rpx;
     font-size: 24rpx;
+}
+
+.detail-pos{
+    height: 150rpx;
 }

@@ -1,18 +1,26 @@
 <!--pages/hot/hot-detail/hot-detail.wxml-->
-<import src="../hot-bottom/hot-bottom-template" />
+<import src="../hot-bottom/hot-bottom-template.wxml" />
+<import src="../hot-comment/hot-comment-template.wxml" />
 <view>
   <view class="container">
     <view class="title-container">
       <text class="title">{{hotDetail.title}}</text>
     </view>
     <view class="author">
-      <image src="{{hotDetail.headImgSrc}}" class="avatar"></image>
-      <text class="author-name">{{hotDetail.author}}</text>
-      <text class="context-time">{{hotDetail.dateTime}}</text>
+      <view class="author-left">
+        <image src="{{hotDetail.headImgSrc}}" class="avatar"></image>
+        <text class="author-name">{{hotDetail.author}}</text>
+        <text class="context-time">{{hotDetail.dateTime}}</text>
+      </view>
+      <view class="author-right">
+        <text class="look-author">关注</text>
+      </view>
     </view>
     <view class="content-container">
       <text class="content">{{hotDetail.content}}</text>
     </view>
   </view>
+  <template is="hotComment" />
+  <view class="detail-pos"></view>
   <template is="hotBottom" data="{{...hotDetail}}" />
 </view>
