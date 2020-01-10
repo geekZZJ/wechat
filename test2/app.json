@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/hot/hot",
+    "pages/my/my",
     "pages/recommend/recommend",
+    "pages/hot/hot",
     "pages/hot/hot-detail/hot-detail",
     "pages/welcome/welcome",
     "pages/recommend/recommend-detail/recommend-detail",
-    "pages/subscribe/subscribe",
-    "pages/my/my"
+    "pages/subscribe/subscribe"
   ],
   "window": {
     "navigationBarTitleText": "深度博客",

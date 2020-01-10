@@ -17,18 +17,18 @@ Page({
       contents: hotData.hotList
     })
     try {
-        const res = wx.getSystemInfoSync()
-        // console.log(res.statusBarHeight)
-        this.setData({
-            view:{
-                headerPT: res.statusBarHeight + 32,
-                navMT: res.statusBarHeight + 92,
-                posHeight: res.statusBarHeight + 231
-            }
-        })
+      const res = wx.getSystemInfoSync()
+      // console.log(res.statusBarHeight)
+      this.setData({
+        view: {
+          headerPT: res.statusBarHeight + 32,
+          navMT: res.statusBarHeight + 92,
+          posHeight: res.statusBarHeight + 231
+        }
+      })
     } catch (e) {
-        // Do something when catch error
-        console.log(e)
+      // Do something when catch error
+      console.log(e)
     }
   },
 
@@ -41,11 +41,11 @@ Page({
   },
   //轮播图跳转
   onSwiperTap: function(event) {
-      let hotId = event.target.dataset.hotid
-      console.log(hotId)
-      wx.navigateTo({
-          url: "./hot-detail/hot-detail?id=" + hotId
-      })
+    let hotId = event.target.dataset.hotid
+    console.log(hotId)
+    wx.navigateTo({
+      url: "./hot-detail/hot-detail?id=" + hotId
+    })
   },
   //实现点赞，取消点赞
   onCollectionTap: function(event) {
