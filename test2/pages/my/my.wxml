@@ -8,6 +8,7 @@
       <text class="my-name">年少轻狂</text>
       <text class="iconfont iconnan my-gender-man" wx:if="{{true}}"></text>
       <text class="iconfont iconnv my-gender-woman" wx:else></text>
+      <text class="my-set" catchtap="onSet">设置</text>
     </view>
     <view class="my-sign">
       <text class="my-sign-title">我的签名：</text>

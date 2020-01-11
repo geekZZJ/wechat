@@ -22,6 +22,9 @@ Page({
     this.onCollection()
   },
 
+  onSet: function(event) {
+    console.log("设置")
+  },
   onCollection: function(event) {
     let i = this.data.i
     if (i < 1) {
