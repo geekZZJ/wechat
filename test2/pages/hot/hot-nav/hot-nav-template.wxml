@@ -13,16 +13,14 @@
       <view id="demo10" class="scroll-view-item_H">游戏</view>
     </scroll-view>
     <scroll-view class="scroll-view_L" scroll-x="true">
-      <view class="scroll-view-item_L scroll-view-itemL_selected">前端开发</view>
-      <view class="scroll-view-item_L">后端开发</view>
-      <view class="scroll-view-item_L">移动开发</view>
-      <view class="scroll-view-item_L">计算机基础</view>
-      <view class="scroll-view-item_L">前沿技术</view>
-      <view class="scroll-view-item_L">云计算&大数据</view>
-      <view class="scroll-view-item_L">运维&测试</view>
-      <view class="scroll-view-item_L">数据库</view>
-      <view class="scroll-view-item_L">UI设计&多媒体</view>
-      <view class="scroll-view-item_L">游戏</view>
+      <view class="scroll-view-item_L scroll-view-itemL_selected">全部</view>
+      <view class="scroll-view-item_L">CSDN</view>
+      <view class="scroll-view-item_L">博客园</view>
+      <view class="scroll-view-item_L">掘金</view>
+      <view class="scroll-view-item_L">segmentfault</view>
+      <view class="scroll-view-item_L">开源中国</view>
+      <view class="scroll-view-item_L">51cot</view>
+      <view class="scroll-view-item_L">简书</view>
     </scroll-view>
   </view>
 </template>

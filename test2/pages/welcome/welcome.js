@@ -8,10 +8,6 @@ Page({
 
   },
   onTap: function() {
-    /*wx.navigateTo({
-        url:"../hot/hot"
-    })*/
-    //未实现阻止页面返回
     wx.switchTab({
       url: "../hot/hot"
     })
