@@ -8,8 +8,8 @@ Page({
 
   },
   onTap: function() {
-    wx.switchTab({
-      url: "../hot/hot"
+    wx.redirectTo({
+      url: "../choose/choose"
     })
   },
 

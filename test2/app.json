@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/choose/choose",
     "pages/welcome/welcome",
     "pages/subscribe/subscribe",
     "pages/recommend/recommend",

@@ -1,0 +1,40 @@
+<!--pages/choose/choose.wxml-->
+<view class="container">
+  <view class="content">
+    <view class="choose-title">简单两步，定制你的专属</view>
+    <view class="choose-tip">请选择多个感兴趣的标签</view>
+    <view class="choose-tag">
+      <view wx:if="{{tag1}}" data class="normal-tag" catchtap="onTagTap1">后端</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap1">后端</view>
+      <view wx:if="{{tag2}}" class="normal-tag" catchtap="onTagTap2">运维</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap2">运维</view>
+      <view wx:if="{{tag3}}" class="normal-tag" catchtap="onTagTap3">设计</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap3">设计</view>
+      <view wx:if="{{tag4}}" class="normal-tag" catchtap="onTagTap4">算法</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap4">算法</view>
+      <view wx:if="{{tag5}}" class="normal-tag" catchtap="onTagTap5">Android</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap5">Android</view>
+      <view wx:if="{{tag6}}" class="normal-tag" catchtap="onTagTap6">人工智能</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap6">人工智能</view>
+      <view wx:if="{{tag7}}" class="normal-tag" catchtap="onTagTap7">安全</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap7">安全</view>
+      <view wx:if="{{tag8}}" class="normal-tag" catchtap="onTagTap8">产品/运营</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap8">产品/运营</view>
+      <view wx:if="{{tag9}}" class="normal-tag" catchtap="onTagTap9">大数据</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap9">大数据</view>
+      <view wx:if="{{tag10}}" class="normal-tag" catchtap="onTagTap10">ios</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap10">ios</view>
+      <view wx:if="{{tag11}}" class="normal-tag" catchtap="onTagTap11">测试</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap11">测试</view>
+      <view wx:if="{{tag12}}" class="normal-tag" catchtap="onTagTap12">数据库管理</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap12">数据库管理</view>
+      <view wx:if="{{tag13}}" class="normal-tag" catchtap="onTagTap13">前端</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap13">前端</view>
+      <view wx:if="{{tag14}}" class="normal-tag" catchtap="onTagTap14">硬件开发</view>
+      <view wx:else class="checked-tag" catchtap="onTagTap14">硬件开发</view>
+    </view>
+    <view class="choose-next">
+      <button type="default" disabled="{{disabled}}" hover-class="none">下一步</button>
+    </view>
+  </view>
+</view>
