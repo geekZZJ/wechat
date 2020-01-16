@@ -9,7 +9,7 @@
       </block>
     </view>
     <view class="choose-next">
-      <button type="default" disabled="{{disabled}}" hover-class="none">下一步</button>
+      <button type="default" disabled="{{disabled}}" hover-class="none" catchtap="chooseNext">下一步</button>
     </view>
   </view>
 </view>

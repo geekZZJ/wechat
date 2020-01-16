@@ -17,6 +17,8 @@ Page({
       contents: techData.techList
     })
   },
+
+  //自定义多选按钮
   onTagTap: function(event) {
     let techid = event.currentTarget.dataset.techid
     let j = 0
@@ -43,6 +45,17 @@ Page({
       contents: this.data.contents,
       disabled: this.data.disabled
     })
+  },
+
+  //点击发送感兴趣的技术标签
+  chooseNext: function(event) {
+    let arr = new Array()
+    for (let i = 0; i < this.data.contents.length; i++) {
+      if (this.data.contents[i].checked == true) {
+        arr.push(i)
+      }
+    }
+    //向服务器发送数据未写
   },
 
   /**
