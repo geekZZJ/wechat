@@ -19,19 +19,29 @@ Page({
   },
   onTagTap: function(event) {
     let techid = event.currentTarget.dataset.techid
+    let j = 0
     for (let i = 0; i < this.data.contents.length; i++) {
       if (this.data.contents[i].technologyId == techid) {
         if (this.data.contents[i].checked == true) {
-          this.data.contents[i].checked = false;
-
+          this.data.contents[i].checked = false
         } else {
-          this.data.contents[i].checked = true;
-
+          this.data.contents[i].checked = true
         }
       }
     }
+    for (let i = 0; i < this.data.contents.length; i++) {
+      if (this.data.contents[i].checked == true) {
+        j++
+      }
+    }
+    if (j > 0) {
+      this.data.disabled = false
+    } else {
+      this.data.disabled = true
+    }
     this.setData({
-      contents: this.data.contents
+      contents: this.data.contents,
+      disabled: this.data.disabled
     })
   },
 
