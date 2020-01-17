@@ -71,6 +71,45 @@ let contents = [
     }
 ]
 
+let blogs = [
+    {
+        blogId: 0,
+        name: "CSDN",
+        checked: false
+    },
+    {
+        blogId: 1,
+        name: "博客园",
+        checked: false
+    },
+    {
+        blogId: 2,
+        name: "掘金",
+        checked: false
+    },
+    {
+        blogId: 3,
+        name: "segmentfault",
+        checked: false
+    },
+    {
+        blogId: 4,
+        name: "开源中国",
+        checked: false
+    },
+    {
+        blogId: 5,
+        name: "51cot",
+        checked: false
+    },
+    {
+        blogId: 6,
+        name: "简书",
+        checked: false
+    }
+]
+
 module.exports = {
-    techList: contents
+    techList: contents,
+    blogList: blogs
 }

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/choose/choose",
     "pages/welcome/welcome",
+    "pages/choose/choose",
     "pages/subscribe/subscribe",
     "pages/recommend/recommend",
     "pages/my/my",

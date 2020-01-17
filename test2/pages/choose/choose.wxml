@@ -1,15 +1,27 @@
 <!--pages/choose/choose.wxml-->
 <view class="container">
-  <view class="content">
+  <view class="content" wx:if="{{first}}">
     <view class="choose-title">简单两步，定制你的专属</view>
     <view class="choose-tip">请选择多个感兴趣的标签</view>
     <view class="choose-tag">
       <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
-        <view class='{{item.checked?"checked-tag":"normal-tag"}}' data-techId="{{item.technologyId}}" catchtap="onTagTap">{{item.technologyIdId}}{{item.name}}</view>
+        <view class='{{item.checked?"checked-tag":"normal-tag"}}' data-techId="{{item.technologyId}}" catchtap="onTagTap">{{item.name}}</view>
       </block>
     </view>
     <view class="choose-next">
       <button type="default" disabled="{{disabled}}" hover-class="none" catchtap="chooseNext">下一步</button>
+    </view>
+  </view>
+  <view class="content" wx:else>
+    <view class="choose-title">简单两步，定制你的专属</view>
+    <view class="choose-tip">请选择多个常用的博客</view>
+    <view class="choose-tag">
+      <block wx:for="{{blogs}}" wx:key="key" wx:for-item="item">
+        <view class='{{item.checked?"checked-tag":"normal-tag"}}' data-blogId="{{item.blogId}}" catchtap="onBlog">{{item.name}}</view>
+      </block>
+    </view>
+    <view class="choose-next">
+      <button type="default" disabled="{{finished}}" hover-class="none" catchtap="finished">开始</button>
     </view>
   </view>
 </view>
