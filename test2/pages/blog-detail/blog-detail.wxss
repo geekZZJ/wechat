@@ -1,6 +1,6 @@
-/* pages/hot/hot-detail/hot-detail.wxss */
-@import "../hot-bottom/hot-bottom-template.wxss"
-@import "../hot-comment/hot-comment-template.wxss"
+/* pages/blog-detail/blog-detail.wxss */
+@import "../template/blog-bottom/blog-bottom-template.wxss"
+@import "../template/blog-comment/blog-comment-template.wxss"
 .container{
     display: flex;
     flex-direction: column;

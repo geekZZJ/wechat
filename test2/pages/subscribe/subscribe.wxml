@@ -1,33 +1,14 @@
 <!--pages/subscribe/subscribe.wxml-->
-<import src="../hot/hot-item/hot-item-template.wxml" />
+<import src="../template/blog-item/blog-item-template.wxml" />
 <view class="subscribe">
-    <view class="subscribe-nav">
-        <view class="subscribe-nav-title">最近更新</view>
-        <view class="subscribe-nav-msg">
-            <text class="iconfont iconweidu subscribe-nav-icon"></text>
-            <text class="subscribe-nav-msg-num">1</text>
-        </view>
+  <view class="subscribe-nav">
+    <view class="subscribe-nav-title">最近更新</view>
+    <view class="subscribe-nav-msg">
+      <text class="iconfont iconweidu subscribe-nav-icon"></text>
+      <text class="subscribe-nav-msg-num">1</text>
     </view>
-    <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
-        <view class="hot-container">
-            <view class="hot-title" catchtap="onRecTap" data-hotId="{{item.hotId}}">
-                <text>{{item.title}}</text>
-            </view>
-            <view class="hot-abstract" catchtap="onRecTap" data-hotId="{{item.hotId}}">
-                <text>{{item.abstract}}...</text>
-            </view>
-            <view class="hot-other">
-                <view>
-                    <text class="heat">{{item.heat}}热度</text>
-                </view>
-                <view class="hot-like">
-                    <view wx:if="{{item.collected}}" class="iconfont iconbuoumaotubiao44 hot-collection1" catchtap="onCollectionTap" data-hotId="{{item.hotId}}"></view>
-                    <view wx:else class="iconfont iconbuoumaotubiao44 hot-collection" catchtap="onCollectionTap" data-hotId="{{item.hotId}}"></view>
-                    <view class="iconfont iconpinglun hot-comments">
-                        <text wx:if="{{item.commentCount > 0}}">{{item.commentCount}}</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-    </block>
+  </view>
+  <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
+    <template is="blogItem" data="{{...item}}" />
+  </block>
 </view>

@@ -1,5 +1,5 @@
 /* pages/subscribe/subscribe.wxss */
-@import "../hot/hot-item/hot-item-template.wxss"
+@import "../template/blog-item/blog-item-template.wxss"
 .subscribe{
     display: flex;
     flex-direction: column;

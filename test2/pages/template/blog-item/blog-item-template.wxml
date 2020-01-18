@@ -1,0 +1,22 @@
+<template name="blogItem">
+  <view class="blog-container">
+    <view class="blog-title" catchtap="onBlogTap" data-BlogId="{{hotId}}">
+      <text>{{title}}</text>
+    </view>
+    <view class="blog-abstract" catchtap="onBlogTap" data-BlogId="{{hotId}}">
+      <text>{{abstract}}...</text>
+    </view>
+    <view class="blog-other">
+      <view>
+        <text class="blog-heat">{{heat}}热度</text>
+      </view>
+      <view class="blog-like">
+        <view wx:if="{{collected}}" class="iconfont iconbuoumaotubiao44 blog-collection1" catchtap="onCollectionTap" data-BlogId="{{hotId}}"></view>
+        <view wx:else class="iconfont iconbuoumaotubiao44 blog-collection" catchtap="onCollectionTap" data-BlogId="{{hotId}}"></view>
+        <view class="iconfont iconpinglun blog-comments">
+          <text wx:if="{{commentCount > 0}}">{{commentCount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

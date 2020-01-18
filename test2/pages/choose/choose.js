@@ -51,31 +51,31 @@ Page({
   },
 
   onBlog: function(event) {
-      let blogid = event.currentTarget.dataset.blogid
-      let j = 0
-      for (let i = 0; i < this.data.blogs.length; i++) {
-          if (this.data.blogs[i].blogId == blogid) {
-              if (this.data.blogs[i].checked == true) {
-                  this.data.blogs[i].checked = false
-              } else {
-                  this.data.blogs[i].checked = true
-              }
-          }
+    let blogid = event.currentTarget.dataset.blogid
+    let j = 0
+    for (let i = 0; i < this.data.blogs.length; i++) {
+      if (this.data.blogs[i].blogId == blogid) {
+        if (this.data.blogs[i].checked == true) {
+          this.data.blogs[i].checked = false
+        } else {
+          this.data.blogs[i].checked = true
+        }
       }
-      for (let i = 0; i < this.data.blogs.length; i++) {
-          if (this.data.blogs[i].checked == true) {
-              j++
-          }
+    }
+    for (let i = 0; i < this.data.blogs.length; i++) {
+      if (this.data.blogs[i].checked == true) {
+        j++
       }
-      if (j > 0) {
-          this.data.finished = false
-      } else {
-          this.data.finished = true
-      }
-      this.setData({
-          blogs: this.data.blogs,
-          finished: this.data.finished
-      })
+    }
+    if (j > 0) {
+      this.data.finished = false
+    } else {
+      this.data.finished = true
+    }
+    this.setData({
+      blogs: this.data.blogs,
+      finished: this.data.finished
+    })
   },
 
   //点击发送感兴趣的技术标签
@@ -90,26 +90,26 @@ Page({
     //向服务器发送数据未写
 
     //设置第二选项
-      this.setData({
-          first: false
-      })
+    this.setData({
+      first: false
+    })
   },
 
   //点击发送常用的博客
   finished: function(event) {
-      let arr = new Array()
-      for (let i = 0; i < this.data.blogs.length; i++) {
-          if (this.data.blogs[i].checked == true) {
-              arr.push(i)
-          }
+    let arr = new Array()
+    for (let i = 0; i < this.data.blogs.length; i++) {
+      if (this.data.blogs[i].checked == true) {
+        arr.push(i)
       }
-      console.log(arr)
-      //向服务器发送数据未写
+    }
+    console.log(arr)
+    //向服务器发送数据未写
 
-      //跳转到首页
-      wx.switchTab({
-          url: "../hot/hot"
-      })
+    //跳转到首页
+    wx.switchTab({
+      url: "../hot/hot"
+    })
   },
 
   /**

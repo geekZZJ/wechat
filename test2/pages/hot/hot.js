@@ -16,6 +16,8 @@ Page({
     this.setData({
       contents: hotData.hotList
     })
+
+    //获取顶部高度
     try {
       const res = wx.getSystemInfoSync()
       // console.log(res.statusBarHeight)
@@ -30,30 +32,32 @@ Page({
       // Do something when catch error
       console.log(e)
     }
+    console.log(this.data)
   },
 
   //实现页面跳转
-  onHotTap: function(event) {
-    let hotId = event.currentTarget.dataset.hotid
+  onBlogTap: function(event) {
+    let blogId = event.currentTarget.dataset.blogid
     wx.navigateTo({
-      url: "./hot-detail/hot-detail?id=" + hotId
+      url: "../blog-detail/blog-detail?id=" + blogId
     })
   },
   //轮播图跳转
   onSwiperTap: function(event) {
     let hotId = event.target.dataset.hotid
-    console.log(hotId)
     wx.navigateTo({
-      url: "./hot-detail/hot-detail?id=" + hotId
+      url: "../blog-detail/blog-detail?id=" + hotId
     })
   },
   //实现点赞，取消点赞
   onCollectionTap: function(event) {
-    let hotId = event.currentTarget.dataset.hotid
-    let temp = 'contents[' + hotId + '].collected'
-    let collected = this.data.contents[hotId].collected
+    let BlogId = event.currentTarget.dataset.blogid
+    let temp = 'contents[' + BlogId + '].collected'
+    let collected = this.data.contents[BlogId].collected
     collected = !collected
     //向后台发送收藏数据未做
+
+
     this.setData({
       [temp]: collected
     })

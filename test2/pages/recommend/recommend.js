@@ -1,5 +1,5 @@
 // pages/recommend/recommend.js
-let hotData = require('../../data/hot-data')
+let recData = require('../../data/hot-data')
 Page({
 
   /**
@@ -14,23 +14,25 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      contents: hotData.hotList
+      contents: recData.hotList
     })
   },
   //实现页面跳转
-  onRecTap: function(event) {
-    let hotId = event.currentTarget.dataset.hotid
+  onBlogTap: function(event) {
+    let blogId = event.currentTarget.dataset.blogid
     wx.navigateTo({
-      url: "./recommend-detail/recommend-detail?id=" + hotId
+      url: "../blog-detail/blog-detail?id=" + blogId
     })
   },
   //实现点赞，取消点赞
   onCollectionTap: function(event) {
-    let hotId = event.currentTarget.dataset.hotid
-    let temp = 'contents[' + hotId + '].collected'
-    let collected = this.data.contents[hotId].collected
+    let BlogId = event.currentTarget.dataset.blogid
+    let temp = 'contents[' + BlogId + '].collected'
+    let collected = this.data.contents[BlogId].collected
     collected = !collected
     //向后台发送收藏数据未做
+
+
     this.setData({
       [temp]: collected
     })
@@ -54,10 +56,11 @@ Page({
       method: 'get',
       success: function(res) {
         self.setData({
-          blog: res.data
+          movies: res.data.subjects
         })
       }
     })
+    console.log(this.data)
   },
 
   //你可能喜欢
@@ -65,7 +68,7 @@ Page({
     console.log("你可能喜欢")
   },
 
-  //你可能喜欢
+  //换一换
   change: function(event) {
     console.log("换一换")
   },

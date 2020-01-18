@@ -5,7 +5,7 @@ let contents = [{
     heat: "1049万",
     headImgSrc: "/images/avatar/1.png",
     author: "樱桃木",
-    dateTime: "发表时间",
+    dateTime: "2020-1-1",
     content: "随着2019的过去，2020迎来了第六年的码农生涯，过往如烟挥之即散，所以我习惯通过一些关键词来凝结这一年的收获，而2019我总结的关键词是：技术大会、焦虑、耐心、学习、竞争力。",
     commentCount: 1,
     collected: false,

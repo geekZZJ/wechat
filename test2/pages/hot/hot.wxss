@@ -1,5 +1,5 @@
 /* pages/hot/hot.wxss */
-@import "hot-item/hot-item-template.wxss"
+@import "../template/blog-item/blog-item-template.wxss"
 @import "hot-header/hot-header-template.wxss"
 @import "hot-nav/hot-nav-template.wxss"
 

@@ -1,15 +1,15 @@
-.hot-comment{
+.blog-comment{
     margin: 0 30rpx;
     border-bottom: 1px solid #999;
 }
 
-.hot-comment-title{
+.blog-comment-title{
     font-size: 30rpx;
     font-weight: 600;
     height: 60rpx;
 }
 
-.hot-comment-body-none{
+.blog-comment-body-none{
     height: 160rpx;
     line-height: 160rpx;
     text-align: center;
@@ -17,29 +17,30 @@
     color: #666;
 }
 
-.hot-comment-body-have{
+.blog-comment-body-have{
     margin-bottom: 50rpx;
 }
 
-.hot-comment-item{
+.blog-comment-item{
     display: flex;
     flex-direction: row;
     margin-top: 20rpx;
 }
 
-.hot-comment-item-left{
+.blog-comment-item-left{
     text-align: center;
     width: 13%;
 }
 
-.hot-comment-item-left image{
+.blog-comment-item-left image{
     height: 55rpx;
     width: 55rpx;
 }
 
-.hot-comment-item-right{
+.blog-comment-item-right{
     display: flex;
     flex-direction: column;
+    width: 87%;
 }
 
 .comment-name{

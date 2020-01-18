@@ -1,29 +1,29 @@
-// pages/hot/hot-detail/hot-detail.js
-let hotData = require('../../../data/hot-data')
+// pages/blog-detail/blog-detail.js
+let hotData = require('../../data/hot-data')
+let comments = require('../../data/comment-data')
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let hotId = options.id
-    let hotDetail = hotData.hotList[hotId]
+    let blogId = options.id
+    let blogDetail = hotData.hotList[blogId]
     this.setData({
-      hotDetail: hotDetail
+      blogDetail: blogDetail,
+      comments: comments.commentList
     })
   },
 
   // 点赞功能
   fixLike: function(event) {
-    let temp = 'hotDetail.like'
-    let like = this.data.hotDetail.like
+    let temp = 'blogDetail.like'
+    let like = this.data.blogDetail.like
     like = !like
     //向后台发送收藏数据未做
     this.setData({
@@ -33,8 +33,8 @@ Page({
 
   // 点击收藏
   fixCollection: function(event) {
-    let temp = 'hotDetail.collected'
-    let collected = this.data.hotDetail.collected
+    let temp = 'blogDetail.collected'
+    let collected = this.data.blogDetail.collected
     collected = !collected
     //向后台发送收藏数据未做
     this.setData({
@@ -45,6 +45,11 @@ Page({
       duration: 1000,
       icon: "success"
     })
+  },
+
+  //关注作者
+  lookAuthor: function(event) {
+    console.log("关注作者")
   },
 
   /**

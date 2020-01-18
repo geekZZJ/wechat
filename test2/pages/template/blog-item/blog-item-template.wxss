@@ -1,4 +1,4 @@
-.hot-container{
+.blog-container{
     display: flex;
     flex-direction: column;
     margin-top: 20rpx;
@@ -7,27 +7,27 @@
     border-bottom: 1px solid #ededed;
 }
 
-.hot-title{
+.blog-title{
     font-size: 30rpx;
     color: #333;
     font-weight: 600;
     margin-left: 10px;
 }
 
-.hot-abstract{
+.blog-abstract{
     font-size: 20rpx;
     color: #666;
     margin: 5px 10px 5px 10px;
 }
 
-.hot-other{
+.blog-other{
     margin: 0 10px 0 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.heat{
+.blog-heat{
     color: red;
     font-size: 20rpx;
     border: 1px solid #666;
@@ -59,25 +59,25 @@
     content: "\e630";
 }
 
-.hot-like{
+.blog-like{
     color: #999;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
 }
 
-.hot-collection{
+.blog-collection{
     font-size: 24rpx !important;
     margin-right: 40rpx;
 }
 
-.hot-collection1{
+.blog-collection1{
     color: #333;
     font-size: 24rpx !important;
     margin-right: 40rpx;
 }
 
-.hot-comments{
+.blog-comments{
     font-size: 22rpx !important;
     margin-right: 10rpx;
 }

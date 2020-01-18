@@ -1,5 +1,5 @@
 /* pages/recommend/recommend.wxss */
-@import "../hot/hot-item/hot-item-template.wxss"
+@import "../template/blog-item/blog-item-template.wxss"
 .recommend{
      display: flex;
      flex-direction: column;
