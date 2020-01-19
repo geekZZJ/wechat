@@ -1,6 +1,6 @@
 <template name="hotHeader">
   <view class="header" style="padding-top:{{headerPT}}rpx">
     <text class="iconfont iconsousuo icon-search"></text>
-    <input class="head-search" placeholder-class="place-search" type="text" placeholder="搜索内容" />
+    <input class="head-search" placeholder-class="place-search" type="text" placeholder="搜索内容" catchtap="search" />
   </view>
 </template>

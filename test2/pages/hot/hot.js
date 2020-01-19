@@ -32,7 +32,6 @@ Page({
       // Do something when catch error
       console.log(e)
     }
-    console.log(this.data)
   },
 
   //实现页面跳转
@@ -65,6 +64,13 @@ Page({
       title: collected ? "收藏成功" : "取消收藏",
       duration: 1000,
       icon: "success"
+    })
+  },
+
+  //点击跳到搜索页面
+  search: function(event) {
+    wx.redirectTo({
+        url: "../search/search"
     })
   },
 
