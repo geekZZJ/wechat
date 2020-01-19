@@ -1,0 +1,16 @@
+<!--pages/search-content/search-content.wxml-->
+<import src="../template/blog-item/blog-item-template.wxml" />
+<view class="container">
+  <view class="search-wrap">
+    <text class="iconfont iconsousuo search-icon"></text>
+    <input class="search-input" bindinput="controlClose" confirm-type="search" bindconfirm="search" placeholder-class="place-search" type="text" placeholder="搜索内容" />
+    <view class="delete-search">
+      <text wx:if="{{isShow}}" class="iconfont iconguanbi delete-icon"></text>
+      <text wx:else></text>
+    </view>
+  </view>
+  <view class="search-pos"></view>
+  <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
+    <template is="blogItem" data="{{...item}}" />
+  </block>
+</view>

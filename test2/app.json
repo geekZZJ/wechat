@@ -1,12 +1,13 @@
 {
   "pages": [
+    "pages/my/my",
+    "pages/welcome/welcome",
+    "pages/search-content/search-content",
     "pages/search/search",
     "pages/hot/hot",
     "pages/subscribe/subscribe",
     "pages/recommend/recommend",
-    "pages/welcome/welcome",
     "pages/choose/choose",
-    "pages/my/my",
     "pages/blog-detail/blog-detail"
   ],
   "window": {

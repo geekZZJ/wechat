@@ -1,12 +1,12 @@
-// pages/hot/hot.js
-let hotData = require('../../data/hot-data')
+// pages/search-content/search-content.js
+let searchData = require('../../data/hot-data')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isShow: false
   },
 
   /**
@@ -14,41 +14,11 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      contents: hotData.hotList
+      contents: searchData.hotList
     })
-
-    //获取顶部高度
-    try {
-      const res = wx.getSystemInfoSync()
-      // console.log(res.statusBarHeight)
-      this.setData({
-        view: {
-          headerPT: res.statusBarHeight + 32,
-          navMT: res.statusBarHeight + 92,
-          posHeight: res.statusBarHeight + 231
-        }
-      })
-    } catch (e) {
-      // Do something when catch error
-      console.log(e)
-    }
   },
 
-  //实现页面跳转
-  onBlogTap: function(event) {
-    let blogId = event.currentTarget.dataset.blogid
-    wx.navigateTo({
-      url: "../blog-detail/blog-detail?id=" + blogId
-    })
-  },
-  //轮播图跳转
-  onSwiperTap: function(event) {
-    let hotId = event.target.dataset.hotid
-    wx.navigateTo({
-      url: "../blog-detail/blog-detail?id=" + hotId
-    })
-  },
-  //实现点赞，取消点赞
+  //实现收藏，取消收藏
   onCollectionTap: function(event) {
     let BlogId = event.currentTarget.dataset.blogid
     let temp = 'contents[' + BlogId + '].collected'
@@ -66,12 +36,25 @@ Page({
       icon: "success"
     })
   },
-
-  //点击跳到搜索页面
-  search: function(event) {
+  //实现页面跳转
+  onBlogTap: function(event) {
+    let blogId = event.currentTarget.dataset.blogid
     wx.navigateTo({
-        url: "../search/search"
+      url: "../blog-detail/blog-detail?id=" + blogId
     })
+  },
+  //控制关闭icon显示隐藏
+  controlClose: function(event) {
+    let searchKey = event.detail.value
+    if (searchKey) {
+      this.setData({
+        isShow: true
+      })
+    } else {
+      this.setData({
+        isShow: false
+      })
+    }
   },
 
   /**
