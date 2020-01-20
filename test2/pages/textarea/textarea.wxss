@@ -1,0 +1,30 @@
+/* pages/textarea/textarea.wxss */
+page{
+    background-color: #f6f6f6;
+}
+
+.title{
+    font-size: 48rpx;
+    margin-left: 30rpx;
+    margin-top: 40rpx;
+}
+
+.tip{
+    margin: 20rpx 0 20rpx 30rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.textarea-wrap{
+    background-color: #fff;
+}
+
+.textarea-wrap textarea{
+    height: 240rpx;
+    width: 100%;
+}
+
+.save{
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+}

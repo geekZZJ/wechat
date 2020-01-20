@@ -1,0 +1,11 @@
+<!--pages/textarea/textarea.wxml-->
+<view>
+  <view class="title">签名</view>
+  <view class="tip">最多30字符</view>
+  <view class="textarea-wrap">
+    <textarea bindinput="bindTextArea" placeholder="请输入你的签名..." maxlength="{{maxlength}}" />
+  </view>
+  <view class="save">
+    <button type="primary" plain="true" size="mini" catchtap="save">保存</button>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<!--pages/my-info/my-info.wxml-->
+<view>
+  <view class="info-title">个人信息</view>
+  <view class="info-content">
+    <picker bindchange="genderPicker" value="{{index}}" range="{{genderArr}}" class="picker">
+      <view>性别
+        <text class="gender">{{genderArr[index]}}</text>
+      </view>
+    </picker>
+    <picker mode="date" value="{{birthday}}" bindchange="bindDateChange" class="picker">
+      <view>生日
+        <text class="birthday">{{birthday}}</text>
+      </view>
+    </picker>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" class="picker">
+      <view>地区
+        <text class="region">{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
+      </view>
+    </picker>
+    <view class="picker" catchtap="sign">
+        <text>签名</text>
+        <text class="sign">{{sign}}</text>
+    </view>
+    <view class="updateInfo">
+        <button type="primary" plain="true" size="mini" catchtap="updateInfo">更新</button>
+    </view>
+  </view>
+</view>

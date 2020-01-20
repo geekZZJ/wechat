@@ -1,0 +1,47 @@
+/* pages/my-info/my-info.wxss */
+page{
+    background-color: #f6f6f6;
+}
+
+.info-title{
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #fff;
+    margin-bottom: 24rpx;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    color: #363636;
+    border-left: 3px solid #0078ff;
+    padding-left: 30rpx;
+    font-weight: bold;
+    font-size: 30rpx;
+}
+
+.info-content{
+    background-color: #fff;
+    padding: 0 48rpx;
+}
+
+.picker{
+    padding: 24rpx 0;
+}
+
+.gender{
+    margin-left: 20rpx;
+}
+
+.birthday{
+    margin-left: 20rpx;
+}
+
+.region{
+    margin-left: 20rpx;
+    font-size: 26rpx;
+}
+
+.sign{
+    margin-left: 20rpx;
+}
+
+.updateInfo{
+    padding: 24rpx 0 40rpx 0;
+}

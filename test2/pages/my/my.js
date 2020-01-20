@@ -23,7 +23,9 @@ Page({
   },
 
   onSet: function(event) {
-    console.log("设置")
+    wx.navigateTo({
+        url: '../my-info/my-info'
+    })
   },
   onCollection: function(event) {
     let i = this.data.i
