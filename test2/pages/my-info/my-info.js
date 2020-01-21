@@ -48,6 +48,10 @@ Page({
   },
   updateInfo: function(event) {
     console.log("更新")
+    //保存数据未写
+    wx.navigateBack({
+      url: '../my/my'
+    })
   },
 
   /**
