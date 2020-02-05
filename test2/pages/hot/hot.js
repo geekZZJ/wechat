@@ -70,7 +70,7 @@ Page({
   //点击跳到搜索页面
   search: function(event) {
     wx.navigateTo({
-        url: "../search/search"
+      url: "../search/search"
     })
   },
 

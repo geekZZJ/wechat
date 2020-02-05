@@ -20,12 +20,20 @@ Page({
     })
   },
 
+  //锚点功能
+  commit: function(event) {
+    wx.pageScrollTo({
+      selector: '#commit',
+      duration: 300
+    })
+  },
+
   // 点赞功能
   fixLike: function(event) {
     let temp = 'blogDetail.like'
     let like = this.data.blogDetail.like
     like = !like
-    //向后台发送收藏数据未做
+    //向后台发送点赞数据未做
     this.setData({
       [temp]: like
     })
@@ -50,6 +58,13 @@ Page({
   //关注作者
   lookAuthor: function(event) {
     console.log("关注作者")
+  },
+
+  //跳转去评论
+  onCommit: function(event) {
+    wx.navigateTo({
+        url: "../commit/commit"
+    })
   },
 
   /**

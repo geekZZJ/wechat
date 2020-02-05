@@ -11,6 +11,47 @@ Page({
     wx.redirectTo({
       url: "../choose/choose"
     })
+    /*wx.login({
+      success(res) {
+        console.log(res)
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'https://test.com/onLogin',
+            data: {
+              code: res.code
+            },
+            success(res) {
+              console.log(res)
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })*/
+    /*wx.openSetting({
+      success(res) {
+        console.log(res.authSetting)
+        // res.authSetting = {
+        //   "scope.userInfo": true,
+        //   "scope.userLocation": true
+        // }
+      }
+    })*/
+    /*wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.record']) {
+          wx.authorize({
+            scope: 'scope.record',
+            success() {
+              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+              wx.startRecord()
+            }
+          })
+        }
+      }
+    })*/
   },
 
   /**

@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/welcome/welcome",
+    "pages/commit/commit",
+    "pages/hot/hot",
     "pages/my/my",
     "pages/my-info/my-info",
-    "pages/welcome/welcome",
-    "pages/hot/hot",
     "pages/textarea/textarea",
     "pages/search-content/search-content",
     "pages/search/search",

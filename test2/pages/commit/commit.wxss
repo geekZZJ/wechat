@@ -1,0 +1,47 @@
+/* pages/commit/commit.wxss */
+page{
+    background-color: #ececec;
+}
+
+.main{
+    margin-top: 32rpx;
+}
+
+.wrap{
+    background-color: #fff;
+}
+
+.content{
+    width: 100%;
+    font-weight: 400;
+    padding: 32rpx;
+    box-sizing: border-box;
+    height: 400rpx;
+    font-size: 32rpx;
+}
+
+.content_num{
+    height: 36rpx;
+    text-align: right;
+    font-size: 24rpx;
+    padding-right: 32rpx;
+    line-height: 36rpx;
+    color: #999;
+}
+
+.submit{
+    margin-top: 50rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button{
+    width: 400rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #c92027;
+    text-align: center;
+    color: #fff;
+    border-radius: 4rpx;
+}

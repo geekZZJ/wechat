@@ -1,5 +1,5 @@
 <template name="blogComment">
-    <view class="blog-comment">
+    <view class="blog-comment" id="commit">
         <view class="blog-comment-title">评论</view>
         <view wx:if="{{false}}" class="blog-comment-body-none">暂无评论，快来抢沙发</view>
         <view wx:else class="blog-comment-body-have">

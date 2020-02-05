@@ -24,7 +24,7 @@ Page({
 
   onSet: function(event) {
     wx.navigateTo({
-        url: '../my-info/my-info'
+      url: '../my-info/my-info'
     })
   },
   onCollection: function(event) {
