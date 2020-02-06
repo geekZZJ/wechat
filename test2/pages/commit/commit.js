@@ -26,7 +26,7 @@ Page({
 
   //提交评论
   onSubmit: function(event) {
-    let commit = this.data.commit
+    let commit = this.data.commit.trim()
     if (commit) {
       console.log(commit)
       wx.navigateBack({
