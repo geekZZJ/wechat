@@ -45,3 +45,8 @@ page{
 .updateInfo{
     padding: 24rpx 0 40rpx 0;
 }
+
+.updateInfo button[type='primary'][plain]{
+    color: #0078ff;
+    border-color: #0078ff;
+}

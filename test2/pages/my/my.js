@@ -114,29 +114,29 @@ Page({
 
   //实现页面跳转
   onBlogTap: function(event) {
-      let blogId = event.currentTarget.dataset.blogid
-      wx.navigateTo({
-          url: "../blog-detail/blog-detail?id=" + blogId
-      })
+    let blogId = event.currentTarget.dataset.blogid
+    wx.navigateTo({
+      url: "../blog-detail/blog-detail?id=" + blogId
+    })
   },
 
   //实现收藏，取消收藏
   onCollectionTap: function(event) {
-      let BlogId = event.currentTarget.dataset.blogid
-      let temp = 'contents[' + BlogId + '].collected'
-      let collected = this.data.contents[BlogId].collected
-      collected = !collected
-      //向后台发送收藏数据未做
+    let BlogId = event.currentTarget.dataset.blogid
+    let temp = 'contents[' + BlogId + '].collected'
+    let collected = this.data.contents[BlogId].collected
+    collected = !collected
+    //向后台发送收藏数据未做
 
 
-      this.setData({
-          [temp]: collected
-      })
-      wx.showToast({
-          title: collected ? "收藏成功" : "取消收藏",
-          duration: 1000,
-          icon: "success"
-      })
+    this.setData({
+      [temp]: collected
+    })
+    wx.showToast({
+      title: collected ? "收藏成功" : "取消收藏",
+      duration: 1000,
+      icon: "success"
+    })
   },
 
   /**
