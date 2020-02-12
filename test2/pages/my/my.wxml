@@ -1,4 +1,6 @@
 <!--pages/my/my.wxml-->
+<import src="../template/blog-item/blog-item-template.wxml" />
+<import src="../template/bloger-item/bloger-item-template.wxml" />
 <view class="my">
   <view class="my-info">
     <view class="my-avatar">
@@ -26,6 +28,13 @@
     <view class="my-history" wx:if="{{history}}" catchtap="onHistory">我的历史</view>
     <view class="my-history my-class-select" wx:else catchtap="onHistory">我的历史</view>
   </view>
-  <view class="my-content" wx:if="{{true}}">这里什么都没有...</view>
-  <view wx:else>内容</view>
+  <view class="my-content" wx:if="{{isShow}}">这里什么都没有...</view>
+  <view wx:else>
+    <!--<block wx:for="{{contents}}" wx:key="key" wx:for-item="item">-->
+      <!--<template is="blogItem" data="{{...item}}" />-->
+    <!--</block>-->
+    <block wx:for="{{blogers}}" wx:key="key" wx:for-item="item">
+      <template is="blogerItem" data="{{...item}}" />
+    </block>
+  </view>
 </view>

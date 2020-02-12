@@ -1,4 +1,6 @@
 /* pages/my/my.wxss */
+@import "../template/blog-item/blog-item-template.wxss"
+@import "../template/bloger-item/bloger-item-template.wxss"
 .my{
     display: flex;
     flex-direction: column;

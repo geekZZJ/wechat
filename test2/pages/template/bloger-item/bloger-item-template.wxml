@@ -1,0 +1,11 @@
+<template name="blogerItem">
+  <view class="bloger">
+    <view class="bloger-img">
+      <image src="{{avatar}}"></image>
+    </view>
+    <view class="bloger-text">
+      <view class="bloger-name">{{name}}</view>
+      <view class="bloger-sign">{{sign}}</view>
+    </view>
+  </view>
+</template>

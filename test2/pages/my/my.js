@@ -1,4 +1,6 @@
 // pages/my/my.js
+let hotData = require('../../data/hot-data')
+let blogerData = require('../../data/bloger-data')
 Page({
 
   /**
@@ -12,7 +14,8 @@ Page({
     i: 0,
     j: 0,
     k: 0,
-    l: 0
+    l: 0,
+    isShow: false
   },
 
   /**
@@ -20,6 +23,10 @@ Page({
    */
   onLoad: function(options) {
     this.onCollection()
+    this.setData({
+      contents: hotData.hotList,
+      blogers: blogerData.blogerList
+    })
   },
 
   onSet: function(event) {
@@ -102,6 +109,34 @@ Page({
     } else {
       return
     }
+    // 发送请求
+  },
+
+  //实现页面跳转
+  onBlogTap: function(event) {
+      let blogId = event.currentTarget.dataset.blogid
+      wx.navigateTo({
+          url: "../blog-detail/blog-detail?id=" + blogId
+      })
+  },
+
+  //实现收藏，取消收藏
+  onCollectionTap: function(event) {
+      let BlogId = event.currentTarget.dataset.blogid
+      let temp = 'contents[' + BlogId + '].collected'
+      let collected = this.data.contents[BlogId].collected
+      collected = !collected
+      //向后台发送收藏数据未做
+
+
+      this.setData({
+          [temp]: collected
+      })
+      wx.showToast({
+          title: collected ? "收藏成功" : "取消收藏",
+          duration: 1000,
+          icon: "success"
+      })
   },
 
   /**

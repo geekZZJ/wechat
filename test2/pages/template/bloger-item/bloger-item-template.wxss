@@ -1,0 +1,25 @@
+.bloger{
+    display: flex;
+    flex-direction: row;
+    margin: 15rpx 0 15rpx 30rpx;
+}
+
+.bloger-img image{
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.bloger-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20rpx;
+}
+
+.bloger-name{
+    font-size: 30rpx;
+}
+
+.bloger-sign{
+    font-size: 24rpx;
+    color: #999;
+}
