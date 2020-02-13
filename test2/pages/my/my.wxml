@@ -30,11 +30,15 @@
   </view>
   <view class="my-content" wx:if="{{isShow}}">这里什么都没有...</view>
   <view wx:else>
-    <!--<block wx:for="{{contents}}" wx:key="key" wx:for-item="item">-->
-      <!--<template is="blogItem" data="{{...item}}" />-->
-    <!--</block>-->
-    <block wx:for="{{blogers}}" wx:key="key" wx:for-item="item">
-      <template is="blogerItem" data="{{...item}}" />
-    </block>
+    <view wx:if="{{subShow}}">
+      <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
+        <template is="blogItem" data="{{...item}}" />
+      </block>
+    </view>
+    <view wx:else>
+      <block wx:for="{{blogers}}" wx:key="key" wx:for-item="item">
+        <template is="blogerItem" data="{{...item}}" />
+      </block>
+    </view>
   </view>
 </view>

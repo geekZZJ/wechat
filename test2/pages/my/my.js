@@ -15,7 +15,8 @@ Page({
     j: 0,
     k: 0,
     l: 0,
-    isShow: false
+    isShow: false,
+    subShow: true
   },
 
   /**
@@ -44,6 +45,7 @@ Page({
         subscribe: true,
         comment: true,
         history: true,
+        subShow: true,
         i: ++i,
         j: 0,
         k: 0,
@@ -63,6 +65,7 @@ Page({
         subscribe: subscribe,
         comment: true,
         history: true,
+        subShow: false,
         i: 0,
         j: ++j,
         k: 0,
@@ -82,6 +85,7 @@ Page({
         subscribe: true,
         comment: comment,
         history: true,
+        subShow: true,
         i: 0,
         j: 0,
         k: ++k,
@@ -101,6 +105,7 @@ Page({
         subscribe: true,
         comment: true,
         history: history,
+        subShow: true,
         i: 0,
         j: 0,
         k: 0,
