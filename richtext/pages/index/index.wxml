@@ -1,0 +1,10 @@
+<!--pages/index/index.wxml-->
+<!--<view>-->
+  <!--<rich-text nodes="{{html}}" bindtap="tap"></rich-text>-->
+<!--</view>-->
+<!--<view>-->
+  <!--<web-view src="https://www.baidu.com/"></web-view>-->
+<!--</view>-->
+<view bindtap="tap">
+  123
+</view>
