@@ -1,5 +1,4 @@
 // pages/hot/hot.js
-let hotData = require('../../data/hot-data')
 let nav = require('../../data/nav-data')
 let app = getApp()
 
@@ -17,7 +16,7 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      contents: hotData.hotList,
+      contents: '',
       navClass: nav.techList,
       blogs: nav.blogList
     })
@@ -55,7 +54,9 @@ Page({
       url: "../blog-detail/blog-detail?id=" + hotId
     })
   },
-  //实现点赞，取消点赞
+
+
+  //实现收藏，取消收藏
   onCollectionTap: function(event) {
     let BlogId = event.currentTarget.dataset.blogid
     let temp = 'contents[' + BlogId + '].collected'
@@ -81,16 +82,22 @@ Page({
     })
   },
 
+  // 根据技术分类更新页面
   onNavClass: function(event) {
+    let that = this
     let techId = event.currentTarget.dataset.techid
     let navClass = this.data.navClass
+    let tempId = 0
     for (let i = 0; i < navClass.length; i++) {
       let str = 'navClass[' + i + '].checked'
+      if (navClass[i].technologyId === techId) {
+        tempId = i
+      }
       this.setData({
         [str]: false
       })
     }
-    let temp = 'navClass[' + techId + '].checked'
+    let temp = 'navClass[' + tempId + '].checked'
     this.setData({
       [temp]: true,
       techCheckId: techId
@@ -108,21 +115,32 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data)
+        if (res.data.code === '0000') {
+          console.log(res.data.data.data)
+          that.setData({
+            contents: res.data.data.data
+          })
+        }
       }
     })
   },
 
+  // 根据博客平台更新页面
   onNavBlog: function(event) {
+    let that = this
     let blogId = event.currentTarget.dataset.blogid
     let blogs = this.data.blogs
+    let tempId = 0
     for (let i = 0; i < blogs.length; i++) {
       let str = 'blogs[' + i + '].checked'
+      if (blogs[i].blogId === blogId) {
+        tempId = i
+      }
       this.setData({
         [str]: false
       })
     }
-    let temp = 'blogs[' + blogId + '].checked'
+    let temp = 'blogs[' + tempId + '].checked'
     this.setData({
       [temp]: true,
       blogCheckId: blogId
@@ -140,7 +158,12 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data)
+        if (res.data.code === '0000') {
+          console.log(res.data.data.data)
+          that.setData({
+            contents: res.data.data.data
+          })
+        }
       }
     })
   },
