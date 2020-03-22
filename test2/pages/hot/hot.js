@@ -1,5 +1,8 @@
 // pages/hot/hot.js
 let hotData = require('../../data/hot-data')
+let nav = require('../../data/nav-data')
+let app = getApp()
+
 Page({
 
   /**
@@ -14,7 +17,9 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      contents: hotData.hotList
+      contents: hotData.hotList,
+      navClass: nav.techList,
+      blogs: nav.blogList
     })
 
     //获取顶部高度
@@ -25,7 +30,9 @@ Page({
         view: {
           headerPT: res.statusBarHeight + 32,
           navMT: res.statusBarHeight + 92,
-          posHeight: res.statusBarHeight + 231
+          posHeight: res.statusBarHeight + 231,
+          navClass: this.data.navClass,
+          blogs: this.data.blogs
         }
       })
     } catch (e) {
@@ -71,6 +78,70 @@ Page({
   search: function(event) {
     wx.navigateTo({
       url: "../search/search"
+    })
+  },
+
+  onNavClass: function(event) {
+    let techId = event.currentTarget.dataset.techid
+    let navClass = this.data.navClass
+    for (let i = 0; i < navClass.length; i++) {
+      let str = 'navClass[' + i + '].checked'
+      this.setData({
+        [str]: false
+      })
+    }
+    let temp = 'navClass[' + techId + '].checked'
+    this.setData({
+      [temp]: true,
+      techCheckId: techId
+    })
+    this.onLoad()
+    //发送请求
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/list',
+      data: {
+        'typeId': techId ? techId : 0,
+        'platId': this.data.blogCheckId ? this.data.blogCheckId : 0,
+        'pageSize': 20
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data)
+      }
+    })
+  },
+
+  onNavBlog: function(event) {
+    let blogId = event.currentTarget.dataset.blogid
+    let blogs = this.data.blogs
+    for (let i = 0; i < blogs.length; i++) {
+      let str = 'blogs[' + i + '].checked'
+      this.setData({
+        [str]: false
+      })
+    }
+    let temp = 'blogs[' + blogId + '].checked'
+    this.setData({
+      [temp]: true,
+      blogCheckId: blogId
+    })
+    this.onLoad()
+    //发送请求
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/list',
+      data: {
+        'platId': blogId ? blogId : 0,
+        'typeId': this.data.techCheckId ? this.data.techCheckId : 0,
+        'pageSize': 20
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data)
+      }
     })
   },
 
