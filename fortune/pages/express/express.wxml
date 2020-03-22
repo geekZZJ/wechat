@@ -1,0 +1,6 @@
+<view class='content'>
+  <textarea placeholder='说说你的想法' placeholder-class='think'></textarea>
+  <view class='hr'></view>
+  <view><text class='addP'>+</text></view>
+</view>
+<button class='button'><text>发布</text></button>

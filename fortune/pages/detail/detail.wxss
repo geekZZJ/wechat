@@ -1,0 +1,123 @@
+.top{
+	height: 140rpx;
+	background-color: #538afe;
+  position: relative;
+}
+.content{
+	width: 700rpx;
+	height: 735rpx;
+	background-color: #ffffff;
+	box-shadow: 0px 7rpx 14rpx 0px rgba(185, 185, 185, 0.39);
+	border-radius: 15rpx;
+  position: absolute;
+  left: 25rpx;
+  top: 40rpx;
+}
+.content .head{
+  text-align: center;
+  height: 256rpx;
+  border-bottom: 3rpx solid #f5f5f5;
+}
+.content .head image{
+  margin-top: 40rpx;
+	width: 130rpx;
+	height: 130rpx;
+}
+.content .head text{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  position: absolute;
+  top: 190rpx;
+  left: 323rpx;
+}
+.content .text{
+	font-family: PingFang-SC-Medium;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  display: block;
+  text-align: center;
+  margin-top: 40rpx;
+}
+.content .money{
+	height: 54rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 72rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  text-align: center;
+  margin-top: 60rpx;
+}
+.class{
+  margin-top: 50rpx;
+}
+.type{
+  position: relative;
+}
+.type .typeT{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  margin-left: 41rpx;
+}
+.typeC{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  position: absolute;
+  right: 43rpx;
+  top: 16rpx;
+}
+.time{
+  margin-top: 25rpx;
+  position: relative; 
+}
+.timeT{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  margin-left: 41rpx;
+}
+.edit{
+	width: 700rpx;
+	height: 75rpx;
+  line-height: 70rpx;
+	background-color: #538afe;
+	box-shadow: 0px 8rpx 18rpx 2rpx rgba(83, 138, 254, 0.25);
+	border-radius: 37rpx;
+  position: absolute;
+  top: 911rpx;
+  left: 25rpx;
+}
+.edit text{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #ffffff;
+}

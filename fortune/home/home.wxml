@@ -1,0 +1,112 @@
+<view class='content-top'>
+  <view>
+    <view class='header'>
+      <view class='timenav'>
+        <picker mode="date" class='time'>2018年7月</picker>
+        <text class='triangle'></text>
+      </view>
+      <image src='../images/chart.png' class='chartImg' bindtap='form'></image>
+    </view>
+  </view>
+  <view class='count'>
+    <view class='first'>
+      <text class='character'>日常账单</text>
+      <text class='money'><text class='fu'>￥</text>2000.00</text>
+    </view>
+    <view class='wrap'>
+      <view class='rest' bindtap='budget'>剩余125.00</view>
+    </view>
+    <view class='all'>
+      <view class='received'>
+        <view class='month'>6月收入</view>
+        <view class='money1'>￥0.00</view>
+      </view>
+      <view class='spend'>
+        <view class='month'>6月支出</view>
+        <view class='money1'>￥135.00</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='content-middle'>
+  <view class='fee'>
+    <text class='allfee' bindtap='allfee' style='color:{{color1}};font-size:{{font1}};'>所有</text>
+    <text class='bb' style='display:{{bb}};'></text>
+    <text class='spendfee' bindtap='spendfee' style='color:{{color2}};font-size:{{font2}};'>支出</text>
+    <text class='bb1' style='display:{{bb1}};'></text>
+    <text class='receivedfee' bindtap='receivedfee' style='color:{{color3}};font-size:{{font3}};'>收入</text>
+    <text class='bb2' style='display:{{bb2}};'></text>
+  </view>
+  <view class='dTime'>7月3日</view>
+  <view class='alldetail' style='display:{{bb}};'>
+    <view class='detail' bindtap='detail'>
+      <image src='../images/cha.png'></image>
+      <text class='foodcont'>
+        <text class='class'>饮食</text>
+        <text class='Fdetail'>早餐两个油条</text>
+      </text>
+      <text class='Fmoney'>￥7.5</text>
+    </view>
+    <view class='detail'>
+      <image src='../images/shop.png'></image>
+      <text class='foodcont'>
+        <text class='class'>购物</text>
+        <text class='Fdetail'>牙膏，洗发水</text>
+      </text>
+      <text class='Fmoney'>￥23.00</text>
+    </view>
+    <view class='detail'>
+      <image src='../images/play.png'></image>
+      <text class='foodcont'>
+        <text class='class'>娱乐</text>
+        <text class='Fdetail'>水上游乐场</text>
+      </text>
+      <text class='Fmoney'>￥146.00</text>
+    </view>
+    <view class='detail'>
+      <image src='../images/travel.png'></image>
+      <text class='foodcont'>
+        <text class='class'>出行</text>
+        <text class='Fdetail'>搭车</text>
+      </text>
+      <text class='Fmoney'>￥28.00</text>
+    </view>
+  </view>
+  <view class='alldetail' style='display:{{bb1}};'>
+    <view class='detail'>
+      <image src='../images/play.png'></image>
+      <text class='foodcont'>
+        <text class='class'>娱乐</text>
+        <text class='Fdetail'>水上游乐场</text>
+      </text>
+      <text class='Fmoney'>￥146.00</text>
+    </view>
+    <view class='detail'>
+      <image src='../images/travel.png'></image>
+      <text class='foodcont'>
+        <text class='class'>出行</text>
+        <text class='Fdetail'>搭车</text>
+      </text>
+      <text class='Fmoney'>￥28.00</text>
+    </view>
+  </view>
+  <view class='alldetail' style='display:{{bb2}};'>
+    <view class='detail' bindtap='detail'>
+      <image src='../images/cha.png'></image>
+      <text class='foodcont'>
+        <text class='class'>饮食</text>
+        <text class='Fdetail'>早餐两个油条</text>
+      </text>
+      <text class='Fmoney'>￥7.5</text>
+    </view>
+    <view class='detail'>
+      <image src='../images/shop.png'></image>
+      <text class='foodcont'>
+        <text class='class'>购物</text>
+        <text class='Fdetail'>牙膏，洗发水</text>
+      </text>
+      <text class='Fmoney'>￥23.00</text>
+    </view>
+  </view>
+</view>
+<image src='../images/account.png' class='account' bindtap='bill'></image>

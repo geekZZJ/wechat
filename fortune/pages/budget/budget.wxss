@@ -1,0 +1,111 @@
+.money{
+  height: 86rpx;
+  position: relative;
+  box-shadow: 0px 0px 27rpx 2rpx rgba(185, 185, 185, 0.36);
+}
+.money .text{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 28rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  margin-left: 25rpx;
+  display: inline-block;
+  margin-top: 30rpx;
+}
+.money input{
+  height: 86rpx;
+  width: 600rpx;
+  float: right;
+}
+.money .number{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  margin-left: 500rpx;
+}
+.hr{
+  height: 20rpx;
+   background-color: #f5f5f5; 
+}
+.second{
+  height: 191rpx;
+  box-shadow: 0px 0px 27rpx 2rpx rgba(185, 185, 185, 0.35);
+  position: relative;
+}
+.tipText{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  margin-left: 25rpx;
+  display: inline-block;
+  margin-top: 32rpx;
+}
+.switch{
+	width: 65rpx;
+	height: 37rpx;
+  position: absolute;
+  top: 26rpx;
+  right: 24rpx;
+}
+.help{
+	font-family: PingFang-SC-Medium;
+	font-size: 18rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  margin-left: 25rpx;
+}
+.second .rest{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  position: absolute;
+  top: 130rpx;
+  right: 27rpx;
+}
+.month{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  float: right;
+  margin-right: 33rpx;
+  margin-top: 30rpx;
+}
+.save{
+	width: 700rpx;
+	height: 75rpx;
+  line-height: 70rpx;
+	background-color: #538afe;
+	box-shadow: 0px 8rpx 18rpx 2rpx rgba(83, 138, 254, 0.25);
+	border-radius: 37rpx;
+  margin-top: 40rpx;
+}
+.save text{
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}

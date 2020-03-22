@@ -1,0 +1,21 @@
+<view class='headPic'>
+  <image src='../images/p4.jpg' class='p1'></image>
+  <text class='name'>Sam</text>
+</view>
+<view class='sug'>
+  <view class='callback'>
+    <image src='../images/opinion.png' class='opinionImg'></image>
+    <text class='text'>意见反馈</text>
+    <text class='right'>></text>
+  </view>
+  <view class='clear'>
+    <image src='../images/clear.png' class='opinionImg'></image>
+    <text class='text'>清除缓存</text>
+    <text class='right'>></text>
+  </view>
+</view>
+<view class='about'>
+    <image src='../images/about.png' class='aboutImg'></image>
+    <text class='text'>关于李财人</text>
+    <text class='rightArr'>></text>
+</view>

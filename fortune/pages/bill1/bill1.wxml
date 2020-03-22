@@ -1,0 +1,35 @@
+<view class='title'>
+  <text class='spend'><text>收入</text></text>   
+  <text class='receive' bindtap='bill'><text>支出</text></text>
+</view>
+<view class='eat'>
+  <text class='text'>饮食</text>
+  <text class='price'>9.00</text>
+</view>
+<view class='class'>
+  <image src='../../images/cha.png' class='one'></image>
+  <text class='eat1'>饮食</text>
+  <image src='../../images/shop1.png' class='two'></image>
+  <text class='shop'>购物</text>
+  <image src='../../images/learn.png' class='two'></image>
+  <text class='learn'>学习</text>
+  <image src='../../images/travel1.png' class='two'></image>
+  <text class='travel'>出行</text>
+  <image src='../../images/medicine.png' class='two'></image>
+  <text class='medicine'>医疗</text>
+  <image src='../../images/play1.png' class='two'></image>
+  <text class='play'>娱乐</text>
+  <image src='../../images/add.png' class='three' bindtap='add1'></image>
+  <text class='play' class='add'>添加</text>
+</view>
+<view class='other'>
+  <textarea placeholder="备注：" placeholder-style="font-size:27rpx;"></textarea>
+</view>
+<view class='T'>
+  <view class='border'>
+    <image src='../../images/time.png' class='time'></image>
+    <text class='text'>07.02 13:45</text>
+  </view>
+  <text class='once'>再计一笔</text>
+  <text class='save'>保存</text>
+</view>

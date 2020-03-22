@@ -1,0 +1,15 @@
+<view class='firstC'>
+  <image src='../../images/p5.jpg' class='head'></image>
+  <text class='name'>夏至</text>
+  <text class='time'>18-7-5  11:35</text>
+  <text class='go'>加油! 加油!</text>
+  <image src='../../images/basketball.jpg' class='basketball'></image>
+</view>
+<view class='firstC'>
+  <image src='../../images/p5.jpg' class='head'></image>
+  <text class='name'>Sam</text>
+  <text class='time'>18-7-5  13:02</text>
+  <text class='go'>加油! 加油!</text>
+  <image src='../../images/basketball.jpg' class='basketball'></image>
+</view>
+<view class='more'><text>更多...</text></view>

@@ -1,0 +1,45 @@
+<view class='content'>
+  <view class='detail'>
+    <image src='../../images/p5.jpg' class='p2'></image>
+    <text class='name'>夏至</text>
+    <view class='text'>毕业前拍的银杏叶。好几年已经过去了，现在应该是满地金
+  黄的时节了吧。</view>
+    <view>
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true" next-margin="305rpx" class='basketball'>
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" width="355" height="150"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class='time'>两小时前</view>
+    <view class='follower'>
+      <image src='../../images/p2.jpg' class='first'></image>
+      <image src='../../images/p3.jpg' class='second'></image>
+      <image src='../../images/p4.jpg' class='third'></image>
+      <text class='visited'>+634人访问</text>
+      <image src='../../images/love.png' class='love'></image>
+      <text class='pAmount'>56</text>
+      <image src='../../images/liu.png' class='liu'></image>
+      <text class='lAmount'>2</text>
+    </view>
+  </view>
+</view>
+<view class='comments'>
+  <view>
+    <text class='commentsP'><text>1评论</text></text>
+  </view>
+  <view class='firstC'>
+    <image src='../../images/p5.jpg' class='p2'></image>
+    <text class='name'>Sam</text>
+    <view class='Scomment'>加油!看好你!</view>
+    <view class='dis'>
+      <text>一小时前</text>
+      <image src='../../images/heart.png' class='heart'></image>
+      <text class='heatrC'>5</text>
+      <image src='../../images/liu.png' class='liuyan'></image>
+    </view>
+  </view>
+</view>
+<view class='none'>没有更多评论</view>

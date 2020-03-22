@@ -1,0 +1,128 @@
+page{
+  background-color: #f5f5f5;
+}
+.headPic{
+  height: 275rpx;
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0px 1px 13px 0px rgba(185, 185, 185, 0.27);
+}
+.headPic .p1{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 40rpx;
+  left: 309rpx;
+}
+.name{
+	font-family: PingFang-SC-Medium;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  position: absolute;
+  top: 203rpx;
+  left: 338rpx;
+}
+.sug{
+  margin-top: 20rpx;
+  background-color: #fff;
+  height: 210rpx;
+  padding-left: 26rpx;
+  padding-right: 25rpx;
+  box-shadow: 0px 1px 13px 0px rgba(185, 185, 185, 0.27);
+}
+.callback{
+  position: relative;
+  height: 105rpx;
+  border-bottom: 4rpx solid #f5f5f5;
+}
+.clear{
+  position: relative;
+  height: 105rpx;
+}
+.opinionImg{
+  width: 34rpx;
+  height: 36rpx;
+  position: absolute;
+  left: 0rpx;
+  top: 34rpx;
+}
+.callback .text{
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  position: absolute;
+  left: 60rpx;
+  top: 37rpx;
+}
+.clear .text{
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  position: absolute;
+  left: 60rpx;
+  top: 37rpx;
+}
+.right{
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  position: absolute;
+  right: 0rpx;
+  top: 39rpx;
+}
+.about{
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding-left: 26rpx;
+  padding-right: 25rpx;
+  position: relative;
+  height: 105rpx;
+}
+.aboutImg{
+  width: 34rpx;
+  height: 36rpx;
+  position: absolute;
+  left: 25rpx;
+  top: 34rpx;
+}
+.about .text{
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  position: absolute;
+  left: 86rpx;
+  top: 38rpx;
+}
+.rightArr{
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27rpx;
+	letter-spacing: 0px;
+	color: #333333;
+  position: absolute;
+  right: 25rpx;
+  top: 39rpx;
+}

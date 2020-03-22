@@ -1,0 +1,22 @@
+<view class='money'>
+  <text class='.text'>金额</text>
+   <input placeholder='2000' placeholder-class='number'></input> 
+</view>
+<view class='hr'></view>
+<view class='second'>
+  <view>
+    <text class='tipText'>预算提醒</text>
+    <image src='../../images/switch.png' class='switch'></image>
+  </view>
+  <view>
+    <text class='tipText'>预算剩余金额</text>
+    <view class='help'>当预算剩余300.00元时，即会提醒你哦</view>
+    <text class='rest'>300</text>
+  </view>
+</view>
+<view class='hr'></view>
+<view class='money'>
+  <text class='text'>结算日</text>
+  <text class='month'>每月最后一天 ></text>
+</view>
+<button class='save'><text>保存</text></button>

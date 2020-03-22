@@ -1,0 +1,42 @@
+<view class="input">
+  <input placeholder='饮食' placeholder-class='eat'></input>
+  <text>完成</text>
+</view>
+<view class='content'>
+  <text class='food'>【饮食】</text>
+  <view class='Fdetail'>
+    <image src='../../images/cha.png'></image>
+    <image src='../../images/f5.png'></image>
+    <image src='../../images/f4.png'></image>
+    <image src='../../images/f3.png'></image>
+    <image src='../../images/f2.png'></image>
+    <image src='../../images/f1.png'></image>
+  </view>
+  <view class='Ftext'>
+    <text>饮食</text>
+    <text>早餐</text>
+    <text>午餐</text>
+    <text>晚餐</text>
+    <text>水果</text>
+    <text>饮品</text>
+  </view>
+</view>
+<view class='content1'>
+  <text class='food'>【购物】</text>
+  <view class='Fdetail'>
+    <image src='../../images/s5.png'></image>
+    <image src='../../images/s1.png'></image>
+    <image src='../../images/s2.png'></image>
+    <image src='../../images/s3.png'></image>
+    <image src='../../images/s4.png'></image>
+    <image></image>
+  </view>
+  <view class='Ftext'>
+    <text>衣物</text>
+    <text>化妆品</text>
+    <text>日常</text>
+    <text>鞋类</text>
+    <text>数码</text>
+    <text class='rest'></text>
+  </view>
+</view>

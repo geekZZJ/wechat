@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "home/home",
+    "pages/message/message",
+    "pages/bill1/bill1",
+    "pages/form/form",
+    "pages/detail/detail",
+    "pages/comments/comments",
+    "pages/bill/bill",
+    "pages/budget/budget",
+    "pages/add/add",
+    "pages/express/express",
+    
+    "comunity/comunity",
+    "my/my",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/add1/add1",
+    "pages/form1/form1"
+  ],
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#538afe",
+    "color": "#999999",
+    "list": [
+      {
+        "pagePath": "home/home",
+        "text": "首页",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_1.png"
+      },
+      {
+        "pagePath": "comunity/comunity",
+        "text": "社区",
+        "iconPath": "/images/community.png",
+        "selectedIconPath": "/images/community_1.png"
+      },
+      {
+        "pagePath": "my/my",
+        "text": "我的",
+        "iconPath": "/images/my.png",
+        "selectedIconPath": "/images/my_1.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#538afe",
+    "navigationBarTextStyle": "#fff"
+  }
+}

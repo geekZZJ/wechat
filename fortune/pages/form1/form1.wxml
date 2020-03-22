@@ -1,0 +1,37 @@
+<view class='title'>
+  <text class='spend'><text>支出</text></text>
+  <text class='receive' bindtap='bill1'><text>收入</text></text>
+</view>
+<view class='hr'></view>
+<canvas canvas-id="form" disable-scroll="true" style="width:700rpx;height:464rpx;"></canvas>
+ <!-- class="pieCanvas"  -->
+<view class='alldetail'>
+  <view class='detail' bindtap='detail'>
+    <image src='../../images/cha.png'></image>
+    <text class='foodcont'>
+      <text class='class'>饮食</text>
+    </text>
+    <text class='Fmoney'>￥462.00</text>
+  </view>
+  <view class='detail'>
+    <image src='../../images/shop.png'></image>
+    <text class='foodcont'>
+      <text class='class'>购物</text>
+    </text>
+    <text class='Fmoney'>￥97.00</text>
+  </view>
+  <view class='detail'>
+    <image src='../../images/travel.png'></image>
+    <text class='foodcont'>
+      <text class='class'>出行</text>
+    </text>
+    <text class='Fmoney'>￥46.00</text>
+  </view>
+  <view class='detail'>
+    <image src='../../images/play.png'></image>
+    <text class='foodcont'>
+      <text class='class'>娱乐</text>
+    </text>
+    <text class='Fmoney'>￥223.00</text>
+  </view>
+</view>
