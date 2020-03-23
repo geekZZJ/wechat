@@ -11,7 +11,8 @@
     "pages/search/search",
     "pages/subscribe/subscribe",
     "pages/recommend/recommend",
-    "pages/blog-detail/blog-detail"
+    "pages/blog-detail/blog-detail",
+    "pages/web-view/web-view"
   ],
   "window": {
     "navigationBarTitleText": "深度博客",

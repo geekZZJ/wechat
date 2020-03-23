@@ -1,6 +1,6 @@
 // pages/blog-detail/blog-detail.js
-let hotData = require('../../data/hot-data')
 let comments = require('../../data/comment-data')
+let app = getApp()
 Page({
 
   /**
@@ -13,11 +13,41 @@ Page({
    */
   onLoad: function(options) {
     let blogId = options.id
-    let blogDetail = hotData.hotList[blogId]
     this.setData({
-      blogDetail: blogDetail,
       comments: comments.commentList
     })
+    this.pageDetail(blogId)
+  },
+
+  //文章详情
+  pageDetail: function(id) {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/' + id,
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data)
+        if (res.data.code === '0000') {
+          that.setData({
+            blogDetail: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
+    })
+  },
+
+  //站外跳转
+  jump: function(event) {
+    let url = event.target.dataset.url
+    console.log(url)
   },
 
   //锚点功能
@@ -63,7 +93,7 @@ Page({
   //跳转去评论
   onCommit: function(event) {
     wx.navigateTo({
-        url: "../commit/commit"
+      url: "../commit/commit"
     })
   },
 

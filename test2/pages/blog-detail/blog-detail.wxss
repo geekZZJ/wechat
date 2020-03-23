@@ -4,7 +4,7 @@
 .container{
     display: flex;
     flex-direction: column;
-    margin-bottom: 120rpx;
+    margin-bottom: 70rpx;
 }
 
 .title-container{
@@ -78,4 +78,14 @@
 
 .detail-pos{
     height: 150rpx;
+}
+
+.blog-link{
+    margin: 50rpx 30rpx;
+    font-size: 26rpx;
+    word-break: break-all;
+}
+
+.blog-link-text{
+    color: rgb(0, 144, 240);
 }

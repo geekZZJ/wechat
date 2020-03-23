@@ -38,6 +38,15 @@ Page({
       // Do something when catch error
       console.log(e)
     }
+
+    //初始获取数据
+    this.init()
+  },
+
+  //页面触底增加数据
+  onReachBottom: function() {
+    // 页面触底时执行
+    console.log(123)
   },
 
   //实现页面跳转
@@ -47,6 +56,7 @@ Page({
       url: "../blog-detail/blog-detail?id=" + blogId
     })
   },
+
   //轮播图跳转
   onSwiperTap: function(event) {
     let hotId = event.target.dataset.hotid
@@ -54,7 +64,6 @@ Page({
       url: "../blog-detail/blog-detail?id=" + hotId
     })
   },
-
 
   //实现收藏，取消收藏
   onCollectionTap: function(event) {
@@ -79,6 +88,35 @@ Page({
   search: function(event) {
     wx.navigateTo({
       url: "../search/search"
+    })
+  },
+
+  //初始获取数据
+  init: function() {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/list',
+      data: {
+        'typeId': 0,
+        'platId': 1006,
+        'pageSize': 20
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          that.setData({
+            contents: res.data.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
     })
   },
 
@@ -119,6 +157,12 @@ Page({
           console.log(res.data.data.data)
           that.setData({
             contents: res.data.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
           })
         }
       }
@@ -162,6 +206,12 @@ Page({
           console.log(res.data.data.data)
           that.setData({
             contents: res.data.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
           })
         }
       }
