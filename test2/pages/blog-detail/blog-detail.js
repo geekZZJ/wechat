@@ -47,7 +47,9 @@ Page({
   //站外跳转
   jump: function(event) {
     let url = event.target.dataset.url
-    console.log(url)
+    wx.navigateTo({
+      url: "../web-view/web-view?url=" + url
+    })
   },
 
   //锚点功能
