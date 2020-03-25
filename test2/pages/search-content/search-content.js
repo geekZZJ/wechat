@@ -1,5 +1,7 @@
 // pages/search-content/search-content.js
 let searchData = require('../../data/hot-data')
+let app = getApp()
+
 Page({
 
   /**
@@ -13,8 +15,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      contents: searchData.hotList
+    let formData = options.formdata
+    this.searchList(formData)
+  },
+
+  //根据关键字查找
+  searchList: function(formData) {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/search',
+      data: {
+        key: formData,
+        pageSize: 20
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+        if (res.data.code === '0000') {
+          that.setData({
+            contents: res.data.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
     })
   },
 

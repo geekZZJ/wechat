@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    searchInput: ''
   },
 
   /**
@@ -17,22 +17,20 @@ Page({
   clearAll: function(event) {
     console.log("清空历史记录")
   },
+
+  clearContent: function(event) {
+    this.setData({
+      searchInput: '',
+      isShow: false
+    })
+  },
+
+  //根据关键字查询
   search: function(event) {
     let formData = event.detail.value
     if (formData) {
-      console.log(formData)
-      wx.request({
-        url: 'test.php',
-        data: {
-          x: '',
-          y: ''
-        },
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success(res) {
-          console.log(res.data)
-        }
+      wx.navigateTo({
+        url: "../search-content/search-content?formdata=" + formData
       })
     } else {
       wx.showToast({
@@ -42,18 +40,20 @@ Page({
       })
     }
   },
+
   //控制关闭icon显示隐藏
   controlClose: function(event) {
-      let searchKey = event.detail.value
-      if (searchKey) {
-          this.setData({
-              isShow: true
-          })
-      } else {
-          this.setData({
-              isShow: false
-          })
-      }
+    let searchKey = event.detail.value
+    if (searchKey) {
+      this.setData({
+        isShow: true,
+        searchInput: searchKey
+      })
+    } else {
+      this.setData({
+        isShow: false
+      })
+    }
   },
 
   /**

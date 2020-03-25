@@ -25,7 +25,7 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data.code === '0000') {
           that.setData({
             blogDetail: res.data.data
@@ -50,7 +50,7 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data.code === '0000') {
           that.setData({
             comments: res.data.data

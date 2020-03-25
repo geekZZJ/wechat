@@ -2,8 +2,8 @@
 <view class="search">
   <view class="search-wrap">
     <text class="iconfont iconsousuo search-icon"></text>
-    <input class="search-input" bindinput="controlClose" confirm-type="search" bindconfirm="search" placeholder-class="place-search" type="text" placeholder="搜索内容" />
-    <view class="delete-search">
+    <input class="search-input" bindinput="controlClose" confirm-type="search" bindconfirm="search" placeholder-class="place-search" type="text" value="{{searchInput}}" placeholder="搜索内容" />
+    <view class="delete-search" catchtap="clearContent">
       <text wx:if="{{isShow}}" class="iconfont iconguanbi delete-icon"></text>
       <text wx:else></text>
     </view>
