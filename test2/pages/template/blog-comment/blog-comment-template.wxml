@@ -1,7 +1,7 @@
 <template name="blogComment">
     <view class="blog-comment" id="commit">
         <view class="blog-comment-title">评论</view>
-        <view wx:if="{{false}}" class="blog-comment-body-none">暂无评论，快来抢沙发</view>
+        <view wx:if="{{comments.length === 0}}" class="blog-comment-body-none">暂无评论，快来抢沙发</view>
         <view wx:else class="blog-comment-body-have">
             <block wx:for="{{comments}}" wx:key="key" wx:for-item="item">
                 <view class="blog-comment-item">
@@ -11,7 +11,7 @@
                     <view class="blog-comment-item-right">
                         <text class="comment-name">{{item.name}}</text>
                         <text class="comment-content">{{item.content}}</text>
-                        <text class="comment-time">{{item.time}}</text>
+                        <text class="comment-time">{{item.commentDate}}</text>
                     </view>
                 </view>
             </block>

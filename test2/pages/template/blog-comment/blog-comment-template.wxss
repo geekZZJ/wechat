@@ -55,7 +55,7 @@
 }
 
 .comment-time{
-    font-size: 18rpx;
+    font-size: 20rpx;
     color: #999;
     line-height: 30rpx;
 }

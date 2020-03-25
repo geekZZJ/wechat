@@ -1,5 +1,4 @@
 // pages/blog-detail/blog-detail.js
-let comments = require('../../data/comment-data')
 let app = getApp()
 Page({
 
@@ -13,10 +12,8 @@ Page({
    */
   onLoad: function(options) {
     let blogId = options.id
-    this.setData({
-      comments: comments.commentList
-    })
     this.pageDetail(blogId)
+    this.blogComment(blogId)
   },
 
   //文章详情
@@ -36,6 +33,31 @@ Page({
         } else {
           wx.showToast({
             title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
+    })
+  },
+
+  //博客评论
+  blogComment: function(id) {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/comment/blog/' + id,
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log(res.data)
+        if (res.data.code === '0000') {
+          that.setData({
+            comments: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '评论获取失败',
             duration: 1000,
             image: '/images/icon/xxx.png'
           })
