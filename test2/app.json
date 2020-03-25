@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/hot/hot",
     "pages/search/search",
     "pages/search-content/search-content",
-    "pages/hot/hot",
     "pages/choose/choose",
     "pages/welcome/welcome",
     "pages/my/my",

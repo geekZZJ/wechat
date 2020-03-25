@@ -27,10 +27,13 @@ Page({
 
   //根据关键字查询
   search: function(event) {
-    let formData = event.detail.value
+    let formData = event.detail.value.trim()
     if (formData) {
       wx.navigateTo({
         url: "../search-content/search-content?formdata=" + formData
+      })
+      this.setData({
+        searchInput: ''
       })
     } else {
       wx.showToast({

@@ -12,6 +12,7 @@
     color: #333;
     font-weight: 600;
     margin-left: 10px;
+    word-break: break-all;
 }
 
 .blog-abstract{

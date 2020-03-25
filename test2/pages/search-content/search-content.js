@@ -1,5 +1,4 @@
 // pages/search-content/search-content.js
-let searchData = require('../../data/hot-data')
 let app = getApp()
 
 Page({
@@ -8,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShow: false
+    isShow: true
   },
 
   /**
@@ -17,6 +16,9 @@ Page({
   onLoad: function(options) {
     let formData = options.formdata
     this.searchList(formData)
+    this.setData({
+      searchInput: formData
+    })
   },
 
   //根据关键字查找
@@ -32,11 +34,21 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data)
         if (res.data.code === '0000') {
-          that.setData({
-            contents: res.data.data.data
-          })
+          if (res.data.data.data.length > 0) {
+            that.setData({
+              contents: res.data.data.data
+            })
+          } else {
+            that.setData({
+              contents: ''
+            })
+            wx.showToast({
+              title: '无相关内容',
+              duration: 1000,
+              icon: "none"
+            })
+          }
         } else {
           wx.showToast({
             title: '请求失败',
@@ -48,6 +60,20 @@ Page({
     })
   },
 
+  //根据关键字查询
+  search: function(event) {
+    let formData = event.detail.value.trim()
+    if (formData) {
+      this.searchList(formData)
+    } else {
+      wx.showToast({
+        title: "输入不能为空",
+        duration: 1000,
+        icon: "none"
+      })
+    }
+  },
+
   //实现收藏，取消收藏
   onCollectionTap: function(event) {
     let BlogId = event.currentTarget.dataset.blogid
@@ -55,7 +81,6 @@ Page({
     let collected = this.data.contents[BlogId].collected
     collected = !collected
     //向后台发送收藏数据未做
-
 
     this.setData({
       [temp]: collected
@@ -66,6 +91,7 @@ Page({
       icon: "success"
     })
   },
+
   //实现页面跳转
   onBlogTap: function(event) {
     let blogId = event.currentTarget.dataset.blogid
@@ -73,6 +99,8 @@ Page({
       url: "../blog-detail/blog-detail?id=" + blogId
     })
   },
+
+
   //控制关闭icon显示隐藏
   controlClose: function(event) {
     let searchKey = event.detail.value
@@ -85,6 +113,13 @@ Page({
         isShow: false
       })
     }
+  },
+
+  //点击关闭按钮返回搜索页面
+  back: function(event) {
+    wx.navigateBack({
+      url: "../search/search"
+    })
   },
 
   /**
