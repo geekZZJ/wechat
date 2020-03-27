@@ -43,12 +43,6 @@ Page({
     this.init()
   },
 
-  //页面触底增加数据
-  onReachBottom: function() {
-    // 页面触底时执行
-    console.log(123)
-  },
-
   //实现页面跳转
   onBlogTap: function(event) {
     let blogId = event.currentTarget.dataset.blogid
@@ -218,6 +212,11 @@ Page({
     })
   },
 
+  //点击tabbar刷新数据
+  onTabItemTap(item) {
+    this.init()
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -257,7 +256,36 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+      let that = this
+      let techId = this.data.techCheckId?this.data.techCheckId:0
+      let blogCheckId = this.data.blogCheckId?this.data.blogCheckId:0
 
+      //发送请求
+      wx.request({
+          url: app.globalData.host + '/xhblog/blog/list',
+          data: {
+              'typeId': techId,
+              'platId': blogCheckId,
+              'pageSize': 20
+          },
+          header: {
+              'content-type': 'application/json'
+          },
+          success(res) {
+              if (res.data.code === '0000') {
+                  console.log(res.data.data.data)
+                  that.setData({
+                      contents: res.data.data.data
+                  })
+              } else {
+                  wx.showToast({
+                      title: '请求失败',
+                      duration: 1000,
+                      image: '/images/icon/xxx.png'
+                  })
+              }
+          }
+      })
   },
 
   /**

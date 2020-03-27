@@ -59,7 +59,6 @@ Page({
       }
     }
     history.splice(tempId, 1)
-    console.log(history)
     this.setData({
       history: history
     })
@@ -112,7 +111,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    //请求历史记录
   },
 
   /**

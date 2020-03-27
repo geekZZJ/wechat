@@ -15,7 +15,7 @@
       <text class="hot-item" data-keyword="{{item.name}}" catchtap="hotSearch">{{item.name}}</text>
     </block>
   </view>
-  <view class="search-history">
+  <view class="search-history" wx:if="{{history.length>0}}">
     <view>搜索历史</view>
     <view wx:if="{{true}}" class="clear" catchtap="clearAll">全部清空</view>
     <view wx:else></view>
