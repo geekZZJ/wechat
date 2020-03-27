@@ -1,4 +1,5 @@
 // pages/search/search.js
+let hotSearch = require('../../data/hot-search')
 Page({
 
   /**
@@ -12,10 +13,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.setData({
+      keywords: hotSearch.keywords,
+      history: hotSearch.history
+    })
   },
   clearAll: function(event) {
-    console.log("清空历史记录")
+    this.setData({
+      history: ''
+    })
+    //发送请求未做
   },
 
   clearContent: function(event) {
@@ -23,6 +30,40 @@ Page({
       searchInput: '',
       isShow: false
     })
+  },
+
+  //热搜
+  hotSearch: function(event) {
+    let keyword = event.target.dataset.keyword
+    wx.navigateTo({
+      url: "../search-content/search-content?formdata=" + keyword
+    })
+  },
+
+  //根据历史查找
+  historySearch: function(event) {
+    let history = event.target.dataset.history
+    wx.navigateTo({
+      url: "../search-content/search-content?formdata=" + history
+    })
+  },
+
+  //删除该条历史记录
+  closeHistory: function(event) {
+    let historyId = event.target.dataset.historyid
+    let history = this.data.history
+    let tempId = 0
+    for (let i = 0; i < history.length; i++) {
+      if (history[i].historyId === historyId) {
+        tempId = i
+      }
+    }
+    history.splice(tempId, 1)
+    console.log(history)
+    this.setData({
+      history: history
+    })
+    //发送后台请求
   },
 
   //根据关键字查询
@@ -33,7 +74,8 @@ Page({
         url: "../search-content/search-content?formdata=" + formData
       })
       this.setData({
-        searchInput: ''
+        searchInput: '',
+        isShow: false
       })
     } else {
       wx.showToast({

@@ -143,4 +143,6 @@
 .item-search-clear{
     color: #999;
     font-size: 30rpx;
+    width: 50rpx;
+    text-align: center;
 }

@@ -2,7 +2,7 @@
 <view class="search">
   <view class="search-wrap">
     <text class="iconfont iconsousuo search-icon"></text>
-    <input class="search-input" bindinput="controlClose" confirm-type="search" bindconfirm="search" placeholder-class="place-search" type="text" value="{{searchInput}}" placeholder="搜索内容" />
+    <input class="search-input" bindinput="controlClose" confirm-type="search" bindconfirm="search" placeholder-class="place-search" type="text" value="{{searchInput}}" placeholder="搜索内容" focus="true" />
     <view class="delete-search" catchtap="clearContent">
       <text wx:if="{{isShow}}" class="iconfont iconguanbi delete-icon"></text>
       <text wx:else></text>
@@ -11,21 +11,9 @@
   <view class="search-pos"></view>
   <view class="search-title">博客热搜</view>
   <view class="hot-items">
-    <text class="hot-item">Python</text>
-    <text class="hot-item">Java</text>
-    <text class="hot-item">Spring boot</text>
-    <text class="hot-item">PHP</text>
-    <text class="hot-item">Vue</text>
-    <text class="hot-item">Redis</text>
-    <text class="hot-item">C++</text>
-    <text class="hot-item">Java学习路线</text>
-    <text class="hot-item">Linux</text>
-    <text class="hot-item">C#</text>
-    <text class="hot-item">Spring Cloud</text>
-    <text class="hot-item">Docker</text>
-    <text class="hot-item">C语言</text>
-    <text class="hot-item">Python基础教程</text>
-    <text class="hot-item">元胞自动机</text>
+    <block wx:key="key" wx:for="{{keywords}}" wx:for-item="item">
+      <text class="hot-item" data-keyword="{{item.name}}" catchtap="hotSearch">{{item.name}}</text>
+    </block>
   </view>
   <view class="search-history">
     <view>搜索历史</view>
@@ -33,20 +21,12 @@
     <view wx:else></view>
   </view>
   <view class="history-list">
-    <view class="history-list-item">
-      <text class="iconfont iconsousuo item-search-icon"></text>
-      <text class="item-search-title">Java</text>
-      <text class="item-search-clear">x</text>
-    </view>
-    <view class="history-list-item">
-      <text class="iconfont iconsousuo item-search-icon"></text>
-      <text class="item-search-title">Python</text>
-      <text class="item-search-clear">x</text>
-    </view>
-    <view class="history-list-item">
-      <text class="iconfont iconsousuo item-search-icon"></text>
-      <text class="item-search-title">Vue</text>
-      <text class="item-search-clear">x</text>
-    </view>
+    <block wx:key="key" wx:for="{{history}}" wx:for-item="item">
+      <view class="history-list-item">
+        <text class="iconfont iconsousuo item-search-icon"></text>
+        <text class="item-search-title" data-history="{{item.name}}" catchtap="historySearch">{{item.name}}</text>
+        <text class="item-search-clear" data-historyId="{{item.historyId}}" catchtap="closeHistory">x</text>
+      </view>
+    </block>
   </view>
 </view>
