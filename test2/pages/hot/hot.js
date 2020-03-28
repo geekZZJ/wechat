@@ -18,13 +18,13 @@ Page({
     this.setData({
       contents: '',
       navClass: nav.techList,
-      blogs: nav.blogList
+      blogs: nav.blogList,
+      pageNo: 1
     })
 
     //获取顶部高度
     try {
       const res = wx.getSystemInfoSync()
-      // console.log(res.statusBarHeight)
       this.setData({
         view: {
           headerPT: res.statusBarHeight + 32,
@@ -249,43 +249,83 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    let pageNo = Math.floor(Math.random() * 10 + 1)
+    let that = this
+    let techId = this.data.techCheckId ? this.data.techCheckId : 0
+    let blogCheckId = this.data.blogCheckId ? this.data.blogCheckId : 1006
+    this.setData({
+      pageNo: pageNo
+    })
 
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/list',
+      data: {
+        'typeId': techId,
+        'platId': blogCheckId,
+        'pageSize': 20,
+        'pageNo': this.data.pageNo
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          that.setData({
+            contents: res.data.data.data
+          })
+          wx.stopPullDownRefresh()
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-      let that = this
-      let techId = this.data.techCheckId?this.data.techCheckId:0
-      let blogCheckId = this.data.blogCheckId?this.data.blogCheckId:0
+    let pageNo = this.data.pageNo + 1
+    let that = this
+    let techId = this.data.techCheckId ? this.data.techCheckId : 0
+    let blogCheckId = this.data.blogCheckId ? this.data.blogCheckId : 1006
+    this.setData({
+        pageNo: pageNo
+    })
 
-      //发送请求
-      wx.request({
-          url: app.globalData.host + '/xhblog/blog/list',
-          data: {
-              'typeId': techId,
-              'platId': blogCheckId,
-              'pageSize': 20
-          },
-          header: {
-              'content-type': 'application/json'
-          },
-          success(res) {
-              if (res.data.code === '0000') {
-                  console.log(res.data.data.data)
-                  that.setData({
-                      contents: res.data.data.data
-                  })
-              } else {
-                  wx.showToast({
-                      title: '请求失败',
-                      duration: 1000,
-                      image: '/images/icon/xxx.png'
-                  })
-              }
-          }
-      })
+    //发送请求
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/list',
+      data: {
+        'typeId': techId,
+        'platId': blogCheckId,
+        'pageSize': 20,
+        'pageNo': this.data.pageNo
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          let arr1 = that.data.contents
+          let arr2 = res.data.data.data
+          arr1 = arr1.concat(arr2)
+          that.setData({
+            contents: arr1
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
+    })
   },
 
   /**
