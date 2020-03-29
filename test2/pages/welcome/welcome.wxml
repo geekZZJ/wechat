@@ -2,7 +2,5 @@
 <view class="container">
   <image src="/images/logo/xhublog.png" class="user-avatar"></image>
   <text class="user-name">欢迎你的到来</text>
-  <view class="moto-container" bindtap="onTap">
-    <text class="moto">开启小程序之旅</text>
-  </view>
+  <button class="moto-container" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">开启小程序之旅</button>
 </view>
