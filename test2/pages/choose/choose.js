@@ -1,5 +1,7 @@
 // pages/choose/choose.js
 let techData = require('../../data/choose-data')
+const app = getApp()
+
 Page({
 
   /**
@@ -81,17 +83,37 @@ Page({
   //点击发送感兴趣的技术标签
   chooseNext: function(event) {
     let arr = new Array()
+    let that = this
     for (let i = 0; i < this.data.contents.length; i++) {
       if (this.data.contents[i].checked == true) {
         arr.push(i)
       }
     }
-    console.log(arr)
-    //向服务器发送数据未写
-
-    //设置第二选项
-    this.setData({
-      first: false
+    //向服务器发送数据
+    wx.request({
+      url: app.globalData.host + '/xhblog/preferencetype/save',
+      method: "POST",
+      data: {
+        'typeIdList': arr
+      },
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          //设置第二选项
+          that.setData({
+            first: false
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            icon: "none"
+          })
+        }
+      }
     })
   },
 
@@ -103,12 +125,31 @@ Page({
         arr.push(i)
       }
     }
-    console.log(arr)
-    //向服务器发送数据未写
-
-    //跳转到首页
-    wx.switchTab({
-      url: "../hot/hot"
+    //向服务器发送数据
+    wx.request({
+      url: app.globalData.host + '/xhblog/preferenceplat/save',
+      method: "POST",
+      data: {
+        'platIdList': arr
+      },
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          //跳转到首页
+          wx.switchTab({
+            url: "../hot/hot"
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            icon: "none"
+          })
+        }
+      }
     })
   },
 
@@ -123,41 +164,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
   }
 })

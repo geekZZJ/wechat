@@ -1,68 +1,69 @@
 /* pages/choose/choose.wxss */
-page{
-    height: 100%;
-    background-color: #b3d4db;
+
+page {
+  height: 100%;
+  background-color: #b3d4db;
 }
 
-.container{
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.content{
-    width: 80%;
-    height: 70%;
-    background-color: #fff;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    padding: 40rpx 20rpx;
+.content {
+  width: 80%;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx 20rpx;
 }
 
-.choose-title{
-    font-size: 36rpx;
-    font-weight: 600;
+.choose-title {
+  font-size: 36rpx;
+  font-weight: 600;
 }
 
-.choose-tip{
-    font-size: 26rpx;
-    color: #666;
-    margin: 30rpx 0;
+.choose-tip {
+  font-size: 26rpx;
+  color: #666;
+  margin: 30rpx 0;
 }
 
-.choose-tag{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 40rpx;
+.choose-tag {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 40rpx;
 }
 
-.normal-tag{
-    font-size: 30rpx;
-    padding: 5rpx 15rpx;
-    margin: 0 16rpx 30rpx 16rpx;
-    border: 1px solid #d9d9d9;
-    border-radius: 15px;
+.normal-tag {
+  font-size: 30rpx;
+  padding: 5rpx 15rpx;
+  margin: 0 16rpx 30rpx 16rpx;
+  border: 1px solid #d9d9d9;
+  border-radius: 15px;
 }
 
-.checked-tag{
-    font-size: 30rpx;
-    padding: 5rpx 15rpx;
-    margin: 0 16rpx 30rpx 16rpx;
-    border: 1px solid red;
-    border-radius: 15px;
-    color: red;
+.checked-tag {
+  font-size: 30rpx;
+  padding: 5rpx 15rpx;
+  margin: 0 16rpx 30rpx 16rpx;
+  border: 1px solid red;
+  border-radius: 15px;
+  color: red;
 }
 
-.choose-next{
-    margin-top: 200rpx;
+.choose-next {
+  margin-top: 200rpx;
 }
 
-.choose-next button{
-    width: 90%;
-    background: red;
-    color: #fff;
+.choose-next button {
+  width: 90%;
+  background: red;
+  color: #fff;
 }
