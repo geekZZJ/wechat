@@ -35,7 +35,6 @@ Page({
         }
       })
     } catch (e) {
-      // Do something when catch error
       console.log(e)
     }
 
@@ -46,8 +45,30 @@ Page({
   //实现页面跳转
   onBlogTap: function(event) {
     let blogId = event.currentTarget.dataset.blogid
-    wx.navigateTo({
-      url: "../blog-detail/blog-detail?id=" + blogId
+    //添加浏览记录
+    wx.request({
+      url: app.globalData.host + '/xhblog/browse/save',
+      method: "POST",
+      data: {
+        'blogId': blogId
+      },
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          wx.navigateTo({
+            url: "../blog-detail/blog-detail?id=" + blogId
+          })
+        } else {
+          wx.showToast({
+            title: '浏览记录添加失败',
+            duration: 1000,
+            icon: "none"
+          })
+        }
+      }
     })
   },
 
@@ -61,21 +82,89 @@ Page({
 
   //实现收藏，取消收藏
   onCollectionTap: function(event) {
+    let that = this
     let BlogId = event.currentTarget.dataset.blogid
-    let temp = 'contents[' + BlogId + '].collected'
-    let collected = this.data.contents[BlogId].collected
-    collected = !collected
+    let tempId = 0
+    for (let i = 0; i < this.data.contents.length; i++) {
+      if (this.data.contents[i].id === BlogId) {
+        tempId = i
+      }
+    }
+    let isFavorite = this.data.contents[tempId].isFavorite
+    if (isFavorite === null) {
+      //向后台发送收藏数据
+      wx.request({
+        url: app.globalData.host + '/xhblog/favorite/save',
+        method: "POST",
+        data: {
+          'blogId': BlogId
+        },
+        header: {
+          'content-type': 'application/json',
+          'token': wx.getStorageSync('token')
+        },
+        success(res) {
+          if (res.data.code === '0000') {
+            let temp = 'contents[' + tempId + '].isFavorite'
+            that.setData({
+              [temp]: 1
+            })
+            wx.showToast({
+              title: "收藏成功",
+              duration: 1000,
+              icon: "success"
+            })
+          } else {
+            wx.showToast({
+              title: '收藏失败',
+              duration: 1000,
+              icon: "none"
+            })
+          }
+        }
+      })
+    } else {
+      //取消收藏
+      wx.request({
+        url: app.globalData.host + '/xhblog/favorite/' + BlogId,
+        method: "DELETE",
+        header: {
+          'content-type': 'application/json',
+          'token': wx.getStorageSync('token')
+        },
+        success(res) {
+          console.log(res.data)
+          if (res.data.code === '0000') {
+            let temp = 'contents[' + tempId + '].isFavorite'
+            that.setData({
+              [temp]: null
+            })
+            wx.showToast({
+              title: "取消收藏",
+              duration: 1000,
+              icon: "success"
+            })
+          } else {
+            wx.showToast({
+              title: '取消收藏失败',
+              duration: 1000,
+              icon: "none"
+            })
+          }
+        }
+      })
+    }
     //向后台发送收藏数据未做
 
 
-    this.setData({
-      [temp]: collected
-    })
-    wx.showToast({
-      title: collected ? "收藏成功" : "取消收藏",
+    /*this.setData({
+      [temp]: isFavorite
+    })*/
+    /*wx.showToast({
+      title: isFavorite ? "收藏成功" : "取消收藏",
       duration: 1000,
       icon: "success"
-    })
+    })*/
   },
 
   //点击跳到搜索页面
@@ -96,9 +185,11 @@ Page({
         'pageSize': 20
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
       },
       success(res) {
+        console.log(res.data)
         if (res.data.code === '0000') {
           that.setData({
             contents: res.data.data.data
@@ -144,7 +235,8 @@ Page({
         'pageSize': 20
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
       },
       success(res) {
         if (res.data.code === '0000') {
@@ -193,7 +285,8 @@ Page({
         'pageSize': 20
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
       },
       success(res) {
         if (res.data.code === '0000') {
@@ -212,43 +305,8 @@ Page({
     })
   },
 
-  //点击tabbar刷新数据
-  onTabItemTap(item) {
-    this.init()
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
+  //封装刷新数据
+  onRefreshData: function(event) {
     let pageNo = Math.floor(Math.random() * 10 + 1)
     let that = this
     let techId = this.data.techCheckId ? this.data.techCheckId : 0
@@ -266,7 +324,8 @@ Page({
         'pageNo': this.data.pageNo
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
       },
       success(res) {
         if (res.data.code === '0000') {
@@ -285,6 +344,22 @@ Page({
     })
   },
 
+  //点击tabbar刷新数据
+  onTabItemTap(item) {
+    this.onRefreshData()
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 400
+    })
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+    this.onRefreshData()
+  },
+
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -294,7 +369,7 @@ Page({
     let techId = this.data.techCheckId ? this.data.techCheckId : 0
     let blogCheckId = this.data.blogCheckId ? this.data.blogCheckId : 1006
     this.setData({
-        pageNo: pageNo
+      pageNo: pageNo
     })
 
     //发送请求
@@ -307,7 +382,8 @@ Page({
         'pageNo': this.data.pageNo
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
       },
       success(res) {
         if (res.data.code === '0000') {
@@ -326,12 +402,5 @@ Page({
         }
       }
     })
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
 })

@@ -31,7 +31,8 @@ Page({
         pageSize: 20
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
       },
       success(res) {
         if (res.data.code === '0000') {

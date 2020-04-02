@@ -46,6 +46,14 @@
     padding: 2px 9px;
 }
 
+.looked-author{
+    height: 36rpx;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 2px 9px;
+    color: #999;
+}
+
 .avatar{
     height: 64rpx;
     width: 64rpx;

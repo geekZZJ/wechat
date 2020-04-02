@@ -12,8 +12,9 @@
         <text class="author-name">{{blogDetail.bloger.name}}</text>
         <text class="context-time">{{blogDetail.time}}</text>
       </view>
-      <view class="author-right" catchtap="lookAuthor">
-        <text class="look-author">关注</text>
+      <view class="author-right" data-blogerId="{{blogDetail.blogerId}}" catchtap="lookAuthor">
+        <text wx:if="{{blogDetail.isFollow}}" class="looked-author">已关注</text>
+        <text wx:else class="look-author">关注</text>
       </view>
     </view>
     <view class="content-container">

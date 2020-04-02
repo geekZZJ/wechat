@@ -5,9 +5,9 @@
             <input class="bottom-comment" placeholder-class="place-comment" type="text"
                    placeholder="想对Ta说点什么..." disabled='true' />
         </view>
-        <view wx:if="{{like}}" class="iconfont icondianzan fix-like1" catchtap="fixLike"></view>
-        <view wx:else class="iconfont icondianzan fix-like" catchtap="fixLike"></view>
-        <view wx:if="{{collected}}" class="iconfont iconbuoumaotubiao44 fix-collection1" catchtap="fixCollection"></view>
-        <view wx:else class="iconfont iconbuoumaotubiao44 fix-collection" catchtap="fixCollection"></view>
+        <view wx:if="{{isPraise}}" class="iconfont icondianzan fix-like1" catchtap="fixLike" data-blogId="{{id}}"></view>
+        <view wx:else class="iconfont icondianzan fix-like" catchtap="fixLike" data-blogId="{{id}}"></view>
+        <view wx:if="{{isFavorite}}" class="iconfont iconbuoumaotubiao44 fix-collection1" data-blogId="{{id}}" catchtap="fixCollection"></view>
+        <view wx:else class="iconfont iconbuoumaotubiao44 fix-collection" data-blogId="{{id}}" catchtap="fixCollection"></view>
     </view>
 </template>

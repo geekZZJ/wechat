@@ -1,5 +1,7 @@
 // pages/search/search.js
 let hotSearch = require('../../data/hot-search')
+const app = getApp()
+
 Page({
 
   /**
@@ -13,11 +15,61 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      keywords: hotSearch.keywords,
-      history: hotSearch.history
+    this.initHot()
+    this.initHistory()
+  },
+
+  initHot: function(event) {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/search/hot',
+      method: "GET",
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          that.setData({
+            keywords: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '热搜获取失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
     })
   },
+
+  initHistory: function(event) {
+    let that = this
+      wx.request({
+          url: app.globalData.host + '/xhblog/search/recent',
+          method: "GET",
+          header: {
+              'content-type': 'application/json',
+              'token': wx.getStorageSync('token')
+          },
+          success(res) {
+              if (res.data.code === '0000') {
+                  console.log(res.data)
+                  that.setData({
+                      history: res.data.data
+                  })
+              } else {
+                  wx.showToast({
+                      title: '历史记录获取失败',
+                      duration: 1000,
+                      icon: "none"
+                  })
+              }
+          }
+      })
+  },
+
   clearAll: function(event) {
     this.setData({
       history: ''
@@ -125,27 +177,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
   }
 })

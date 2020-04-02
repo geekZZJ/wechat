@@ -12,7 +12,7 @@
   <view class="search-title">博客热搜</view>
   <view class="hot-items">
     <block wx:key="key" wx:for="{{keywords}}" wx:for-item="item">
-      <text class="hot-item" data-keyword="{{item.name}}" catchtap="hotSearch">{{item.name}}</text>
+      <text class="hot-item" data-keyword="{{item.content}}" catchtap="hotSearch">{{item.content}}</text>
     </block>
   </view>
   <view class="search-history" wx:if="{{history.length>0}}">
@@ -24,8 +24,8 @@
     <block wx:key="key" wx:for="{{history}}" wx:for-item="item">
       <view class="history-list-item">
         <text class="iconfont iconsousuo item-search-icon"></text>
-        <text class="item-search-title" data-history="{{item.name}}" catchtap="historySearch">{{item.name}}</text>
-        <text class="item-search-clear" data-historyId="{{item.historyId}}" catchtap="closeHistory">x</text>
+        <text class="item-search-title" data-history="{{item.content}}" catchtap="historySearch">{{item.content}}</text>
+        <text class="item-search-clear" data-historyId="{{item.id}}" catchtap="closeHistory">x</text>
       </view>
     </block>
   </view>
