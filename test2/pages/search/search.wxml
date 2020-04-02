@@ -25,7 +25,7 @@
       <view class="history-list-item">
         <text class="iconfont iconsousuo item-search-icon"></text>
         <text class="item-search-title" data-history="{{item.content}}" catchtap="historySearch">{{item.content}}</text>
-        <text class="item-search-clear" data-historyId="{{item.id}}" catchtap="closeHistory">x</text>
+        <text class="item-search-clear" data-content="{{item.content}}" catchtap="closeHistory">x</text>
       </view>
     </block>
   </view>

@@ -46,35 +46,53 @@ Page({
 
   initHistory: function(event) {
     let that = this
-      wx.request({
-          url: app.globalData.host + '/xhblog/search/recent',
-          method: "GET",
-          header: {
-              'content-type': 'application/json',
-              'token': wx.getStorageSync('token')
-          },
-          success(res) {
-              if (res.data.code === '0000') {
-                  console.log(res.data)
-                  that.setData({
-                      history: res.data.data
-                  })
-              } else {
-                  wx.showToast({
-                      title: '历史记录获取失败',
-                      duration: 1000,
-                      icon: "none"
-                  })
-              }
-          }
-      })
+    wx.request({
+      url: app.globalData.host + '/xhblog/search/recent',
+      method: "GET",
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          that.setData({
+            history: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '历史记录获取失败',
+            duration: 1000,
+            icon: "none"
+          })
+        }
+      }
+    })
   },
 
   clearAll: function(event) {
-    this.setData({
-      history: ''
-    })
+    let that = this
     //发送请求未做
+    wx.request({
+      url: app.globalData.host + '/xhblog/search/all',
+      method: "DELETE",
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          that.setData({
+            history: ''
+          })
+        } else {
+          wx.showToast({
+            title: '清空失败',
+            duration: 1000,
+            icon: "none"
+          })
+        }
+      }
+    })
   },
 
   clearContent: function(event) {
@@ -102,19 +120,41 @@ Page({
 
   //删除该条历史记录
   closeHistory: function(event) {
-    let historyId = event.target.dataset.historyid
+    let that = this
+    let content = event.target.dataset.content
     let history = this.data.history
     let tempId = 0
     for (let i = 0; i < history.length; i++) {
-      if (history[i].historyId === historyId) {
+      if (history[i].content === content) {
         tempId = i
       }
     }
-    history.splice(tempId, 1)
-    this.setData({
-      history: history
-    })
     //发送后台请求
+    wx.request({
+      url: app.globalData.host + '/xhblog/search/content',
+      method: "DELETE",
+      data: {
+        'content': content
+      },
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          history.splice(tempId, 1)
+          that.setData({
+            history: history
+          })
+        } else {
+          wx.showToast({
+            title: '删除失败',
+            duration: 1000,
+            icon: "none"
+          })
+        }
+      }
+    })
   },
 
   //根据关键字查询
@@ -153,30 +193,10 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
     //请求历史记录
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
+    this.initHistory()
   }
 })
