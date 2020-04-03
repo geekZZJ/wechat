@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view catchtap="bindViewTap">
+  {{motto}}
+</view>
