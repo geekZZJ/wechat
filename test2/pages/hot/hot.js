@@ -1,6 +1,7 @@
 // pages/hot/hot.js
 let nav = require('../../data/nav-data')
 let app = getApp()
+let isInitSelfShow = true
 
 Page({
 
@@ -75,28 +76,27 @@ Page({
   //获取轮播图数据
   onSwiperInit: function(event) {
     let that = this
-      wx.request({
-          url: app.globalData.host + '/xhblog/blog/hot',
-          method: "GET",
-          header: {
-              'content-type': 'application/json',
-              'token': wx.getStorageSync('token')
-          },
-          success(res) {
-            console.log(res.data)
-              if (res.data.code === '0000') {
-                that.setData({
-                    imgList: res.data.data
-                })
-              } else {
-                  wx.showToast({
-                      title: '轮播图获取失败',
-                      duration: 1000,
-                      icon: "none"
-                  })
-              }
-          }
-      })
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/hot',
+      method: "GET",
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          that.setData({
+            imgList: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '轮播图获取失败',
+            duration: 1000,
+            icon: "none"
+          })
+        }
+      }
+    })
   },
 
   //轮播图跳转
@@ -364,6 +364,72 @@ Page({
       scrollTop: 0,
       duration: 400
     })
+  },
+
+  //刷新收藏数据
+  onRefreshHot: function(data) {
+    if (data) {
+      let id = data.blogId
+      let value = data.isFavorite
+      let tempId = 0
+      for (let i = 0; i < this.data.contents.length; i++) {
+        if (this.data.contents[i].id === id) {
+          tempId = i
+        }
+      }
+      let temp = 'contents[' + tempId + '].isFavorite'
+      if (value === 1) {
+        this.setData({
+          [temp]: 1
+        })
+      } else {
+        this.setData({
+          [temp]: null
+        })
+      }
+      // 清队上次通信数据
+      wx.removeStorageSync('hotdata')
+    } else {
+
+    }
+  },
+
+  //刷新评论数据
+  onRefreshCom: function(data) {
+    if (data) {
+      let id = parseInt(data.blogId)
+      let value = data.length
+      let tempId = 0
+      for (let i = 0; i < this.data.contents.length; i++) {
+        if (this.data.contents[i].id === id) {
+          tempId = i
+        }
+      }
+      let temp = 'contents[' + tempId + '].commentCount'
+      this.setData({
+        [temp]: value
+      })
+      // 清队上次通信数据
+      wx.removeStorageSync('hotcomment')
+    } else {
+
+    }
+  },
+
+  onShow: function() {
+    // 页面初始化也会触发onShow，这种情况可能不需要检查通信
+    if (isInitSelfShow) return
+
+    let hotdata = wx.getStorageSync('hotdata')
+    let hotcomment = wx.getStorageSync('hotcomment')
+    //刷新点赞信息
+    this.onRefreshHot(hotdata)
+    //刷新评论数据
+    this.onRefreshCom(hotcomment)
+  },
+
+  onHide: function() {
+    isInitSelfShow = false
   },
 
   /**

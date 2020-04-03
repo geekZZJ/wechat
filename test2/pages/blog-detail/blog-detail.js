@@ -13,7 +13,7 @@ Page({
   onLoad: function(options) {
     let blogId = options.id
     this.setData({
-        blogId: blogId
+      blogId: blogId
     })
     this.pageDetail(blogId)
   },
@@ -28,7 +28,6 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
-        console.log(res.data)
         if (res.data.code === '0000') {
           that.setData({
             blogDetail: res.data.data
@@ -54,10 +53,18 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
-        // console.log(res.data)
         if (res.data.code === '0000') {
+          let len = res.data.data.length
+          let hotcomment = {
+              blogId: id,
+              length: len
+          }
           that.setData({
             comments: res.data.data
+          })
+          wx.setStorage({
+              key: "hotcomment",
+              data: hotcomment
           })
         } else {
           wx.showToast({
@@ -168,6 +175,10 @@ Page({
         success(res) {
           if (res.data.code === '0000') {
             let temp = 'blogDetail.isFavorite'
+            let hotdata = {
+              blogId: blogId,
+              isFavorite: 1
+            }
             that.setData({
               [temp]: 1
             })
@@ -175,6 +186,10 @@ Page({
               title: "收藏成功",
               duration: 1000,
               icon: "success"
+            })
+            wx.setStorage({
+              key: "hotdata",
+              data: hotdata
             })
           } else {
             wx.showToast({
@@ -197,6 +212,10 @@ Page({
         success(res) {
           if (res.data.code === '0000') {
             let temp = 'blogDetail.isFavorite'
+            let hotdata = {
+              blogId: blogId,
+              isFavorite: null
+            }
             that.setData({
               [temp]: null
             })
@@ -204,6 +223,11 @@ Page({
               title: "取消收藏",
               duration: 1000,
               icon: "success"
+            })
+            //实现页面间通信
+            wx.setStorage({
+              key: "hotdata",
+              data: hotdata
             })
           } else {
             wx.showToast({

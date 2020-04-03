@@ -1,5 +1,6 @@
 // pages/search-content/search-content.js
 let app = getApp()
+let isInitSelfShow = true
 
 Page({
 
@@ -183,18 +184,76 @@ Page({
     })
   },
 
+  //刷新收藏数据
+  onRefreshHot: function(data) {
+    if (data) {
+      let id = data.blogId
+      let value = data.isFavorite
+      let tempId = 0
+      for (let i = 0; i < this.data.contents.length; i++) {
+        if (this.data.contents[i].id === id) {
+          tempId = i
+        }
+      }
+      let temp = 'contents[' + tempId + '].isFavorite'
+      if (value === 1) {
+        this.setData({
+          [temp]: 1
+        })
+      } else {
+        this.setData({
+          [temp]: null
+        })
+      }
+      // 清队上次通信数据
+      wx.removeStorageSync('hotdata')
+    } else {
+
+    }
+  },
+
+  //刷新评论数据
+  onRefreshCom: function(data) {
+    if (data) {
+      let id = parseInt(data.blogId)
+      let value = data.length
+      let tempId = 0
+      for (let i = 0; i < this.data.contents.length; i++) {
+        if (this.data.contents[i].id === id) {
+          tempId = i
+        }
+      }
+      let temp = 'contents[' + tempId + '].commentCount'
+      this.setData({
+        [temp]: value
+      })
+      // 清队上次通信数据
+      wx.removeStorageSync('hotcomment')
+    } else {
+
+    }
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    // 页面初始化也会触发onShow，这种情况可能不需要检查通信
+    if (isInitSelfShow) return
 
+    let hotdata = wx.getStorageSync('hotdata')
+    let hotcomment = wx.getStorageSync('hotcomment')
+    //刷新点赞信息
+    this.onRefreshHot(hotdata)
+    //刷新评论数据
+    this.onRefreshCom(hotcomment)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    isInitSelfShow = false
   },
 
   /**
