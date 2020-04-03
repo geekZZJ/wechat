@@ -30,11 +30,13 @@ Page({
     })
   },
 
+  //跳转去设置
   onSet: function(event) {
     wx.navigateTo({
       url: '../my-info/my-info'
     })
   },
+
   onCollection: function(event) {
     let i = this.data.i
     if (i < 1) {

@@ -1,5 +1,5 @@
 // pages/blog-detail/blog-detail.js
-let app = getApp()
+const app = getApp()
 Page({
 
   /**
@@ -12,8 +12,10 @@ Page({
    */
   onLoad: function(options) {
     let blogId = options.id
+    this.setData({
+        blogId: blogId
+    })
     this.pageDetail(blogId)
-    this.blogComment(blogId)
   },
 
   //文章详情
@@ -164,7 +166,6 @@ Page({
           'token': wx.getStorageSync('token')
         },
         success(res) {
-          console.log(res.data)
           if (res.data.code === '0000') {
             let temp = 'blogDetail.isFavorite'
             that.setData({
@@ -187,14 +188,13 @@ Page({
     } else {
       //取消收藏
       wx.request({
-        url: app.globalData.host + '/xhblog/favorite/' + blogId,
+        url: app.globalData.host + '/xhblog/favorite/blog/' + blogId,
         method: "DELETE",
         header: {
           'content-type': 'application/json',
           'token': wx.getStorageSync('token')
         },
         success(res) {
-          console.log(res.data)
           if (res.data.code === '0000') {
             let temp = 'blogDetail.isFavorite'
             that.setData({
@@ -278,23 +278,17 @@ Page({
 
   //跳转去评论
   onCommit: function(event) {
+    let blogId = event.currentTarget.dataset.blogid
     wx.navigateTo({
-      url: "../commit/commit"
+      url: "../commit/commit?id=" + blogId
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.blogComment(this.data.blogId)
   },
 
   /**

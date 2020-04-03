@@ -1,7 +1,7 @@
 <!--pages/commit/commit.wxml-->
 <view class="main">
   <view class="wrap">
-    <textarea maxlength="500" placeholder="写下你的评论..." class="content" bindinput="count" />
+    <textarea maxlength="500" placeholder="写下你的评论..." focus="true" class="content" bindinput="count" />
     <view class="content_num">
       <text>{{length}}/500</text>
     </view>

@@ -11,15 +11,11 @@
   <view style="height:{{view.posHeight}}rpx"></view>
   <!--轮播图-->
   <swiper catchtap="onSwiperTap" indicator-dots="true" autoplay="true" interval="4000" circular="true">
-    <swiper-item>
-      <image src="/images/wx.png" data-hotId="3"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/images/vr.png" data-hotId="4"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/images/iqiyi.png" data-hotId="2"></image>
-    </swiper-item>
+    <block wx:for="{{imgList}}" wx:key="key" wx:for-item="item">
+      <swiper-item>
+        <image src="{{item.pictureUrl}}" data-hotId="{{item.id}}"></image>
+      </swiper-item>
+    </block>
   </swiper>
   <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
     <template is="blogItem" data="{{...item}}" />

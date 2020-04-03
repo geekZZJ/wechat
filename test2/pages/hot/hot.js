@@ -16,7 +16,6 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      contents: '',
       navClass: nav.techList,
       blogs: nav.blogList,
       pageNo: 1
@@ -39,6 +38,7 @@ Page({
     }
 
     //初始获取数据
+    this.onSwiperInit()
     this.init()
   },
 
@@ -70,6 +70,33 @@ Page({
         }
       }
     })
+  },
+
+  //获取轮播图数据
+  onSwiperInit: function(event) {
+    let that = this
+      wx.request({
+          url: app.globalData.host + '/xhblog/blog/hot',
+          method: "GET",
+          header: {
+              'content-type': 'application/json',
+              'token': wx.getStorageSync('token')
+          },
+          success(res) {
+            console.log(res.data)
+              if (res.data.code === '0000') {
+                that.setData({
+                    imgList: res.data.data
+                })
+              } else {
+                  wx.showToast({
+                      title: '轮播图获取失败',
+                      duration: 1000,
+                      icon: "none"
+                  })
+              }
+          }
+      })
   },
 
   //轮播图跳转
@@ -126,14 +153,13 @@ Page({
     } else {
       //取消收藏
       wx.request({
-        url: app.globalData.host + '/xhblog/favorite/' + BlogId,
+        url: app.globalData.host + '/xhblog/favorite/blog/' + BlogId,
         method: "DELETE",
         header: {
           'content-type': 'application/json',
           'token': wx.getStorageSync('token')
         },
         success(res) {
-          console.log(res.data)
           if (res.data.code === '0000') {
             let temp = 'contents[' + tempId + '].isFavorite'
             that.setData({
@@ -154,17 +180,6 @@ Page({
         }
       })
     }
-    //向后台发送收藏数据未做
-
-
-    /*this.setData({
-      [temp]: isFavorite
-    })*/
-    /*wx.showToast({
-      title: isFavorite ? "收藏成功" : "取消收藏",
-      duration: 1000,
-      icon: "success"
-    })*/
   },
 
   //点击跳到搜索页面
@@ -240,7 +255,6 @@ Page({
       },
       success(res) {
         if (res.data.code === '0000') {
-          console.log(res.data.data.data)
           that.setData({
             contents: res.data.data.data
           })
@@ -290,7 +304,6 @@ Page({
       },
       success(res) {
         if (res.data.code === '0000') {
-          console.log(res.data.data.data)
           that.setData({
             contents: res.data.data.data
           })

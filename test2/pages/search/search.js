@@ -1,5 +1,4 @@
 // pages/search/search.js
-let hotSearch = require('../../data/hot-search')
 const app = getApp()
 
 Page({
@@ -16,7 +15,6 @@ Page({
    */
   onLoad: function(options) {
     this.initHot()
-    this.initHistory()
   },
 
   initHot: function(event) {

@@ -20,7 +20,9 @@
     <view class="content-container">
       <text class="content">{{blogDetail.indro}}</text>
     </view>
-    <view class="blog-link" catchtap="jump">原文链接：<text class="blog-link-text" data-url="{{blogDetail.link}}">{{blogDetail.link}}</text></view>
+    <view class="blog-link" catchtap="jump">原文链接：
+      <text class="blog-link-text" data-url="{{blogDetail.link}}">{{blogDetail.link}}</text>
+    </view>
   </view>
   <template is="blogComment" data="{{comments}}" />
   <view class="detail-pos"></view>

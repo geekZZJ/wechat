@@ -15,10 +15,11 @@ Page({
    */
   onLoad: function(options) {
     let formData = options.formdata
-    this.searchList(formData)
     this.setData({
-      searchInput: formData
+      searchInput: formData,
+      pageNo: 1
     })
+    this.searchList(formData)
   },
 
   //根据关键字查找
@@ -28,13 +29,15 @@ Page({
       url: app.globalData.host + '/xhblog/blog/search',
       data: {
         key: formData,
-        pageSize: 20
+        pageSize: 20,
+        pageNo: this.data.pageNo
       },
       header: {
         'content-type': 'application/json', // 默认值
         'token': wx.getStorageSync('token')
       },
       success(res) {
+        console.log(res.data)
         if (res.data.code === '0000') {
           if (res.data.data.data.length > 0) {
             that.setData({
@@ -77,20 +80,77 @@ Page({
 
   //实现收藏，取消收藏
   onCollectionTap: function(event) {
+    let that = this
     let BlogId = event.currentTarget.dataset.blogid
-    let temp = 'contents[' + BlogId + '].collected'
-    let collected = this.data.contents[BlogId].collected
-    collected = !collected
-    //向后台发送收藏数据未做
-
-    this.setData({
-      [temp]: collected
-    })
-    wx.showToast({
-      title: collected ? "收藏成功" : "取消收藏",
-      duration: 1000,
-      icon: "success"
-    })
+    let tempId = 0
+    for (let i = 0; i < this.data.contents.length; i++) {
+      if (this.data.contents[i].id === BlogId) {
+        tempId = i
+      }
+    }
+    let isFavorite = this.data.contents[tempId].isFavorite
+    if (isFavorite === null) {
+      //向后台发送收藏数据
+      wx.request({
+        url: app.globalData.host + '/xhblog/favorite/save',
+        method: "POST",
+        data: {
+          'blogId': BlogId
+        },
+        header: {
+          'content-type': 'application/json',
+          'token': wx.getStorageSync('token')
+        },
+        success(res) {
+          if (res.data.code === '0000') {
+            let temp = 'contents[' + tempId + '].isFavorite'
+            that.setData({
+              [temp]: 1
+            })
+            wx.showToast({
+              title: "收藏成功",
+              duration: 1000,
+              icon: "success"
+            })
+          } else {
+            wx.showToast({
+              title: '收藏失败',
+              duration: 1000,
+              icon: "none"
+            })
+          }
+        }
+      })
+    } else {
+      //取消收藏
+      wx.request({
+        url: app.globalData.host + '/xhblog/favorite/blog/' + BlogId,
+        method: "DELETE",
+        header: {
+          'content-type': 'application/json',
+          'token': wx.getStorageSync('token')
+        },
+        success(res) {
+          if (res.data.code === '0000') {
+            let temp = 'contents[' + tempId + '].isFavorite'
+            that.setData({
+              [temp]: null
+            })
+            wx.showToast({
+              title: "取消收藏",
+              duration: 1000,
+              icon: "success"
+            })
+          } else {
+            wx.showToast({
+              title: '取消收藏失败',
+              duration: 1000,
+              icon: "none"
+            })
+          }
+        }
+      })
+    }
   },
 
   //实现页面跳转
@@ -124,13 +184,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
@@ -152,23 +205,49 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+    let pageNo = this.data.pageNo + 1
+    this.setData({
+      pageNo: pageNo
+    })
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/search',
+      data: {
+        key: this.data.searchInput,
+        pageSize: 20,
+        pageNo: this.data.pageNo
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          if (res.data.data.data.length > 0) {
+            let arr1 = that.data.contents
+            let arr2 = res.data.data.data
+            arr1 = arr1.concat(arr2)
+            that.setData({
+              contents: arr1
+            })
+          } else {
+            wx.showToast({
+              title: '没有更多内容了',
+              duration: 1000,
+              icon: "none"
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
+    })
   }
 })
