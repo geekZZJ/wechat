@@ -1,6 +1,8 @@
 // pages/my/my.js
 let hotData = require('../../data/hot-data')
 let blogerData = require('../../data/bloger-data')
+const app = getApp()
+
 Page({
 
   /**
@@ -25,8 +27,32 @@ Page({
   onLoad: function(options) {
     this.onCollection()
     this.setData({
-      contents: hotData.hotList,
       blogers: blogerData.blogerList
+    })
+  },
+
+  //获取登录信息
+  getInfo: function(event) {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/user/message',
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          that.setData({
+            user: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '用户信息获取失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
     })
   },
 
@@ -38,6 +64,7 @@ Page({
   },
 
   onCollection: function(event) {
+    let that = this
     let i = this.data.i
     if (i < 1) {
       let collection = this.data.collection
@@ -53,6 +80,28 @@ Page({
         k: 0,
         l: 0
       })
+        //向服务器请求收藏信息
+        wx.request({
+            url: app.globalData.host + '/xhblog/favorite/listbyuser',
+            header: {
+                'content-type': 'application/json',
+                'token': wx.getStorageSync('token')
+            },
+            success(res) {
+              console.log(res.data)
+                if (res.data.code === '0000') {
+                    that.setData({
+                        contents: res.data.data
+                    })
+                } else {
+                    wx.showToast({
+                        title: '收藏列表获取失败',
+                        duration: 1000,
+                        image: '/images/icon/xxx.png'
+                    })
+                }
+            }
+        })
     } else {
       return
     }
@@ -147,30 +196,16 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getInfo()
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
 
   },
 
@@ -185,13 +220,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
   }
 })

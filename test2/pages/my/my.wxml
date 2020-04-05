@@ -4,11 +4,11 @@
 <view class="my">
   <view class="my-info">
     <view class="my-avatar">
-      <image src="/images/avatar/5.png"></image>
+      <image src="{{user.avatarUrl}}"></image>
     </view>
     <view class="my-box">
-      <text class="my-name">年少轻狂</text>
-      <text class="iconfont iconnan my-gender-man" wx:if="{{true}}"></text>
+      <text class="my-name">{{user.nickName}}</text>
+      <text class="iconfont iconnan my-gender-man" wx:if="{{user.gender == 1}}"></text>
       <text class="iconfont iconnv my-gender-woman" wx:else></text>
       <text class="my-set" catchtap="onSet">设置</text>
     </view>

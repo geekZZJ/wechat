@@ -1,6 +1,6 @@
 // pages/hot/hot.js
 let nav = require('../../data/nav-data')
-let app = getApp()
+const app = getApp()
 let isInitSelfShow = true
 
 Page({

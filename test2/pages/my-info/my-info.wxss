@@ -38,6 +38,12 @@ page{
     font-size: 26rpx;
 }
 
+.email{
+    margin-left: 20rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .sign{
     margin-left: 20rpx;
 }

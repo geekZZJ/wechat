@@ -1,31 +1,76 @@
 // pages/my-info/my-info.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    genderArr: ['男', '女'],
-    index: 0,
+    genderArr: ['女', '男'],
+    index: 1,
     birthday: '2020-01-01',
     customItem: '全部',
     region: ['广东省', '广州市', '海珠区'],
-    sign: '无'
+    sign: '',
+    email: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let date = new Date()
-    let year = date.getFullYear()
-    let month = (date.getMonth() + 1).toString().padStart(2, "0")
-    let day = (date.getDate()).toString().padStart(2, "0")
-    let curDate = `${year}-${month}-${day}`
-    this.setData({
-      birthday: curDate
+    this.getInfo()
+  },
+
+  //获取用户信息
+  getInfo: function(event) {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/user/message',
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        if (res.data.code === '0000') {
+          console.log(res.data.data)
+          let curDate
+          let email = res.data.data.email
+          let sign = res.data.data.sign
+
+          //获取今天日期
+          if (res.data.data.birthday === null) {
+            let date = new Date()
+            let year = date.getFullYear()
+            let month = (date.getMonth() + 1).toString().padStart(2, "0")
+            let day = (date.getDate()).toString().padStart(2, "0")
+            curDate = `${year}-${month}-${day}`
+          }
+          if (email === null) {
+            email = ''
+          }
+          if (sign === undefined) {
+            sign = ''
+          }
+          that.setData({
+            index: res.data.data.gender,
+            birthday: curDate,
+            email: email,
+            sign: sign,
+            nickName: res.data.data.nickName
+          })
+        } else {
+          wx.showToast({
+            title: '用户信息获取失败',
+            duration: 1000,
+            icon: "none"
+          })
+        }
+      }
     })
   },
+
   genderPicker: function(e) {
     this.setData({
       index: e.detail.value
@@ -41,65 +86,65 @@ Page({
       region: e.detail.value
     })
   },
+  addEmail: function(e) {
+    this.setData({
+      email: e.detail.value
+    })
+  },
   sign: function() {
     wx.navigateTo({
       url: '../textarea/textarea'
     })
   },
+
   updateInfo: function(event) {
-    console.log("更新")
-    //保存数据未写
-    wx.navigateBack({
-      url: '../my/my'
+    let gender = this.data.index
+    let birthday = this.data.birthday
+    let region = this.data.region
+    let email = this.data.email
+    let sign = this.data.sign
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/user/update',
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      data: {
+        "gender": gender,
+        "nickName": this.data.nickName,
+        "birthday": birthday,
+        "position": region,
+        "email": email,
+        "sign": sign
+      },
+      method: "PUT",
+      success(res) {
+        console.log(res.data)
+        if (res.data.code === '0000') {
+          wx.navigateBack({
+            url: '../my/my'
+          })
+        } else {
+          wx.showToast({
+            title: '用户信息修改失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
   }
 })

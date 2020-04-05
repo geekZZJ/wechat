@@ -6,10 +6,10 @@
             <block wx:for="{{comments}}" wx:key="key" wx:for-item="item">
                 <view class="blog-comment-item">
                     <view class="blog-comment-item-left">
-                        <image src="{{item.avatar}}" class="comment-avatar"></image>
+                        <image src="{{item.bloger.avatarUrl}}" class="comment-avatar"></image>
                     </view>
                     <view class="blog-comment-item-right">
-                        <text class="comment-name">{{item.name}}</text>
+                        <text class="comment-name">{{item.bloger.name}}</text>
                         <text class="comment-content">{{item.content}}</text>
                         <text class="comment-time">{{item.commentDate}}</text>
                     </view>

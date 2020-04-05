@@ -19,6 +19,7 @@
 .my-avatar image{
     width: 148rpx;
     height: 148rpx;
+    border-radius: 50%;
 }
 
 .my-box{

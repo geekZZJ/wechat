@@ -17,6 +17,10 @@
         <text class="region">{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
       </view>
     </picker>
+    <view class="picker">
+      <text>邮箱</text>
+      <input class="email" value="{{email}}" bindblur="addEmail" placeholder="请输入邮箱"/>
+    </view>
     <view class="picker" catchtap="sign">
         <text>签名</text>
         <text class="sign">{{sign}}</text>
