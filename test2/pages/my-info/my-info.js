@@ -34,10 +34,16 @@ Page({
       },
       success(res) {
         if (res.data.code === '0000') {
-          console.log(res.data.data)
           let curDate
           let email = res.data.data.email
           let sign = res.data.data.sign
+          let position = res.data.data.position
+          let region
+          if (position === null) {
+            region = that.data.region
+          } else {
+            region = position.split(",")
+          }
 
           //获取今天日期
           if (res.data.data.birthday === null) {
@@ -46,19 +52,21 @@ Page({
             let month = (date.getMonth() + 1).toString().padStart(2, "0")
             let day = (date.getDate()).toString().padStart(2, "0")
             curDate = `${year}-${month}-${day}`
+          } else {
+            curDate = res.data.data.birthday
           }
           if (email === null) {
             email = ''
           }
-          if (sign === undefined) {
+          if (sign === null) {
             sign = ''
           }
           that.setData({
-            index: res.data.data.gender,
             birthday: curDate,
             email: email,
             sign: sign,
-            nickName: res.data.data.nickName
+            nickName: res.data.data.nickName,
+            region: region
           })
         } else {
           wx.showToast({
@@ -76,27 +84,33 @@ Page({
       index: e.detail.value
     })
   },
+
   bindDateChange: function(e) {
     this.setData({
       birthday: e.detail.value
     })
   },
+
   bindRegionChange: function(e) {
     this.setData({
       region: e.detail.value
     })
   },
+
   addEmail: function(e) {
     this.setData({
       email: e.detail.value
     })
   },
+
+  //跳转修改用户签名
   sign: function() {
     wx.navigateTo({
-      url: '../textarea/textarea'
+      url: '../textarea/textarea?sign=' + this.data.sign
     })
   },
 
+  //更新用户信息
   updateInfo: function(event) {
     let gender = this.data.index
     let birthday = this.data.birthday
@@ -104,8 +118,10 @@ Page({
     let email = this.data.email
     let sign = this.data.sign
     let that = this
+    region = `${region[0]},${region[1]},${region[2]}`
     wx.request({
       url: app.globalData.host + '/xhblog/user/update',
+      method: "PUT",
       header: {
         'content-type': 'application/json',
         'token': wx.getStorageSync('token')
@@ -118,10 +134,16 @@ Page({
         "email": email,
         "sign": sign
       },
-      method: "PUT",
       success(res) {
-        console.log(res.data)
         if (res.data.code === '0000') {
+          var pages = getCurrentPages()
+          var prevPage = pages[pages.length - 2]
+          let gender = 'user.gender'
+          let sign = 'user.sign'
+          prevPage.setData({
+            [gender]: that.data.index,
+            [sign]: that.data.sign
+          })
           wx.navigateBack({
             url: '../my/my'
           })
@@ -134,17 +156,5 @@ Page({
         }
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
   }
 })

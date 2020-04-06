@@ -1,13 +1,12 @@
 <template name="blogBottom">
-    <view class="fix-bottom">
-        <view class="iconfont iconpinglun fix-comment" catchtap="commit"></view>
-        <view class="fix-commentment" catchtap="onCommit" data-blogId="{{id}}">
-            <input class="bottom-comment" placeholder-class="place-comment" type="text"
-                   placeholder="想对Ta说点什么..." disabled='true' />
-        </view>
-        <view wx:if="{{isPraise}}" class="iconfont icondianzan fix-like1" catchtap="fixLike" data-blogId="{{id}}"></view>
-        <view wx:else class="iconfont icondianzan fix-like" catchtap="fixLike" data-blogId="{{id}}"></view>
-        <view wx:if="{{isFavorite}}" class="iconfont iconbuoumaotubiao44 fix-collection1" data-blogId="{{id}}" catchtap="fixCollection"></view>
-        <view wx:else class="iconfont iconbuoumaotubiao44 fix-collection" data-blogId="{{id}}" catchtap="fixCollection"></view>
+  <view class="fix-bottom">
+    <view class="iconfont iconpinglun fix-comment" catchtap="commit"></view>
+    <view class="fix-commentment" catchtap="onCommit" data-blogId="{{id}}">
+      <input class="bottom-comment" placeholder-class="place-comment" type="text" placeholder="想对Ta说点什么..." disabled='true' />
     </view>
+    <view wx:if="{{isPraise}}" class="iconfont icondianzan fix-like1" catchtap="fixLike" data-blogId="{{id}}"></view>
+    <view wx:else class="iconfont icondianzan fix-like" catchtap="fixLike" data-blogId="{{id}}"></view>
+    <view wx:if="{{isFavorite}}" class="iconfont iconbuoumaotubiao44 fix-collection1" data-blogId="{{id}}" catchtap="fixCollection"></view>
+    <view wx:else class="iconfont iconbuoumaotubiao44 fix-collection" data-blogId="{{id}}" catchtap="fixCollection"></view>
+  </view>
 </template>

@@ -1,15 +1,14 @@
 {
   "pages": [
-    "pages/subscribe/subscribe",
+    "pages/welcome/welcome",
     "pages/my/my",
     "pages/my-info/my-info",
+    "pages/subscribe/subscribe",
     "pages/hot/hot",
-    "pages/welcome/welcome",
-
-    "pages/recommend/recommend",
     "pages/search/search",
     "pages/search-content/search-content",
     "pages/choose/choose",
+    "pages/recommend/recommend",
     "pages/commit/commit",
     "pages/textarea/textarea",
     "pages/blog-detail/blog-detail",

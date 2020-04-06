@@ -1,4 +1,6 @@
 // pages/textarea/textarea.js
+const app = getApp()
+
 Page({
 
   /**
@@ -13,23 +15,52 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.setData({
+      content: options.sign
+    })
   },
+
+  //获取输入框中的值
   bindTextArea: function(e) {
     this.setData({
       content: e.detail.value
     })
   },
+
+  //保存用户签名
   save: function(event) {
+    let that = this
     if (this.data.content) {
       //向后台发送数据
-      wx.showToast({
-          title: '保存成功',
-          duration: 1000,
-          icon: "success"
-      })
-      wx.navigateBack({
-          url: '../my-info/my-info'
+      wx.request({
+        url: app.globalData.host + '/xhblog/user/sign',
+        method: "PUT",
+        data: {
+          'sign': this.data.content
+        },
+        header: {
+          'content-type': 'application/json',
+          'token': wx.getStorageSync('token')
+        },
+        success(res) {
+          console.log(res.data)
+          if (res.data.code === '0000') {
+            var pages = getCurrentPages()
+            var prevPage = pages[pages.length - 2]
+            prevPage.setData({
+              sign: that.data.content
+            })
+            wx.navigateBack({
+              url: '../my-info/my-info'
+            })
+          } else {
+            wx.showToast({
+              title: '保存失败',
+              duration: 1000,
+              image: '/images/icon/xxx.png'
+            })
+          }
+        }
       })
     } else {
       wx.showToast({
@@ -38,54 +69,5 @@ Page({
         icon: "none"
       })
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
 })

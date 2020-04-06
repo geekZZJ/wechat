@@ -56,15 +56,15 @@ Page({
         if (res.data.code === '0000') {
           let len = res.data.data.length
           let hotcomment = {
-              blogId: id,
-              length: len
+            blogId: id,
+            length: len
           }
           that.setData({
             comments: res.data.data
           })
           wx.setStorage({
-              key: "hotcomment",
-              data: hotcomment
+            key: "hotcomment",
+            data: hotcomment
           })
         } else {
           wx.showToast({

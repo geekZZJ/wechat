@@ -14,8 +14,8 @@
     </view>
     <view class="my-sign">
       <text class="my-sign-title">我的签名：</text>
-      <text class="my-sign-content" wx:if="{{true}}">我的内心毫无波动，暂时什么都没留下。</text>
-      <text class="my-sign-content" wx:else></text>
+      <text class="my-sign-content" wx:if="{{!user.sign}}">我的内心毫无波动，暂时什么都没留下。</text>
+      <text class="my-sign-content" wx:else>{{user.sign}}</text>
     </view>
   </view>
   <view class="my-class">

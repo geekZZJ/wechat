@@ -1,11 +1,12 @@
 <template name="blogerItem">
   <view class="bloger">
     <view class="bloger-img">
-      <image src="{{avatar}}"></image>
+      <image src="{{bloger.avatarUrl}}"></image>
     </view>
     <view class="bloger-text">
-      <view class="bloger-name">{{name}}</view>
-      <view class="bloger-sign">{{sign}}</view>
+      <view class="bloger-name">{{bloger.name}}</view>
+      <view class="bloger-sign" wx:if="{{!bloger.sign}}">此人很懒，什么都没有写</view>
+      <view class="bloger-sign">{{bloger.sign}}</view>
     </view>
   </view>
 </template>
