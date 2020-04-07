@@ -359,7 +359,6 @@ Page({
 
   //点击tabbar刷新数据
   onTabItemTap(item) {
-    this.onRefreshData()
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 400

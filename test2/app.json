@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/hot/hot",
     "pages/welcome/welcome",
     "pages/my/my",
     "pages/my-info/my-info",
     "pages/subscribe/subscribe",
-    "pages/hot/hot",
     "pages/search/search",
     "pages/search-content/search-content",
     "pages/choose/choose",
