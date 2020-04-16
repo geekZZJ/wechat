@@ -8,9 +8,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
@@ -34,13 +32,48 @@ Page({
           blogs: this.data.blogs
         }
       })
-    } catch (e) {
-      console.log(e)
+    } catch (ex) {
+      console.log(ex)
     }
 
     //初始获取数据
     this.onSwiperInit()
     this.init()
+  },
+
+  //初始获取数据
+  init: function() {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/list',
+      data: {
+        'typeId': this.data.techCheckId ? this.data.techCheckId : 1101,
+        'platId': this.data.blogCheckId ? this.data.blogCheckId : 888,
+        'pageSize': 20
+      },
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        that.setData({
+          contents: []
+        })
+        console.log(res.data)
+        if (res.data.code === '0000') {
+          wx.hideLoading()
+          that.setData({
+            contents: res.data.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
+    })
   },
 
   //实现页面跳转
@@ -102,6 +135,7 @@ Page({
   //轮播图跳转
   onSwiperTap: function(event) {
     let hotId = event.target.dataset.hotid
+    console.log(hotId)
     wx.navigateTo({
       url: "../blog-detail/blog-detail?id=" + hotId
     })
@@ -189,48 +223,22 @@ Page({
     })
   },
 
-  //初始获取数据
-  init: function() {
-    let that = this
-    wx.request({
-      url: app.globalData.host + '/xhblog/blog/list',
-      data: {
-        'typeId': 0,
-        'platId': 1006,
-        'pageSize': 20
-      },
-      header: {
-        'content-type': 'application/json',
-        'token': wx.getStorageSync('token')
-      },
-      success(res) {
-        console.log(res.data)
-        if (res.data.code === '0000') {
-          that.setData({
-            contents: res.data.data.data
-          })
-        } else {
-          wx.showToast({
-            title: '请求失败',
-            duration: 1000,
-            image: '/images/icon/xxx.png'
-          })
-        }
-      }
-    })
-  },
-
   // 根据技术分类更新页面
   onNavClass: function(event) {
-    let that = this
+    wx.showLoading({
+        title: '加载中',
+        mask: true
+    })
     let techId = event.currentTarget.dataset.techid
     let navClass = this.data.navClass
     let tempId = 0
     for (let i = 0; i < navClass.length; i++) {
       let str = 'navClass[' + i + '].checked'
+      //点击的是第几个选项
       if (navClass[i].technologyId === techId) {
         tempId = i
       }
+      //将所有选项设置为false
       this.setData({
         [str]: false
       })
@@ -240,38 +248,16 @@ Page({
       [temp]: true,
       techCheckId: techId
     })
+    //重新加载视图
     this.onLoad()
-    //发送请求
-    wx.request({
-      url: app.globalData.host + '/xhblog/blog/list',
-      data: {
-        'typeId': techId ? techId : 0,
-        'platId': this.data.blogCheckId ? this.data.blogCheckId : 0,
-        'pageSize': 20
-      },
-      header: {
-        'content-type': 'application/json',
-        'token': wx.getStorageSync('token')
-      },
-      success(res) {
-        if (res.data.code === '0000') {
-          that.setData({
-            contents: res.data.data.data
-          })
-        } else {
-          wx.showToast({
-            title: '请求失败',
-            duration: 1000,
-            image: '/images/icon/xxx.png'
-          })
-        }
-      }
-    })
   },
 
   // 根据博客平台更新页面
   onNavBlog: function(event) {
-    let that = this
+    wx.showLoading({
+        title: '加载中',
+        mask: true
+    })
     let blogId = event.currentTarget.dataset.blogid
     let blogs = this.data.blogs
     let tempId = 0
@@ -290,40 +276,14 @@ Page({
       blogCheckId: blogId
     })
     this.onLoad()
-    //发送请求
-    wx.request({
-      url: app.globalData.host + '/xhblog/blog/list',
-      data: {
-        'platId': blogId ? blogId : 0,
-        'typeId': this.data.techCheckId ? this.data.techCheckId : 0,
-        'pageSize': 20
-      },
-      header: {
-        'content-type': 'application/json',
-        'token': wx.getStorageSync('token')
-      },
-      success(res) {
-        if (res.data.code === '0000') {
-          that.setData({
-            contents: res.data.data.data
-          })
-        } else {
-          wx.showToast({
-            title: '请求失败',
-            duration: 1000,
-            image: '/images/icon/xxx.png'
-          })
-        }
-      }
-    })
   },
 
   //封装刷新数据
   onRefreshData: function(event) {
     let pageNo = Math.floor(Math.random() * 10 + 1)
     let that = this
-    let techId = this.data.techCheckId ? this.data.techCheckId : 0
-    let blogCheckId = this.data.blogCheckId ? this.data.blogCheckId : 1006
+    let techId = this.data.techCheckId ? this.data.techCheckId : 1101
+    let blogCheckId = this.data.blogCheckId ? this.data.blogCheckId : 888
     this.setData({
       pageNo: pageNo
     })
@@ -341,7 +301,11 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
+        that.setData({
+          contents: []
+        })
         if (res.data.code === '0000') {
+          wx.hideLoading()
           that.setData({
             contents: res.data.data.data
           })
@@ -357,7 +321,7 @@ Page({
     })
   },
 
-  //点击tabbar刷新数据
+  //点击tabbar回到顶部
   onTabItemTap(item) {
     wx.pageScrollTo({
       scrollTop: 0,
@@ -389,7 +353,7 @@ Page({
       // 清队上次通信数据
       wx.removeStorageSync('hotdata')
     } else {
-
+      console.log('localStorage中无数据')
     }
   },
 
@@ -411,13 +375,15 @@ Page({
       // 清队上次通信数据
       wx.removeStorageSync('hotcomment')
     } else {
-
+      console.log('localStorage中无数据')
     }
   },
 
   onShow: function() {
     // 页面初始化也会触发onShow，这种情况可能不需要检查通信
-    if (isInitSelfShow) return
+    if (isInitSelfShow) {
+      return
+    }
 
     let hotdata = wx.getStorageSync('hotdata')
     let hotcomment = wx.getStorageSync('hotcomment')
@@ -435,6 +401,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    wx.showLoading({
+        title: '加载中',
+        mask: true
+    })
     this.onRefreshData()
   },
 
@@ -444,8 +414,8 @@ Page({
   onReachBottom: function() {
     let pageNo = this.data.pageNo + 1
     let that = this
-    let techId = this.data.techCheckId ? this.data.techCheckId : 0
-    let blogCheckId = this.data.blogCheckId ? this.data.blogCheckId : 1006
+    let techId = this.data.techCheckId ? this.data.techCheckId : 1101
+    let blogCheckId = this.data.blogCheckId ? this.data.blogCheckId : 888
     this.setData({
       pageNo: pageNo
     })

@@ -1,16 +1,16 @@
 let contents = [
     {
-    hotId: 0,
-    title: "python合并多个txt文件",
-    abstract: "合并一个文件夹下的多个txt文件需要注意一下几点:注意必须将文件放在同一目",
-    heat: "1049万",
-    headImgSrc: "/images/avatar/1.png",
-    author: "樱桃木",
-    dateTime: "2020-1-1",
-    content: "随着2019的过去，2020迎来了第六年的码农生涯，过往如烟挥之即散，所以我习惯通过一些关键词来凝结这一年的收获，而2019我总结的关键词是：技术大会、焦虑、耐心、学习、竞争力。",
-    commentCount: 1,
-    collected: false,
-    like: true
+        hotId: 0,
+        title: "python合并多个txt文件",
+        abstract: "合并一个文件夹下的多个txt文件需要注意一下几点:注意必须将文件放在同一目",
+        heat: "1049万",
+        headImgSrc: "/images/avatar/1.png",
+        author: "樱桃木",
+        dateTime: "2020-1-1",
+        content: "随着2019的过去，2020迎来了第六年的码农生涯，过往如烟挥之即散，所以我习惯通过一些关键词来凝结这一年的收获，而2019我总结的关键词是：技术大会、焦虑、耐心、学习、竞争力。",
+        commentCount: 1,
+        collected: false,
+        like: true
     },
     {
         hotId: 1,

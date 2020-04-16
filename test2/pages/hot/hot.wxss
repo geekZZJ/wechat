@@ -1,9 +1,10 @@
 /* pages/hot/hot.wxss */
+
 @import "../template/blog-item/blog-item-template.wxss"
 @import "hot-header/hot-header-template.wxss"
 @import "hot-nav/hot-nav-template.wxss"
 
-swiper image{
-    width: 100%;
-    height: 500rpx;
+swiper image {
+  width: 100%;
+  height: 500rpx;
 }
