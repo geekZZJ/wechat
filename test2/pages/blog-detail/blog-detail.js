@@ -29,8 +29,18 @@ Page({
       },
       success(res) {
         if (res.data.code === '0000') {
+          console.log(res.data)
+          let readNum = res.data.data.hot
+          let readData = {
+            blogId: id,
+            read: readNum
+          }
           that.setData({
             blogDetail: res.data.data
+          })
+          wx.setStorage({
+            key: "readData",
+            data: readData
           })
         } else {
           wx.showToast({

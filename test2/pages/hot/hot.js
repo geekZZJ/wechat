@@ -226,8 +226,8 @@ Page({
   // 根据技术分类更新页面
   onNavClass: function(event) {
     wx.showLoading({
-        title: '加载中',
-        mask: true
+      title: '加载中',
+      mask: true
     })
     let techId = event.currentTarget.dataset.techid
     let navClass = this.data.navClass
@@ -255,8 +255,8 @@ Page({
   // 根据博客平台更新页面
   onNavBlog: function(event) {
     wx.showLoading({
-        title: '加载中',
-        mask: true
+      title: '加载中',
+      mask: true
     })
     let blogId = event.currentTarget.dataset.blogid
     let blogs = this.data.blogs
@@ -379,6 +379,28 @@ Page({
     }
   },
 
+  //刷新热度数据
+  onRefreshRead: function(data) {
+    if (data) {
+      let id = parseInt(data.blogId)
+      let value = data.read
+      let tempId = 0
+      for (let i = 0; i < this.data.contents.length; i++) {
+        if (this.data.contents[i].id === id) {
+          tempId = i
+        }
+      }
+      let temp = 'contents[' + tempId + '].hot'
+      this.setData({
+        [temp]: value
+      })
+      // 清队上次通信数据
+      wx.removeStorageSync('readData')
+    } else {
+      console.log('localStorage中无数据')
+    }
+  },
+
   onShow: function() {
     // 页面初始化也会触发onShow，这种情况可能不需要检查通信
     if (isInitSelfShow) {
@@ -387,10 +409,14 @@ Page({
 
     let hotdata = wx.getStorageSync('hotdata')
     let hotcomment = wx.getStorageSync('hotcomment')
+    let readData = wx.getStorageSync('readData')
+    console.log(readData)
     //刷新点赞信息
     this.onRefreshHot(hotdata)
     //刷新评论数据
     this.onRefreshCom(hotcomment)
+    //刷新热度数据
+    this.onRefreshRead(readData)
   },
 
   onHide: function() {
@@ -402,8 +428,8 @@ Page({
    */
   onPullDownRefresh: function() {
     wx.showLoading({
-        title: '加载中',
-        mask: true
+      title: '加载中',
+      mask: true
     })
     this.onRefreshData()
   },
