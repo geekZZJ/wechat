@@ -483,6 +483,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
+  //获取收藏数据
   collection: function() {
     let pageNo = this.data.pageNo + 1
     this.setData({
@@ -526,6 +527,7 @@ Page({
     })
   },
 
+  //获取关注博主数据
   subscribe: function() {
     let pageNo = this.data.pageNo + 1
     this.setData({
@@ -569,6 +571,7 @@ Page({
     })
   },
 
+  //获取评论数据
   comment: function() {
     let pageNo = this.data.pageNo + 1
     this.setData({
@@ -576,7 +579,7 @@ Page({
     })
     let that = this
     wx.request({
-      url: app.globalData.host + '/xhblog/follow/listbyuser',
+      url: app.globalData.host + '/xhblog/blog/comment',
       data: {
         pageSize: 10,
         pageNo: this.data.pageNo
@@ -613,6 +616,7 @@ Page({
     })
   },
 
+  //获取历史记录数据
   history: function() {
     let pageNo = this.data.pageNo + 1
     this.setData({
@@ -630,6 +634,7 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
+          console.log(res.data)
         if (res.data.code === '0000') {
           if (res.data.data.data.length > 0) {
             let arr1 = that.data.contents
