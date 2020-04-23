@@ -17,6 +17,7 @@ Page({
     this.initHot()
   },
 
+  //获取热搜数据
   initHot: function(event) {
     let that = this
     wx.request({
@@ -42,6 +43,7 @@ Page({
     })
   },
 
+  //获取历史记录
   initHistory: function(event) {
     let that = this
     wx.request({
@@ -67,6 +69,7 @@ Page({
     })
   },
 
+  //清除所有历史记录
   clearAll: function(event) {
     let that = this
     //发送请求未做
@@ -93,6 +96,7 @@ Page({
     })
   },
 
+  //清除输入框中内容
   clearContent: function(event) {
     this.setData({
       searchInput: '',
@@ -100,7 +104,7 @@ Page({
     })
   },
 
-  //热搜
+  //根据热搜词语搜索
   hotSearch: function(event) {
     let keyword = event.target.dataset.keyword
     wx.navigateTo({

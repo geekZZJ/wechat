@@ -3,8 +3,8 @@
 <view class="recommend">
   <view class="recommend-nav">
     <view class="recommend-nav-title">
-      <view class="recomend-nav-title-selected" catchtap="maybe">你可能喜欢</view>
-      <view catchtap="allLook">大家都在看</view>
+      <view class="{{status === 1?'recomend-nav-title-selected':''}}" catchtap="maybe">你可能喜欢</view>
+      <view class="{{status === 0?'recomend-nav-title-selected':''}}" catchtap="allLook">大家都在看</view>
     </view>
     <view class="recommend-nav-change" catchtap="change">
       <text class="iconfont iconweibiaoti--"></text>

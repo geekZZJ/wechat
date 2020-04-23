@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/recommend/recommend",
+    "pages/search-content/search-content",
+    "pages/search/search",
     "pages/hot/hot",
     "pages/choose/choose",
     "pages/blog-detail/blog-detail",
@@ -9,9 +12,6 @@
     "pages/my/my",
     "pages/my-info/my-info",
     "pages/subscribe/subscribe",
-    "pages/search/search",
-    "pages/search-content/search-content",
-    "pages/recommend/recommend",
     "pages/textarea/textarea"
   ],
   "window": {

@@ -38,7 +38,6 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
-        console.log(res.data)
         if (res.data.code === '0000') {
           if (res.data.data.data.length > 0) {
             that.setData({
@@ -234,19 +233,46 @@ Page({
     }
   },
 
+  //刷新热度数据
+  onRefreshRead: function(data) {
+    if (data) {
+      let id = parseInt(data.blogId)
+      let value = data.read
+      let tempId = 0
+      for (let i = 0; i < this.data.contents.length; i++) {
+        if (this.data.contents[i].id === id) {
+          tempId = i
+        }
+      }
+      let temp = 'contents[' + tempId + '].hot'
+      this.setData({
+        [temp]: value
+      })
+      // 清队上次通信数据
+      wx.removeStorageSync('readData')
+    } else {
+      console.log('localStorage中无数据')
+    }
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
     // 页面初始化也会触发onShow，这种情况可能不需要检查通信
-    if (isInitSelfShow) return
+    if (isInitSelfShow) {
+      return
+    }
 
     let hotdata = wx.getStorageSync('hotdata')
     let hotcomment = wx.getStorageSync('hotcomment')
+    let readData = wx.getStorageSync('readData')
     //刷新点赞信息
     this.onRefreshHot(hotdata)
     //刷新评论数据
     this.onRefreshCom(hotcomment)
+    //刷新热度数据
+    this.onRefreshRead(readData)
   },
 
   /**
@@ -254,13 +280,6 @@ Page({
    */
   onHide: function() {
     isInitSelfShow = false
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
   },
 
   /**

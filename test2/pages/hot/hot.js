@@ -79,30 +79,8 @@ Page({
   //实现页面跳转
   onBlogTap: function(event) {
     let blogId = event.currentTarget.dataset.blogid
-    //添加浏览记录
-    wx.request({
-      url: app.globalData.host + '/xhblog/browse/save',
-      method: "POST",
-      data: {
-        'blogId': blogId
-      },
-      header: {
-        'content-type': 'application/json',
-        'token': wx.getStorageSync('token')
-      },
-      success(res) {
-        if (res.data.code === '0000') {
-          wx.navigateTo({
-            url: "../blog-detail/blog-detail?id=" + blogId
-          })
-        } else {
-          wx.showToast({
-            title: '浏览记录添加失败',
-            duration: 1000,
-            icon: "none"
-          })
-        }
-      }
+    wx.navigateTo({
+      url: "../blog-detail/blog-detail?id=" + blogId
     })
   },
 
@@ -410,7 +388,6 @@ Page({
     let hotdata = wx.getStorageSync('hotdata')
     let hotcomment = wx.getStorageSync('hotcomment')
     let readData = wx.getStorageSync('readData')
-    console.log(readData)
     //刷新点赞信息
     this.onRefreshHot(hotdata)
     //刷新评论数据
