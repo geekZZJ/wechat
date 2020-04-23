@@ -5,7 +5,5 @@
   <view class="textarea-wrap">
     <textarea bindinput="bindTextArea" value="{{content}}" placeholder="请输入你的签名..." maxlength="{{maxlength}}" />
   </view>
-  <view class="save">
-    <button type="primary" plain="true" size="mini" catchtap="save">保存</button>
-  </view>
+  <view class="save" catchtap="save">保存</view>
 </view>

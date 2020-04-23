@@ -28,7 +28,7 @@ Page({
     this.onCollection()
   },
 
-  //获取登录信息
+  //获取用户信息信息
   getInfo: function(event) {
     let that = this
     wx.request({
@@ -38,6 +38,7 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
+        console.log(res.data)
         if (res.data.code === '0000') {
           that.setData({
             user: res.data.data

@@ -25,8 +25,6 @@
       <text>签名</text>
       <text class="sign">{{sign}}</text>
     </view>
-    <view class="updateInfo">
-      <button type="primary" plain="true" size="mini" catchtap="updateInfo">更新</button>
-    </view>
+    <view class="updateInfo" catchtap="updateInfo">更新</view>
   </view>
 </view>

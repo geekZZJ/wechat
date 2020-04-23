@@ -43,7 +43,6 @@ Page({
           'token': wx.getStorageSync('token')
         },
         success(res) {
-          console.log(res.data)
           if (res.data.code === '0000') {
             var pages = getCurrentPages()
             var prevPage = pages[pages.length - 2]

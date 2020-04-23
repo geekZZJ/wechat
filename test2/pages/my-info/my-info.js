@@ -8,7 +8,7 @@ Page({
    */
   data: {
     genderArr: ['女', '男'],
-    index: 1,
+    index: 0,
     birthday: '2020-01-01',
     customItem: '全部',
     region: ['广东省', '广州市', '海珠区'],
@@ -33,6 +33,7 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
+        console.log(res.data)
         if (res.data.code === '0000') {
           let curDate
           let email = res.data.data.email
@@ -59,14 +60,15 @@ Page({
             email = ''
           }
           if (sign === null) {
-            sign = ''
+            sign = '无'
           }
           that.setData({
             birthday: curDate,
             email: email,
             sign: sign,
             nickName: res.data.data.nickName,
-            region: region
+            region: region,
+            index: res.data.data.gender
           })
         } else {
           wx.showToast({
@@ -135,6 +137,7 @@ Page({
         "sign": sign
       },
       success(res) {
+        console.log(res.data)
         if (res.data.code === '0000') {
           var pages = getCurrentPages()
           var prevPage = pages[pages.length - 2]
