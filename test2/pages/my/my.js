@@ -92,14 +92,25 @@ Page({
           'pageSize': 10
         },
         success(res) {
+          that.setData({
+            contents: []
+          })
           console.log(res.data)
           if (res.data.code === '0000') {
-            that.setData({
-              contents: res.data.data.data
-            })
+            if (res.data.data.data.length > 0) {
+              that.setData({
+                contents: res.data.data.data,
+                isShow: false
+              })
+            } else {
+              that.setData({
+                isShow: true,
+                contents: []
+              })
+            }
           } else {
             wx.showToast({
-              title: '收藏列表获取失败',
+              title: '请求失败',
               duration: 1000,
               image: '/images/icon/xxx.png'
             })
@@ -143,9 +154,17 @@ Page({
         success(res) {
           console.log(res.data)
           if (res.data.code === '0000') {
-            that.setData({
-              blogers: res.data.data.data
-            })
+            if (res.data.data.data.length > 0) {
+              that.setData({
+                blogers: res.data.data.data,
+                isShow: false
+              })
+            } else {
+              that.setData({
+                isShow: true,
+                blogers: []
+              })
+            }
           } else {
             wx.showToast({
               title: '请求失败',
@@ -162,6 +181,7 @@ Page({
 
   //评论列表
   onComment: function(event) {
+    let that = this
     let k = this.data.k
     if (k < 1) {
       let comment = this.data.comment
@@ -177,6 +197,43 @@ Page({
         j: 0,
         k: ++k,
         l: 0
+      })
+      //向服务器请求收藏信息
+      wx.request({
+        url: app.globalData.host + '/xhblog/blog/comment',
+        header: {
+          'content-type': 'application/json',
+          'token': wx.getStorageSync('token')
+        },
+        data: {
+          'pageNo': 1,
+          'pageSize': 10
+        },
+        success(res) {
+          that.setData({
+            contents: []
+          })
+          console.log(res.data)
+          if (res.data.code === '0000') {
+            if (res.data.data.data.length > 0) {
+              that.setData({
+                contents: res.data.data.data,
+                isShow: false
+              })
+            } else {
+              that.setData({
+                isShow: true,
+                contents: []
+              })
+            }
+          } else {
+            wx.showToast({
+              title: '请求失败',
+              duration: 1000,
+              image: '/images/icon/xxx.png'
+            })
+          }
+        }
       })
     } else {
       return
@@ -213,11 +270,22 @@ Page({
           'token': wx.getStorageSync('token')
         },
         success(res) {
+          that.setData({
+            contents: []
+          })
           console.log(res.data)
           if (res.data.code === '0000') {
-            that.setData({
-              contents: res.data.data.data
-            })
+            if (res.data.data.data.length > 0) {
+              that.setData({
+                contents: res.data.data.data,
+                isShow: false
+              })
+            } else {
+              that.setData({
+                isShow: true,
+                contents: []
+              })
+            }
           } else {
             wx.showToast({
               title: '请求失败',
@@ -230,7 +298,6 @@ Page({
     } else {
       return
     }
-    // 发送请求
   },
 
   //实现页面跳转
@@ -365,6 +432,28 @@ Page({
 
     }
   },
+
+  //刷新热度数据
+  onRefreshRead: function(data) {
+    if (data) {
+      let id = parseInt(data.blogId)
+      let value = data.read
+      let tempId = 0
+      for (let i = 0; i < this.data.contents.length; i++) {
+        if (this.data.contents[i].id === id) {
+          tempId = i
+        }
+      }
+      let temp = 'contents[' + tempId + '].hot'
+      this.setData({
+        [temp]: value
+      })
+      // 清队上次通信数据
+      wx.removeStorageSync('readData')
+    } else {
+      console.log('localStorage中无数据')
+    }
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -375,10 +464,13 @@ Page({
 
     let hotdata = wx.getStorageSync('hotdata')
     let hotcomment = wx.getStorageSync('hotcomment')
+    let readData = wx.getStorageSync('readData')
     //刷新点赞信息
     this.onRefreshHot(hotdata)
     //刷新评论数据
     this.onRefreshCom(hotcomment)
+    //刷新热度数据
+    this.onRefreshRead(readData)
   },
 
   /**
