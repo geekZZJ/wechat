@@ -1,1 +1,60 @@
 /* pages/bloger/bloger.wxss */
+@import "../template/blog-item/blog-item-template.wxss"
+
+.bloger{
+    display: flex;
+    flex-direction: column;
+}
+
+.bloger-header{
+    background-color: #b3d4db;
+    height: 180rpx;
+    position: relative;
+}
+
+.bloger-info image{
+    width: 124rpx;
+    height: 124rpx;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    position: absolute;
+    top: 80rpx;
+    left: 40rpx;
+}
+
+.bloger-plat{
+    position: absolute;
+    left: 190rpx;
+    bottom: 10rpx;
+    font-size: 24rpx;
+    color: #fff;
+}
+
+.bloger-detail{
+    padding: 50rpx 30rpx 0 30rpx;
+    border-bottom: 5px solid #e7e7e7;
+}
+
+.bloger-name{
+    margin-bottom: 30rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.score{
+    display: flex;
+    flex-direction: row;
+    font-size: 26rpx;
+    justify-content: space-between;
+}
+
+.score text{
+    color: #666;
+    font-size: 24rpx;
+}
+
+.bloger-sign{
+    color: #666;
+    font-size: 24rpx;
+    margin: 16rpx 0 30rpx 0;
+}

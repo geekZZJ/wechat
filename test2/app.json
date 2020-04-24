@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/my/my",
+    "pages/bloger/bloger",
     "pages/my-info/my-info",
     "pages/textarea/textarea",
     "pages/subscribe/subscribe",
@@ -12,8 +13,7 @@
     "pages/blog-detail/blog-detail",
     "pages/commit/commit",
     "pages/web-view/web-view",
-    "pages/welcome/welcome",
-    "pages/bloger/bloger"
+    "pages/welcome/welcome"
   ],
   "window": {
     "navigationBarTitleText": "深度博客",

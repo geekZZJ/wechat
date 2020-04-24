@@ -1,5 +1,5 @@
 <template name="blogerItem">
-  <view class="bloger">
+  <view class="bloger" data-BlogerId="{{blogerId}}" catchtap="onBlogerTap">
     <view class="bloger-img">
       <image src="{{bloger.avatarUrl}}"></image>
     </view>

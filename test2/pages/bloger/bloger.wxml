@@ -1,2 +1,23 @@
 <!--pages/bloger/bloger.wxml-->
-<text>pages/bloger/bloger.wxml</text>
+<import src="../template/blog-item/blog-item-template.wxml" />
+<view class="bloger">
+    <view class="bloger-header">
+        <view class="bloger-info">
+            <image src="{{blogerInfo.avatarUrl}}"></image>
+        </view>
+        <text class="bloger-plat">平台: {{platName}}</text>
+    </view>
+    <view class="bloger-detail">
+        <view class="bloger-name">{{blogerInfo.name}}</view>
+        <view class="score">
+            <view><text>粉丝 </text>{{blogerInfo.fans}}</view>
+            <view><text>获赞 </text>{{blogerInfo.praise}}</view>
+            <view><text>评论 </text>{{blogerInfo.comment}}</view>
+            <view><text>访问 </text>{{blogerInfo.visit}}</view>
+        </view>
+        <view class="bloger-sign">此人很懒，什么都没有写</view>
+    </view>
+    <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
+        <template is="blogItem" data="{{...item}}" />
+    </block>
+</view>

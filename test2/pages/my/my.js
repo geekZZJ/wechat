@@ -61,6 +61,14 @@ Page({
     })
   },
 
+  //跳转到博主详情页
+  onBlogerTap: function(event) {
+    let blogerId = event.currentTarget.dataset.blogerid
+    wx.navigateTo({
+      url: "../bloger/bloger?id=" + blogerId
+    })
+  },
+
   //收藏列表
   onCollection: function(event) {
     let that = this
@@ -634,7 +642,7 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
-          console.log(res.data)
+        console.log(res.data)
         if (res.data.code === '0000') {
           if (res.data.data.data.length > 0) {
             let arr1 = that.data.contents
