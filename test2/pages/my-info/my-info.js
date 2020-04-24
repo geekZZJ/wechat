@@ -121,6 +121,10 @@ Page({
     let sign = this.data.sign
     let that = this
     region = `${region[0]},${region[1]},${region[2]}`
+    var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/
+    if (reg.test(email)) {} else {
+      return
+    }
     wx.request({
       url: app.globalData.host + '/xhblog/user/update',
       method: "PUT",
@@ -150,6 +154,28 @@ Page({
           wx.navigateBack({
             url: '../my/my'
           })
+          return
+        }
+        if (res.data.code === '0110') {
+          wx.showToast({
+            title: '邮箱格式错误',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+          return
+        }
+        if (res.data.code === '8000') {
+          wx.showToast({
+            title: '邮件已发至你的邮箱，激活即可体验更多功能',
+            duration: 2000,
+            icon: "none"
+          })
+          setTimeout(() => {
+            wx.navigateBack({
+              url: '../my/my'
+            })
+          }, 2000)
+          return
         } else {
           wx.showToast({
             title: '用户信息修改失败',
