@@ -292,10 +292,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-      wx.showLoading({
-          title: '加载中',
-          mask: true
-      })
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     let pageNo = this.data.pageNo + 1
     let that = this
     this.setData({
@@ -315,7 +315,7 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
-          wx.hideLoading()
+        wx.hideLoading()
         if (res.data.code === '0000') {
           let arr1 = that.data.contents
           let arr2 = res.data.data.data

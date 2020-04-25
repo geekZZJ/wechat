@@ -1,0 +1,13 @@
+<template name="moreItem">
+  <view class="more-container" data-blogerId="{{id}}" catchtap="goMore">
+    <view class="more-title">{{title}}</view>
+    <view class="more-detail">
+      <view>博客
+        <text>{{bloger.name}}</text>
+      </view>
+      <view class="more-hot">热度
+        <text>{{hot}}</text>
+      </view>
+    </view>
+  </view>
+</template>

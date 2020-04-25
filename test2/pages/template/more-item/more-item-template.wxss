@@ -1,0 +1,24 @@
+.more-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #d7d7d7;
+  padding: 30rpx 30rpx;
+  background-color: #f5f6f7;
+}
+
+.more-title {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.more-detail {
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  margin-top: 14rpx;
+  color: #999;
+}
+
+.more-hot {
+  margin-left: 30rpx;
+}

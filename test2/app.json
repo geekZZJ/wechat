@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/hot/hot",
+    "pages/blog-detail/blog-detail",
     "pages/my/my",
     "pages/bloger/bloger",
     "pages/my-info/my-info",
@@ -8,9 +10,7 @@
     "pages/recommend/recommend",
     "pages/search-content/search-content",
     "pages/search/search",
-    "pages/hot/hot",
     "pages/choose/choose",
-    "pages/blog-detail/blog-detail",
     "pages/commit/commit",
     "pages/web-view/web-view",
     "pages/welcome/welcome"

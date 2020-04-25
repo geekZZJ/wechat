@@ -16,6 +16,7 @@ Page({
       blogId: blogId
     })
     this.pageDetail(blogId)
+    this.getMore(blogId)
   },
 
   //文章详情
@@ -315,6 +316,45 @@ Page({
     let blogId = event.currentTarget.dataset.blogid
     wx.navigateTo({
       url: "../commit/commit?id=" + blogId
+    })
+  },
+
+  //获取更多列表
+  getMore: function(id) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/recommend/blog/' + id,
+      header: {
+        'content-type': 'application/json',
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        wx.hideLoading()
+        if (res.data.code === '0000') {
+          console.log('更多', res.data)
+          that.setData({
+            more: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
+    })
+  },
+
+  //跳转去详情页
+  goMore: function(event) {
+    let blogId = event.currentTarget.dataset.blogerid
+    wx.navigateTo({
+      url: "../blog-detail/blog-detail?id=" + blogId
     })
   },
 

@@ -2,6 +2,8 @@
 
 @import "../template/blog-bottom/blog-bottom-template.wxss"
 @import "../template/blog-comment/blog-comment-template.wxss"
+@import "../template/more-item/more-item-template.wxss"
+
 .container {
   display: flex;
   flex-direction: column;

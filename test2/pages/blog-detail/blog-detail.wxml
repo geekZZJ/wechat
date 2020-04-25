@@ -1,6 +1,7 @@
 <!--pages/blog-detail/blog-detail.wxml-->
 <import src="../template/blog-bottom/blog-bottom-template.wxml" />
 <import src="../template/blog-comment/blog-comment-template.wxml" />
+<import src="../template/more-item/more-item-template.wxml" />
 <view>
   <view class="container">
     <view class="title-container">
@@ -25,6 +26,9 @@
     </view>
   </view>
   <template is="blogComment" data="{{comments}}" />
+  <block wx:for="{{more}}" wx:key="key" wx:for-item="item">
+    <template is="moreItem" data="{{...item}}"/>
+  </block>
   <view class="detail-pos"></view>
   <template is="blogBottom" data="{{...blogDetail}}" />
 </view>
