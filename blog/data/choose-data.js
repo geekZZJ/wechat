@@ -1,17 +1,17 @@
-let title = [
+let contents = [
     {
         technologyId: 1101,
-        name: "前端开发",
-        checked: true
+        name: "前端",
+        checked: false
     },
     {
         technologyId: 1102,
-        name: "后端开发",
+        name: "后端",
         checked: false
     },
     {
         technologyId: 1103,
-        name: "移动开发",
+        name: "移动",
         checked: false
     },
     {
@@ -21,7 +21,7 @@ let title = [
     },
     {
         technologyId: 1105,
-        name: "前沿技术",
+        name: "前沿",
         checked: false
     },
     {
@@ -30,46 +30,36 @@ let title = [
         checked: false
     },
     {
-        technologyId: 1107,
-        name: "运维&测试",
+        technologyId: 1108,
+        name: "数据库",
         checked: false
     },
     {
-        technologyId: 1108,
-        name: "数据库",
+        technologyId: 1107,
+        name: "运维&测试",
         checked: false
     },
     {
         technologyId: 1110,
         name: "游戏",
         checked: false
-    },
-    {
-        technologyId: 1111,
-        name: "其它",
-        checked: false
-    },
+    }
 ]
 
 let blogs = [
-    {
-        blogId: 888,
-        name: "全部",
-        checked: true
-    },
     {
         blogId: 1001,
         name: "博客园",
         checked: false
     },
     {
-        blogId: 1002,
-        name: "51cot",
+        blogId: 1007,
+        name: "掘金",
         checked: false
     },
     {
         blogId: 1003,
-        name: "掘金",
+        name: "简书",
         checked: false
     },
     {
@@ -85,6 +75,6 @@ let blogs = [
 ]
 
 module.exports = {
-    techList: title,
+    techList: contents,
     blogList: blogs
 }

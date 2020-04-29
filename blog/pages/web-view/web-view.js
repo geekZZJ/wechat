@@ -16,5 +16,9 @@ Page({
     this.setData({
       link: link
     })
+  },
+
+  loadSuccess: function(event) {
+    console.log(event.detail)
   }
 })

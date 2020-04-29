@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/hot/hot",
     "pages/blog-detail/blog-detail",
     "pages/my/my",
@@ -12,8 +13,7 @@
     "pages/search/search",
     "pages/choose/choose",
     "pages/commit/commit",
-    "pages/web-view/web-view",
-    "pages/welcome/welcome"
+    "pages/web-view/web-view"
   ],
   "window": {
     "navigationBarTitleText": "深度博客",
