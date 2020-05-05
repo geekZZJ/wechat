@@ -1,0 +1,7 @@
+<!--pages/recent/recent.wxml-->
+<import src="../template/blog-item/blog-item-template.wxml" />
+<view>
+  <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">
+    <template is="blogItem" data="{{...item}}" />
+  </block>
+</view>

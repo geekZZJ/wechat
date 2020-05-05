@@ -3,9 +3,8 @@
 <view class="subscribe">
   <view class="subscribe-nav">
     <view class="subscribe-nav-title">最近更新</view>
-    <view class="subscribe-nav-msg">
+    <view class="subscribe-nav-msg" catchtap="newMess">
       <text class="iconfont iconweidu subscribe-nav-icon"></text>
-      <text class="subscribe-nav-msg-num">1</text>
     </view>
   </view>
   <block wx:for="{{contents}}" wx:key="key" wx:for-item="item">

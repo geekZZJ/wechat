@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShow: true
+    isShow: true,
+    tag: 1
   },
 
   /**
@@ -23,6 +24,20 @@ Page({
     this.searchList(formData)
   },
 
+  onTitleSearch: function(event) {
+    this.setData({
+      tag: 1
+    })
+    this.searchList(this.data.searchInput)
+  },
+
+  onBlogerSearch: function(event) {
+    this.setData({
+      tag: 2
+    })
+    this.searchBloger(this.data.searchInput)
+  },
+
   //根据关键字查找
   searchList: function(formData) {
     let that = this
@@ -31,21 +46,34 @@ Page({
       data: {
         key: formData,
         pageSize: 20,
-        pageNo: this.data.pageNo
+        pageNo: this.data.pageNo,
+        tag: this.data.tag
       },
       header: {
         'content-type': 'application/json', // 默认值
         'token': wx.getStorageSync('token')
       },
       success(res) {
+        console.log(res.data)
         if (res.data.code === '0000') {
-          if (res.data.data.data.length > 0) {
+          if (res.data.data === null) {
             that.setData({
-              contents: res.data.data.data
+              contents: []
+            })
+            wx.showToast({
+              title: '无相关内容',
+              duration: 1000,
+              icon: "none"
+            })
+            return
+          }
+          if (res.data.data.length > 0) {
+            that.setData({
+              contents: res.data.data
             })
           } else {
             that.setData({
-              contents: ''
+              contents: []
             })
             wx.showToast({
               title: '无相关内容',
@@ -64,11 +92,69 @@ Page({
     })
   },
 
+  //根据博主姓名查找
+  searchBloger: function(formData) {
+    let that = this
+    wx.request({
+      url: app.globalData.host + '/xhblog/blog/search',
+      data: {
+        key: formData,
+        pageSize: 20,
+        pageNo: this.data.pageNo,
+        tag: this.data.tag
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        console.log(res.data)
+        if (res.data.code === '0000') {
+          if (res.data.data.data.length > 0) {
+            that.setData({
+              blogers: res.data.data.data
+            })
+          } else {
+            that.setData({
+              blogers: []
+            })
+            wx.showToast({
+              title: "无相关博主",
+              duration: 1000,
+              icon: "none"
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            duration: 1000,
+            image: '/images/icon/xxx.png'
+          })
+        }
+      }
+    })
+  },
+
+  //跳转博主页面
+  onBlogerTap: function(event) {
+    let blogerId = event.currentTarget.dataset.blogerid
+    wx.navigateTo({
+      url: "../bloger/bloger?id=" + blogerId
+    })
+  },
+
   //根据关键字查询
   search: function(event) {
     let formData = event.detail.value.trim()
     if (formData) {
-      this.searchList(formData)
+      this.setData({
+        searchInput: formData
+      })
+      if (this.data.tag === 1) {
+        this.searchList(formData)
+      } else {
+        this.searchBloger(formData)
+      }
     } else {
       wx.showToast({
         title: "输入不能为空",
@@ -160,7 +246,6 @@ Page({
       url: "../blog-detail/blog-detail?id=" + blogId
     })
   },
-
 
   //控制关闭icon显示隐藏
   controlClose: function(event) {
@@ -296,7 +381,8 @@ Page({
       data: {
         key: this.data.searchInput,
         pageSize: 20,
-        pageNo: this.data.pageNo
+        pageNo: this.data.pageNo,
+        tag: this.data.tag
       },
       header: {
         'content-type': 'application/json', // 默认值
@@ -304,9 +390,9 @@ Page({
       },
       success(res) {
         if (res.data.code === '0000') {
-          if (res.data.data.data.length > 0) {
+          if (res.data.data.length > 0) {
             let arr1 = that.data.contents
-            let arr2 = res.data.data.data
+            let arr2 = res.data.data
             arr1 = arr1.concat(arr2)
             that.setData({
               contents: arr1

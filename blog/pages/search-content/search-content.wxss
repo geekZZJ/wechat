@@ -1,6 +1,7 @@
 /* pages/search-content/search-content.wxss */
 
 @import "../template/blog-item/blog-item-template.wxss"
+@import "../template/bloger-item/bloger-item-template.wxss"
 .container {
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@
 .search-wrap {
   display: flex;
   flex-direction: row;
-  margin-bottom: 20rpx;
+  padding-bottom: 10rpx;
   position: fixed;
   top: 0rpx;
   background-color: #fff;
@@ -81,5 +82,30 @@
 }
 
 .search-pos {
-  height: 70rpx;
+  height: 120rpx;
+}
+
+.search-tag {
+  display: flex;
+  flex-direction: row;
+  height: 40rpx;
+  line-height: 40rpx;
+  position: fixed;
+  top: 70rpx;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10rpx;
+  background-color: #fff;
+}
+
+.search-tag-left {
+  background-color: #f4f4f4;
+  margin-left: 50rpx;
+  flex: 1;
+}
+
+.search-tag-right {
+  background-color: #f4f4f4;
+  flex: 1;
+  margin-right: 50rpx;
 }

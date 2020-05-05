@@ -1,4 +1,4 @@
-// pages/subscribe/subscribe.js
+// pages/recent/recent.js
 const app = getApp()
 let isInitSelfShow = true
 
@@ -18,15 +18,15 @@ Page({
     this.init()
   },
 
-  //获取订阅信息
+  //初始化
   init: function(event) {
     let that = this
     wx.request({
-      url: app.globalData.host + '/xhblog/blog/subscribe',
+      url: app.globalData.host + '/xhblog/blog/newest',
       method: "GET",
       data: {
-        'pageSize': 10,
-        'pageNo': this.data.pageNo
+        'pageNo': 1,
+        'pageSize': 20
       },
       header: {
         'content-type': 'application/json',
@@ -40,19 +40,12 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '订阅列表获取失败',
+            title: '请求失败',
             duration: 1000,
             icon: "none"
           })
         }
       }
-    })
-  },
-
-  //跳转最近更新页面
-  newMess: function(event) {
-    wx.navigateTo({
-      url: "../recent/recent"
     })
   },
 
@@ -248,9 +241,9 @@ Page({
     })
     let that = this
     wx.request({
-      url: app.globalData.host + '/xhblog/blog/subscribe',
+      url: app.globalData.host + '/xhblog/blog/newest',
       data: {
-        pageSize: 10,
+        pageSize: 20,
         pageNo: this.data.pageNo
       },
       header: {

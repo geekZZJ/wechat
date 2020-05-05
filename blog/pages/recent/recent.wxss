@@ -1,0 +1,2 @@
+/* pages/recent/recent.wxss */
+@import "../template/blog-item/blog-item-template.wxss"
