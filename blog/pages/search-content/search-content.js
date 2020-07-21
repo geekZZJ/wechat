@@ -40,6 +40,10 @@ Page({
 
   //根据关键字查找
   searchList: function(formData) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     let that = this
     wx.request({
       url: app.globalData.host + '/xhblog/blog/search',
@@ -54,6 +58,7 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
+        wx.hideLoading()
         console.log(res.data)
         if (res.data.code === '0000') {
           if (res.data.data === null) {
@@ -94,6 +99,10 @@ Page({
 
   //根据博主姓名查找
   searchBloger: function(formData) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     let that = this
     wx.request({
       url: app.globalData.host + '/xhblog/blog/search',
@@ -108,6 +117,7 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
+        wx.hideLoading()
         console.log(res.data)
         if (res.data.code === '0000') {
           if (res.data.data.data.length > 0) {

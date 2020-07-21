@@ -21,8 +21,8 @@
   <view class="my-class">
     <view class="my-collection" wx:if="{{collection}}" catchtap="onCollection">我的收藏</view>
     <view class="my-collection my-class-select" wx:else catchtap="onCollection">我的收藏</view>
-    <view class="my-subscribe" wx:if="{{subscribe}}" catchtap="onSubscribe">我的订阅</view>
-    <view class="my-subscribe my-class-select" wx:else catchtap="onSubscribe">我的订阅</view>
+    <view class="my-subscribe" wx:if="{{subscribe}}" catchtap="onSubscribe">我的关注</view>
+    <view class="my-subscribe my-class-select" wx:else catchtap="onSubscribe">我的关注</view>
     <view class="my-comment" wx:if="{{comment}}" catchtap="onComment">我的评论</view>
     <view class="my-comment my-class-select" wx:else catchtap="onComment">我的评论</view>
     <view class="my-history" wx:if="{{history}}" catchtap="onHistory">我的历史</view>

@@ -23,7 +23,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
+	"libVersion": "2.11.2",
 	"appid": "wxbfd115b5efb75f86",
 	"projectname": "deep",
 	"debugOptions": {

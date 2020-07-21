@@ -122,7 +122,14 @@ Page({
     let that = this
     region = `${region[0]},${region[1]},${region[2]}`
     var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/
-    if (reg.test(email)) {} else {
+    if (reg.test(email)) {
+      console.log("合法")
+    } else {
+      wx.showToast({
+        title: '邮箱格式不合法或未输入',
+        duration: 1000,
+        icon:"none"
+      })
       return
     }
     wx.request({

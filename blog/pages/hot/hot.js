@@ -43,6 +43,10 @@ Page({
 
   //初始获取数据
   init: function() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     let that = this
     wx.request({
       url: app.globalData.host + '/xhblog/blog/list',
@@ -59,6 +63,7 @@ Page({
         that.setData({
           contents: []
         })
+        wx.hideLoading()
         console.log(res.data)
         if (res.data.code === '0000') {
           wx.hideLoading()
