@@ -1,0 +1,2 @@
+<!--pages/index/index.wxml-->
+<like-comp like="{{like}}" count="{{count}}"></like-comp>

@@ -1,31 +1,28 @@
 // pages/index/index.js
 import {
-  HTTP
-} from "../../utils/http"
-const http = new HTTP()
+  ClassicModel
+} from "../../models/classic"
+const classic = new ClassicModel()
 
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    classicData: [],
+    like: true,
+    count: 99
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.request({
-    //   url: 'http://zhangblog.cn:7001/recommend/desc',
-    //   success: (res) => {
-    //     console.log(res)
-    //   }
-    // })
-    http.request({
-      url: '/recommend/desc',
-      success: (res) => {
-        console.log(res)
-      }
+    classic.getLatest(res => {
+      this.setData({
+        classicData: res.data
+      })
     })
   },
 
