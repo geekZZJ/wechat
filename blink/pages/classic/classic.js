@@ -16,7 +16,10 @@ Page({
   data: {
     classicData: [],
     like: true,
-    count: 99
+    count: 99,
+    latest: true,
+    first: false,
+    curIndex: 0
   },
 
   /**
@@ -33,6 +36,40 @@ Page({
   onLike: function (event) {
     let behavior = event.detail.behavior
     // likeModel.like(behavior, this.data.classicData[0]._id, this.data.classicData[0].type)
+  },
+
+  onNext: function (event) {
+    const index = this.data.curIndex - 1
+    let latest = this.data.latest
+    let first = this.data.first
+    if (index === 0) {
+      latest = true
+    }
+    if (index !== this.data.classicData.length - 1) {
+      first = false
+    }
+    this.setData({
+      curIndex: index,
+      latest,
+      first
+    })
+  },
+
+  onPrevious: function (event) {
+    const index = this.data.curIndex + 1
+    let first = this.data.first
+    let latest = this.data.latest
+    if (index === this.data.classicData.length - 1) {
+      first = true
+    }
+    if (index !== 0) {
+      latest = false
+    }
+    this.setData({
+      curIndex: index,
+      first,
+      latest
+    })
   },
 
   /**

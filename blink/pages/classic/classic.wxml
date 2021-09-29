@@ -1,3 +1,10 @@
 <!--pages/index/index.wxml-->
-<like-comp bind:like="onLike" like="{{like}}" count="{{count}}"></like-comp>
-<movie-comp img="{{classicData[0].imgUrl}}" content="{{classicData[0].disname}}"></movie-comp>
+<view class="container">
+  <view class="header">
+    <episode-comp class="episode" index="5"></episode-comp>
+    <like-comp class="like" bind:like="onLike" like="{{like}}" count="{{count}}"></like-comp>
+  </view>
+  <movie-comp img="{{classicData[curIndex].imgUrl}}" content="{{classicData[curIndex].disname}}"></movie-comp>
+  <nav-comp class="nav" title="{{classicData[curIndex].disname}}" first="{{first}}" latest="{{latest}}"
+    bind:left="onNext" bind:right="onPrevious"></nav-comp>
+</view>
