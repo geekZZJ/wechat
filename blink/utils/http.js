@@ -24,7 +24,7 @@ class HTTP {
         // 获取状态码
         let code = res.statusCode.toString()
         if (code.startsWith('2')) {
-          params.success(res.data)
+          params.success && params.success(res.data)
         } else {
           this._show_error(res.data.code)
         }

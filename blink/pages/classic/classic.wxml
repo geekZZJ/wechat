@@ -1,2 +1,3 @@
 <!--pages/index/index.wxml-->
-<like-comp like="{{like}}" count="{{count}}"></like-comp>
+<like-comp bind:like="onLike" like="{{like}}" count="{{count}}"></like-comp>
+<movie-comp img="{{classicData[0].imgUrl}}" content="{{classicData[0].disname}}"></movie-comp>
