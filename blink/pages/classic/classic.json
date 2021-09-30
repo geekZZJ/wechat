@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "movie-comp": "/components/classic/movie/index",
+    "music-comp": "/components/classic/music/index",
+    "essay-comp": "/components/classic/essay/index",
     "like-comp": "/components/like/index",
     "episode-comp": "/components/episode/index",
     "nav-comp": "/components/nav/index"

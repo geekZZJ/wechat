@@ -4,7 +4,13 @@
     <episode-comp class="episode" index="5"></episode-comp>
     <like-comp class="like" bind:like="onLike" like="{{like}}" count="{{count}}"></like-comp>
   </view>
-  <movie-comp img="{{classicData[curIndex].imgUrl}}" content="{{classicData[curIndex].disname}}"></movie-comp>
+  <movie-comp wx:if="{{curIndex<2}}" img="{{classicData[curIndex].imgUrl}}" content="{{classicData[curIndex].disname}}">
+  </movie-comp>
+  <music-comp wx:if="{{curIndex>1&& curIndex<4}}" img="{{classicData[curIndex].imgUrl}}"
+    content="{{classicData[curIndex].disname}}">
+  </music-comp>
+  <essay-comp wx:if="{{curIndex>3}}" img="{{classicData[curIndex].imgUrl}}" content="{{classicData[curIndex].disname}}">
+  </essay-comp>
   <nav-comp class="nav" title="{{classicData[curIndex].disname}}" first="{{first}}" latest="{{latest}}"
     bind:left="onNext" bind:right="onPrevious"></nav-comp>
 </view>
