@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/classic/classic"
+    "pages/book/book",
+    "pages/classic/classic",
+    "pages/my/my"
   ],
   "requiredBackgroundModes": [],
   "window": {
@@ -8,6 +10,31 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "学习",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "流行",
+        "iconPath":"./images/tab/classic.png",
+        "pagePath":"pages/classic/classic",
+        "selectedIconPath":"./images/tab/classic@highlight.png"
+      },
+      {
+        "text": "书籍",
+        "iconPath":"./images/tab/book.png",
+        "pagePath":"pages/book/book",
+        "selectedIconPath":"./images/tab/book@highlight.png"
+      },
+      {
+        "text": "喜欢",
+        "iconPath":"./images/tab/my.png",
+        "pagePath":"pages/my/my",
+        "selectedIconPath":"./images/tab/my@highlight.png"
+      }
+    ],
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "color": "#c7c7c7"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

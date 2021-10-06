@@ -27,15 +27,14 @@
   right: 310rpx;
 }
 
-/* .rotation {
-  -webkit-transform: rotate(360deg);
+.rotation {
   animation: rotation 12s linear infinite;
   -moz-animation: rotation 12s linear infinite;
   -webkit-animation: rotation 12s linear infinite;
   -o-animation: rotation 12s linear infinite;
 }
 
-@-webkit-keyframes rotation {
+@keyframes rotation {
   from {
     -webkit-transform: rotate(0deg);
   }
@@ -43,4 +42,4 @@
   to {
     -webkit-transform: rotate(360deg);
   }
-} */
+}

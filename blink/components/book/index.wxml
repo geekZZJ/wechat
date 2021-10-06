@@ -1,0 +1,11 @@
+<!--components/book/index.wxml-->
+<view class="container">
+    <image src="{{book.imgUrl}}"></image>
+    <view class="description">
+        <text class='title'>{{book.disname}}</text>
+        <text class='author'>{{book.creator.name}}</text>
+        <!-- <view wx:if="{{showLike}}" class='foot'> -->
+            <text class="footer">{{book.fav_nums||100}}  喜欢</text>
+        <!-- </view> -->
+    </view>
+</view>

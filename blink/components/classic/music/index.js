@@ -18,12 +18,13 @@ Component({
     playSrc: "../../images/player@play.png",
     pauseSrc: "../../images/player@pause.png",
     playing: false,
-    musicSrc: "https://dl.stream.qqmusic.qq.com/C400003LnSNo1ecdc3.m4a?guid=2741606664&vkey=0102E6D967AC7E262E17B9B819AE8D6A69DEFC2B57E69F065A81C672589EB0E26659C7AD24BA3E767BAADEA7B4958F164D85EC55353F2A00&uin=2461927976&fromtag=66"
+    musicSrc: "https://dl.stream.qqmusic.qq.com/C400004cc3OU0GLJHb.m4a?guid=8247794097&vkey=13B492138E69021B804E55C8D4DAB26F77347A80E54C04C6BC9BD04DB8EFA218DB583BF129FBBA492CCC96AC040BB3F8EE255A2AC91A0918&uin=2461927976&fromtag=66"
   },
 
   lifetimes: {
     attached: function () {
       this._recoverStatus()
+      this._monitorSwitch()
     },
   },
 
