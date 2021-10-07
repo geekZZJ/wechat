@@ -9,7 +9,7 @@
   <view class="sub-container">
     <image class="head-img" src="/images/book/quality.png" />
     <view class="books-container">
-      <block wx:for="{{books}}" wx:for-item="book" wx:key="key">
+      <block wx:for="{{books}}" wx:for-item="book" wx:key="_id">
       <book-comp book="{{book}}"></book-comp>
     </block>
     </view>

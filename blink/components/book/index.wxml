@@ -1,5 +1,5 @@
 <!--components/book/index.wxml-->
-<view class="container">
+<view bind:tap="onTap" class="container">
     <image src="{{book.imgUrl}}"></image>
     <view class="description">
         <text class='title'>{{book.disname}}</text>
