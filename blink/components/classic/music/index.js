@@ -18,7 +18,7 @@ Component({
     playSrc: "../../images/player@play.png",
     pauseSrc: "../../images/player@pause.png",
     playing: false,
-    musicSrc: "https://dl.stream.qqmusic.qq.com/C400004cc3OU0GLJHb.m4a?guid=8247794097&vkey=13B492138E69021B804E55C8D4DAB26F77347A80E54C04C6BC9BD04DB8EFA218DB583BF129FBBA492CCC96AC040BB3F8EE255A2AC91A0918&uin=2461927976&fromtag=66"
+    musicSrc: "https://dl.stream.qqmusic.qq.com/C400003LnSNo1ecdc3.m4a?guid=6388962344&vkey=D491E5959FA130B2FA6CC21C952EB990F90C63793A453C30468925DA61A748C70358B0BF47A9FE047748E9F67FBADA13FD4EE9AD3E8750A5&uin=2461927976&fromtag=66"
   },
 
   lifetimes: {

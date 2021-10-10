@@ -8,7 +8,8 @@ Page({
     book: {
       image: "https://qpic.y.qq.com/music_cover/xiabfMZAmQ0PYUzgCvOicArIoGLzqL3n6q3fDiawWkhTTVWgGNM52HBNA/300?n=1",
       title: "流行节奏控",
-      author: "欧美"
+      author: "欧美",
+      summary: "20 世纪 90 年代的柏林，一位艺术家和一名黑客发明了看世界的新方式。多年后，二人重聚，起诉谷歌侵犯专利权。\\n20 世纪 90 年代的柏林，一位艺术家和一名黑客发明了看世界的新方式。多年后，二人重聚，起诉谷歌侵犯专利权。\\n20 世纪 90 年代的柏林，一位艺术家和一名黑客发明了看世界的新方式。多年后，二人重聚，起诉谷歌侵犯专利权。\n20 世纪 90 年代的柏林，一位艺术家和一名黑客发明了看世界的新方式。多年后，二人重聚，起诉谷歌侵犯专利权。"
     },
     comments: [{
         content: "测试",

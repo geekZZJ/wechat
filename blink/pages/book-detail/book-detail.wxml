@@ -1,4 +1,6 @@
 <!--pages/book-detail/book-detail.wxml-->
+<wxs src="../../utils/filter.wxs" module="util"></wxs>
+
 <view class="container">
   <view class="head">
     <image src="{{book.image}}"></image>
@@ -9,11 +11,15 @@
     <text class="headline">短评</text>
     <!-- <text class="shadow" wx:if="{{comments==false}}">还没有短评</text> -->
     <view class="comment-container">
-      <block wx:for="{{comments}}" wx:key="key">
-        <tag-comp text="{{item.content}}">
+      <block wx:for="{{comments}}" wx:key="index">
+        <tag-comp text="{{item.content}}" tag-class="{{index===0?'ex-tag1':''||index===1?'ex-tag2':''}}">
           <text slot="after" class="num">{{'+'+item.num}}</text>
         </tag-comp>
       </block>
     </view>
+  </view>
+  <view class="sub-container">
+    <text class="headline">内容简介</text>
+    <text class="content" decode="{{true}}">{{util.format(book.summary)}}</text>
   </view>
 </view>

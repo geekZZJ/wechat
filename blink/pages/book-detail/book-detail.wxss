@@ -58,8 +58,21 @@
   margin-bottom: 10rpx;
 }
 
+.content {
+  text-indent: 58rpx;
+  font-weight: 500;
+}
+
 .num {
   margin-left: 10rpx;
   font-size: 22rpx;
   color: #aaa;
+}
+
+.ex-tag1 {
+  background-color: #fffbdd !important;
+}
+
+.ex-tag2 {
+  background-color: #eefbff !important;
 }
