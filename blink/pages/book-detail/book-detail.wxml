@@ -49,4 +49,19 @@
       <like-comp bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
     </view>
   </view>
+  <view class="posting-container" wx:if="{{posting}}">
+    <view class="post-header">
+      <text wx:if="{{comments===true}}">仅可点击标签+1</text>
+      <text wx:else>暂无短评</text>
+      <text bind:tap="onCancel" class="cancel">取消</text>
+    </view>
+    <view class="comment-container">
+      <block wx:for="{{util.limit(comments, 3)}}" wx:key="content">
+        <tag-comp bind:tapping="onPost" tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
+          <text class="num" slot="after">{{'+'+item.num}}</text>
+        </tag-comp>
+      </block>
+    </view>
+    <input bindconfirm="onPost" class="post" placeholder='短评最多12个字'></input>
+  </view>
 </view>

@@ -36,7 +36,22 @@ Page({
         content: "测试测试测试测试456",
         num: 5
       }
-    ]
+    ],
+    likeCount: 0,
+    likeStatus: false,
+    posting: false
+  },
+
+  onFakePost(event) {
+    this.setData({
+      posting: true
+    })
+  },
+
+  onCancel(event){
+    this.setData({
+      posting: false
+    })
   },
 
   /**
