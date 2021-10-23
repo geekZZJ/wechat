@@ -76,3 +76,57 @@
 .ex-tag2 {
   background-color: #eefbff !important;
 }
+
+.detail-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 100rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  color: #999;
+  margin-right: 30rpx;
+}
+
+.post-container {
+  height: 100rpx;
+  box-shadow: 1px -1px 1px #e3e3e3;
+  position: fixed;
+  width: 690rpx;
+  background-color: #fff;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  justify-content: space-between;
+}
+
+.post-fake {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  width: 460rpx;
+  border: 1px solid #999;
+  border-radius: 15px;
+  font-size: 22rpx;
+  padding-left: 20rpx;
+}
+
+.like-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.like {
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+}
