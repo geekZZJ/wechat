@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "tag-comp":"/components/tag/index",
-    "like-comp":"/components/like/index"
+    "like-comp":"/components/like/index",
+    "mask-comp":"/components/mask/mask"
   }
 }

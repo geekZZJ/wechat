@@ -48,8 +48,43 @@ Page({
     })
   },
 
-  onCancel(event){
+  onCancel(event) {
     this.setData({
+      posting: false
+    })
+  },
+
+  onPost(event) {
+    console.log(event)
+    const comment = event.detail.text || event.detail.value
+
+    if (!comment) {
+      return
+    }
+
+    if (comment.length > 12) {
+      wx.showToast({
+        title: '短评最多12个字',
+        icon: "none"
+      })
+      return
+    }
+    // 调用服务器API
+    // bookModel.postComment(this.data.book.id).then(res => {
+    //   wx.showToast({
+    //     title: '+ 1',
+    //     icon: "none"
+    //   })
+    // })
+    this.data.comments.unshift({
+      content: comment,
+      num: 1
+    })
+
+    console.log(this.data.comments)
+
+    this.setData({
+      comments: this.data.comments,
       posting: false
     })
   },
