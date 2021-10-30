@@ -11,17 +11,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books:[]
+    books: [],
+    searching: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    bookModel.getHotList().then(res=>{
+    bookModel.getHotList().then(res => {
       this.setData({
-        books:res.data
+        books: res.data
       })
+    })
+  },
+
+  onSearching() {
+    this.setData({
+      searching: true
+    })
+  },
+
+  onCancel(){
+    this.setData({
+      searching:false
     })
   },
 

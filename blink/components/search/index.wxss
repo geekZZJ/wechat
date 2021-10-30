@@ -13,7 +13,6 @@
   border-top: 1px solid #f5f5f5;
   border-bottom: 1px solid #f5f5f5;
   display: flex;
-  flex-direction: row;
   width: 750rpx;
   align-items: center;
   z-index: 99;
@@ -21,7 +20,6 @@
 
 .search-container {
   display: inline-flex;
-  flex-direction: row;
   align-items: center;
   background-color: #f5f5f5;
   border-radius: 50px;
@@ -33,11 +31,9 @@
 }
 
 .bar {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
   display: inline-block;
   height: 68rpx;
-  width: 1000rpx;
+  width: 100rpx;
   font-size: 28rpx;
 }
 
@@ -49,11 +45,9 @@
 }
 
 .cancel {
-  line-height: 68rpx;
   width: 120rpx;
   text-align: center;
   display: inline-block;
-  border: none;
 }
 
 .cancel-img {
