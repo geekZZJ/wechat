@@ -33,7 +33,7 @@
 .bar {
   display: inline-block;
   height: 68rpx;
-  width: 100rpx;
+  width: 500rpx;
   font-size: 28rpx;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .cancel {
-  width: 120rpx;
+  width: 100rpx;
   text-align: center;
   display: inline-block;
 }
@@ -54,4 +54,81 @@
   width: 28rpx;
   height: 28rpx;
   margin-right: 20rpx;
+  margin-left: 20rpx;
 }
+
+.history {
+  width: 690rpx;
+  margin: 40rpx 0 20rpx 0;
+  display: flex;
+  font-size: 28rpx;
+  margin-top: 160rpx;
+  flex-direction: column;
+}
+
+.chunk {
+  height: 30rpx;
+  width: 10rpx;
+  background-color: #000;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.title {
+  line-height: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24rpx;
+  padding-left: 30rpx;
+  width: 630rpx;
+}
+
+.hot-search {
+  margin-top: 70rpx;
+}
+
+.tags tag-comp {
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.books-container .book {
+  margin-bottom: 25rpx;
+}
+
+.books-container {
+  width: 570rpx;
+  margin-top: 100rpx;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 90rpx 0 90rpx;
+  justify-content: space-between;
+}
+
+.loading {
+  margin: 50rpx 0 50rpx 0;
+}
+
+.loading-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.empty-tip {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+}
+
+
+
+
+

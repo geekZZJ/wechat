@@ -5,8 +5,37 @@
       <image class="icon" src="../images/search.png" />
       <input value="{{q}}" bind:confirm="onConfirm" placeholder-class='in-bar' placeholder='书籍名' class='bar'
         auto-focus="true" />
-      <image bind:tap="onDelete" class="cancel-img" src="../images/cancel.png" />
+      <image class="cancel-img" src="../images/cancel.png" bind:tap="onDelete"></image>
     </view>
     <view class='cancel' bind:tap="onCancel">取消</view>
+  </view>
+  <view wx:if="{{!searching}}">
+    <view class="history">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>历史搜索</text>
+      </view>
+      <view class="tags">
+        <block wx:key="item" wx:for="{{historyWords}}">
+          <tag-comp bind:tapping="onConfirm" text="{{item}}" />
+        </block>
+      </view>
+    </view>
+    <view class="history hot-search">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>热门搜索</text>
+      </view>
+      <view class="tags">
+        <block wx:key="item" wx:for="{{hotWords}}">
+          <tag-comp bind:tapping="onConfirm" text="{{item}}" />
+        </block>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{searching}}" class="books-container">
+    <block wx:for="{{dataArray}}" wx:key="id">
+      <book-comp book="{{item}}" class="book" />
+    </block>
   </view>
 </view>
