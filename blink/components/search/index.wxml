@@ -38,4 +38,5 @@
       <book-comp book="{{item}}" class="book" />
     </block>
   </view>
+  <text wx:if="{{noneResult}}" class="empty-tip">没有搜索到书籍</text>
 </view>

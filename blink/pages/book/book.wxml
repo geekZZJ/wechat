@@ -16,4 +16,4 @@
   </view>
 </view>
 
-<search-comp wx:else bind:cancel="onCancel"></search-comp>
+<search-comp more="{{more}}" wx:else bind:cancel="onCancel"></search-comp>
