@@ -1,30 +1,36 @@
 {
-    "setting": {},
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/book-detail/book-detail",
+          "pathName": "pages/book-detail/book-detail",
+          "query": "bid=123",
+          "scene": null
         },
-        "game": {
-            "list": []
+        {
+          "name": "pages/book/book",
+          "pathName": "pages/book/book",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
-        },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "pages/book-detail/book-detail",
-                    "pathName": "pages/book-detail/book-detail",
-                    "query": "bid=123",
-                    "scene": null
-                },
-                {
-                    "name": "pages/book/book",
-                    "pathName": "pages/book/book",
-                    "query": "",
-                    "scene": null
-                }
-            ]
+        {
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
         }
+      ]
     }
+  }
 }

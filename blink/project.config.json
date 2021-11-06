@@ -41,7 +41,7 @@
     "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.6",
+  "libVersion": "2.20.1",
   "appid": "wxbfd115b5efb75f86",
   "projectname": "blink",
   "debugOptions": {

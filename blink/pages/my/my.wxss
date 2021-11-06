@@ -1,1 +1,54 @@
 /* pages/my/my.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bg {
+  width: 750rpx;
+  height: 574rpx;
+}
+
+.about-container {
+  padding: 0 100rpx;
+  width: 550rpx;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 440rpx;
+}
+
+.about-us image {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.description {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.book-num {
+  font-size: 36rpx;
+  color: #000000;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.avatar-position {
+  position: absolute;
+  top: 255rpx;
+}
