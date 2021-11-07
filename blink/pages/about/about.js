@@ -1,57 +1,18 @@
-// pages/my/my.js
+// pages/about/about.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    authorized: false,
-    userInfo: null
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.userAuthorized()
-  },
 
-  userAuthorized() {
-    wx.getSetting({
-      success: data => {
-        if (data.authSetting["scope.userInfo"]) {
-          wx.getUserInfo({
-            success: data => {
-              console.log("data", data)
-              this.setData({
-                authorized: true,
-                userInfo: data.userInfo
-              })
-            }
-          })
-        }
-      }
-    })
-  },
-
-  // getUserInfo(event) {
-  //   console.log(event)
-  // },
-
-  onGetUserInfo(event) {
-    const userInfo = event.detail.userInfo
-    console.log("userInfo", userInfo)
-    if (userInfo) {
-      this.setData({
-        userInfo,
-      })
-    }
-  },
-
-  onJumpToAbout(){
-    wx.navigateTo({
-      url: '/pages/about/about',
-    })
   },
 
   /**
