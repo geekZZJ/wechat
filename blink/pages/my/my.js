@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.userAuthorized()
+    // this.userAuthorized()
   },
 
   userAuthorized() {
@@ -21,7 +21,7 @@ Page({
         if (data.authSetting["scope.userInfo"]) {
           wx.getUserInfo({
             success: data => {
-              console.log(data)
+              console.log("data",data)
             }
           })
         } else {
@@ -31,8 +31,13 @@ Page({
     })
   },
 
-  getUserInfo(event) {
-    console.log(event)
+  // getUserInfo(event) {
+  //   console.log(event)
+  // },
+
+  onGetUserInfo(event) {
+    const userInfo = event.detail.userInfo
+    console.log("userInfo",userInfo)
   },
 
   /**

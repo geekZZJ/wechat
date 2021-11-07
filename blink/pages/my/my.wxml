@@ -2,6 +2,9 @@
 <view class="container">
   <image src="/images/my/my@bg.png" class="bg"></image>
   <!-- <open-data type="userAvatarUrl" class="avatar avatar-position"/> -->
+  <button-comp wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bind:getUserInfo="onGetUserInfo">
+    <image slot="img" class="avatar" src="/images/my/my.png" />
+  </button-comp>
   <view class="about-container">
     <view bind:tap="onJumpToAbout" class="about-us">
       <image src="/images/my/about.png" />
@@ -12,5 +15,5 @@
       <text class="description">喜欢的书</text>
     </view>
   </view>
-  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+  <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button> -->
 </view>
