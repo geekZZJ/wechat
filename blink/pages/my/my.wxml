@@ -5,6 +5,10 @@
   <button-comp wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bind:getUserInfo="onGetUserInfo">
     <image slot="img" class="avatar" src="/images/my/my.png" />
   </button-comp>
+  <view wx:if="{{authorized}}" class="avatar-container avatar-position">
+    <image src="{{userInfo.avatarUrl}}" class="avatar" />
+    <text>{{userInfo.nickName}}</text>
+  </view>
   <view class="about-container">
     <view bind:tap="onJumpToAbout" class="about-us">
       <image src="/images/my/about.png" />
