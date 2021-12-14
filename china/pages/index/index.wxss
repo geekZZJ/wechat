@@ -1,0 +1,5 @@
+/* pages/index/index.wxss */
+.box {
+  width: 750rpx;
+  height: 600rpx;
+}

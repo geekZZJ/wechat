@@ -1,0 +1,5 @@
+<!--pages/index/index.wxml-->
+<view class="box" catchtap="handleBox">
+  <ec-canvas id="mychart-dom-map" canvas-id="mychart-map" wx:if="{{ec}}" ec="{{ec}}">
+  </ec-canvas>
+</view>
