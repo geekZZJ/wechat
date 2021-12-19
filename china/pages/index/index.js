@@ -3,13 +3,14 @@ import * as echarts from '../../components/ec-canvas/echarts';
 import geoJson from './china.js';
 
 let pageInstance = {}
+let chart
 
 function randomData() {
   return Math.round(Math.random() * 1000);
 }
 
 function initChart(canvas, width, height, dpr) {
-  const chart = echarts.init(canvas, null, {
+  chart = echarts.init(canvas, null, {
     width: width,
     height: height,
     devicePixelRatio: dpr
@@ -77,6 +78,15 @@ function initChart(canvas, width, height, dpr) {
         name: '新疆',
         itemStyle: {
           areaColor: '#2a5bc1'
+        },
+        label: {
+          color: '#ffffff',
+          show: true
+        }
+      }, {
+        name: '西藏',
+        itemStyle: {
+          areaColor: 'green'
         },
         label: {
           color: '#ffffff',
@@ -259,19 +269,24 @@ Page({
   },
   // 点击区域事件
   BindEvent(e) {
-    console.log(444, e.name, e.value)
+    // console.log(444, e.name, e.value)
     this.data.aa = true
+    this.data.lastClickRegion = e.name
+    chart.dispatchAction({
+      type: 'select',
+      name: this.data.lastClickRegion
+    })
   },
 
   handleBox() {
+    if (!this.data.aa) {
+      console.log("只点击空白区域")
+      chart.dispatchAction({
+        type: 'unselect',
+        name: this.data.lastClickRegion
+      })
+    }
     this.data.aa = false
-    this.setData({}, () => {
-      if(!this.data.aa){
-        // this.setData({
-        //   ec: null
-        // })
-      }
-    })
   },
 
   /**
