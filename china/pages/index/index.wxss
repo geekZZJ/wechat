@@ -2,4 +2,13 @@
 .box {
   width: 750rpx;
   height: 600rpx;
+  position: relative;
+}
+
+.echart-mask{
+  position: absolute;
+  width: 750rpx;
+  height: 600rpx;
+  top: 0;
+  left: 0;
 }

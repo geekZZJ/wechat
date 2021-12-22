@@ -207,10 +207,12 @@ Component({
         //   zrY: touch.y
         // });
         handler.processGesture(wrapTouch(e), 'start');
+        this.triggerEvent("move")
       }
     },
 
     touchMove(e) {
+      this.triggerEvent("move")
       // if (this.chart && e.touches.length > 0) {
       //   var touch = e.touches[0];
       //   var handler = this.chart.getZr().handler;
@@ -235,6 +237,7 @@ Component({
           zrY: touch.y
         });
         handler.processGesture(wrapTouch(e), 'end');
+        this.triggerEvent("cancel")
       }
     }
   }

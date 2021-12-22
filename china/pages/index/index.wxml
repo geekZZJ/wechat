@@ -1,5 +1,6 @@
 <!--pages/index/index.wxml-->
 <view class="box" catchtap="handleBox">
-  <ec-canvas id="mychart-dom-map" canvas-id="mychart-map" wx:if="{{ec}}" ec="{{ec}}">
+  <ec-canvas id="mychart-dom-map" canvas-id="mychart-map" wx:if="{{ec}}" ec="{{ec}}" bind:move="handleMove" bind:cancel="handleTouchend">
   </ec-canvas>
+  <cover-view wx:if="{{isShow}}" class="echart-mask"></cover-view>
 </view>
