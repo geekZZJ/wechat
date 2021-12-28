@@ -1,0 +1,6 @@
+<!--pages/welcome/index.wxml-->
+<view class="container">
+  <image src="/images/avatar/1.png" class="avatar"></image>
+  <text class="motto">测试</text>
+  <view class="button">开启小程序之旅</view>
+</view>
