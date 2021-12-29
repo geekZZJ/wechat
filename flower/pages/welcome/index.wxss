@@ -15,6 +15,10 @@ page {
   margin-top: 160rpx;
 }
 
+.l-avatar {
+  margin-top: 160rpx;
+}
+
 .motto {
   margin-top: 100rpx;
   font-size: 32rpx;
