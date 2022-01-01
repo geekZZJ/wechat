@@ -12,14 +12,14 @@
       <image class="post-author" src="/images/avatar/3.png"></image>
       <text class="post-date">Nov 18 2020</text>
     </view>
-    <view>2020LPL夏季赛季后赛观赛指南</view>
-    <image src="/images/post/bl.png"></image>
-    <view>测试测试测试测试测试测试测试测试测试</view>
-    <view>
-      <image src="/images/icon/chat.png"></image>
-      <text>22</text>
-      <image src="/images/icon/view.png"></image>
-      <text>111</text>
+    <view class="post-title">2020LPL夏季赛季后赛观赛指南</view>
+    <image src="/images/post/bl.png" class="post-image"></image>
+    <view class="post-content">测试测试测试测试测试测试测试测试测试</view>
+    <view class="post-like">
+      <image class="post-like-image" src="/images/icon/chat.png"></image>
+      <text class="post-like-font">22</text>
+      <image class="post-like-image" src="/images/icon/view.png"></image>
+      <text class="post-like-font">111</text>
     </view>
   </view>
 </view>
