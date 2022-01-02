@@ -1,20 +1,11 @@
-// pages/posts/index.js
-import {
-  postList
-} from "../../data/post"
+// pages/post-detail/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    background: [1, 2, 3],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 2000,
-    duration: 500,
-    circular: true,
-    postList: postList
+
   },
 
   /**
@@ -22,13 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-
-  // 跳转到详情页
-  onJumpToDetail(event){
-    wx.navigateTo({
-      url: '../post-detail/index',
-    })
   },
 
   /**

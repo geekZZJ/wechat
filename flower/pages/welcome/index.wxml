@@ -3,5 +3,5 @@
   <!-- <image src="/images/avatar/1.png" class="avatar"></image> -->
   <l-avatar open-data="{{['userAvatarUrl']}}" size="180" class="l-avatar"></l-avatar>
   <text class="motto">Hello,开发者</text>
-  <view class="button">开启小程序之旅</view>
+  <view class="button" bind:tap="onTap">开启小程序之旅</view>
 </view>

@@ -7,19 +7,19 @@
       </swiper-item>
     </block>
   </swiper>
-  <view class="post-container">
+  <view class="post-container" wx:for="{{postList}}" wx:key="index" bind:tap="onJumpToDetail">
     <view class="post-author-date">
-      <image class="post-author" src="/images/avatar/3.png"></image>
-      <text class="post-date">Nov 18 2020</text>
+      <image class="post-author" src="{{item.avatar}}"></image>
+      <text class="post-date">{{item.date}}</text>
     </view>
-    <view class="post-title">2020LPL夏季赛季后赛观赛指南</view>
-    <image src="/images/post/bl.png" class="post-image"></image>
-    <view class="post-content">测试测试测试测试测试测试测试测试测试</view>
+    <view class="post-title">{{item.title}}</view>
+    <image src="{{item.imgSrc}}" class="post-image"></image>
+    <view class="post-content">{{item.content}}</view>
     <view class="post-like">
-      <image class="post-like-image" src="/images/icon/chat.png"></image>
-      <text class="post-like-font">22</text>
-      <image class="post-like-image" src="/images/icon/view.png"></image>
-      <text class="post-like-font">111</text>
+      <l-icon class="post-like-image" color="#666" size="28" name="favor"></l-icon>
+      <text class="post-like-font">{{item.collection}}</text>
+      <l-icon class="post-like-image" color="#666" size="28" name="eye"></l-icon>
+      <text class="post-like-font">{{item.reading}}</text>
     </view>
   </view>
 </view>

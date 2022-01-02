@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/welcome/index",
-    "pages/posts/index"
+    "pages/posts/index",
+    "pages/post-detail/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#c22a1e"
