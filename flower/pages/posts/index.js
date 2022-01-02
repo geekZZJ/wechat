@@ -25,9 +25,10 @@ Page({
   },
 
   // 跳转到详情页
-  onJumpToDetail(event){
+  onJumpToDetail(event) {
+    const id = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../post-detail/index',
+      url: `../post-detail/index?pid=${id}`,
     })
   },
 

@@ -1,1 +1,93 @@
 /* pages/post-detail/index.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.head-image{
+  width: 100%;
+  height: 460rpx;
+}
+
+.author-date{
+  display: flex;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  align-items: center;
+}
+
+.avatar{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.author{
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-left: 20rpx;
+  color: #666;
+}
+
+.const-text{
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+
+.date{
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 30rpx;
+}
+
+.title{
+  margin-left: 40rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-top: 30rpx;
+  color: #4b556c;
+  letter-spacing: 2px;
+}
+
+.line{
+  width: 660rpx;
+  height: 1px;
+  background-color: #e5e5e5;
+  position: absolute;
+  z-index: -1;
+}
+
+.share{
+  width: 90rpx;
+  height: 90rpx;
+  margin-left: 30rpx;
+}
+
+.collection{
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.circle{
+  width: 660rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tool{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+.detail{
+  color: #666;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+  letter-spacing: 2px;
+}
