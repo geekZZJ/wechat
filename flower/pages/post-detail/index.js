@@ -37,6 +37,13 @@ Page({
     }
   },
 
+  async onShare() {
+    const result = await wx.showActionSheet({
+      itemList: ['分享到QQ', '分享到微信']
+    })
+    console.log(222, result)
+  },
+
   // 读取缓存
   getCollected() {
     const data = wx.getStorageSync('posts_collected') || {}
