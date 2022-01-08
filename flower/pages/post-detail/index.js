@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    collected: false
   },
 
   /**
@@ -18,6 +18,31 @@ Page({
     const postData = postList[parseInt(options.pid)]
     this.setData({
       postData
+    })
+    this.getCollected()
+  },
+
+  onCollect() {
+    const data = wx.getStorageSync('posts_collected') || {}
+    data[this.data.postData.postId] = !this.data.collected
+    wx.setStorageSync('posts_collected', data)
+    this.setData({
+      collected: !this.data.collected
+    })
+    if (this.data.collected) {
+      wx.showToast({
+        title: '收藏成功',
+        duration: 1000
+      })
+    }
+  },
+
+  // 读取缓存
+  getCollected() {
+    const data = wx.getStorageSync('posts_collected') || {}
+    const collected = data[this.data.postData.postId]
+    this.setData({
+      collected
     })
   },
 

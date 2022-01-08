@@ -1,4 +1,5 @@
 /**app.wxss**/
 text {
   color: #666;
+  font-size: 24rpx;
 }
