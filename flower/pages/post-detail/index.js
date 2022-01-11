@@ -9,7 +9,8 @@ Page({
    */
   data: {
     collected: false,
-    isPlaying: false
+    isPlaying: false,
+    mgr: null
   },
 
   /**
@@ -21,6 +22,11 @@ Page({
       postData
     })
     this.getCollected()
+    const mgr = wx.getBackgroundAudioManager()
+    this.data.mgr = mgr
+    this.data.mgr.onPlay(this.onMusicStart)
+    // this.data.mgr.onStop(this.onMusicStop)
+    this.data.mgr.onPause(this.onMusicStop)
   },
 
   onCollect() {
@@ -55,23 +61,21 @@ Page({
   },
 
   onMusicStart() {
-    const mgr = wx.getBackgroundAudioManager()
     const {
       url,
       title,
       coverImg
     } = this.data.postData.music
-    mgr.src = url
-    mgr.title = title
-    mgr.coverImgUrl = coverImg
+    this.data.mgr.src = url
+    this.data.mgr.title = title
+    this.data.mgr.coverImgUrl = coverImg
     this.setData({
       isPlaying: true
     })
   },
 
   onMusicStop() {
-    const mgr = wx.getBackgroundAudioManager()
-    mgr.stop()
+    this.data.mgr.stop()
     this.setData({
       isPlaying: false
     })
