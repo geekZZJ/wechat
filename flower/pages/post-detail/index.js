@@ -54,12 +54,26 @@ Page({
     })
   },
 
-  onMusic() {
+  onMusicStart() {
     const mgr = wx.getBackgroundAudioManager()
-    mgr.src = this.data.postData.music.url
-    mgr.title = this.data.postData.music.title
+    const {
+      url,
+      title,
+      coverImg
+    } = this.data.postData.music
+    mgr.src = url
+    mgr.title = title
+    mgr.coverImgUrl = coverImg
     this.setData({
-      isPlaying: !this.data.isPlaying
+      isPlaying: true
+    })
+  },
+
+  onMusicStop() {
+    const mgr = wx.getBackgroundAudioManager()
+    mgr.stop()
+    this.setData({
+      isPlaying: false
     })
   },
 
