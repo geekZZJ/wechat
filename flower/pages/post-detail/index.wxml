@@ -1,6 +1,7 @@
 <!--pages/post-detail/index.wxml-->
 <view class="container">
   <image src="{{postData.headImgSrc}}" class="head-image"></image>
+  <image src="/images/music/music-start.png" class="audio"></image>
   <view class="author-date">
     <image class="avatar" src="{{postData.avatar}}"></image>
     <text class="author">{{postData.author}}</text>

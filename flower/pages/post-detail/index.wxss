@@ -2,6 +2,7 @@
 .container{
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .head-image{
@@ -90,4 +91,13 @@
   margin-right: 30rpx;
   line-height: 44rpx;
   letter-spacing: 2px;
+}
+
+.audio{
+  position: absolute;
+  width: 102rpx;
+  height: 110rpx;
+  left: 50%;
+  margin-left: -51rpx;
+  top: 175rpx;
 }
