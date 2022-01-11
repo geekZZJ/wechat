@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    collected: false
+    collected: false,
+    isPlaying: false
   },
 
   /**
@@ -50,6 +51,15 @@ Page({
     const collected = data[this.data.postData.postId]
     this.setData({
       collected
+    })
+  },
+
+  onMusic() {
+    const mgr = wx.getBackgroundAudioManager()
+    mgr.src = this.data.postData.music.url
+    mgr.title = this.data.postData.music.title
+    this.setData({
+      isPlaying: !this.data.isPlaying
     })
   },
 

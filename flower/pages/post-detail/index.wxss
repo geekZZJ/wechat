@@ -100,4 +100,5 @@
   left: 50%;
   margin-left: -51rpx;
   top: 175rpx;
+  opacity: .6;
 }
