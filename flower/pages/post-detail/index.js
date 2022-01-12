@@ -2,6 +2,7 @@
 import {
   postList
 } from "../../data/post"
+const app = getApp()
 Page({
 
   /**
@@ -19,7 +20,8 @@ Page({
   onLoad: function (options) {
     const postData = postList[parseInt(options.pid)]
     this.setData({
-      postData
+      postData,
+      isPlaying: app.globalData.isPlayingMusic
     })
     this.getCollected()
     const mgr = wx.getBackgroundAudioManager()
@@ -69,6 +71,7 @@ Page({
     this.data.mgr.src = url
     this.data.mgr.title = title
     this.data.mgr.coverImgUrl = coverImg
+    app.globalData.isPlayingMusic = true
     this.setData({
       isPlaying: true
     })
@@ -76,6 +79,7 @@ Page({
 
   onMusicStop() {
     this.data.mgr.stop()
+    app.globalData.isPlayingMusic = false
     this.setData({
       isPlaying: false
     })

@@ -1,7 +1,7 @@
 // app.js
 App({
-  onLaunch() {
-  },
+  onLaunch() {},
   globalData: {
+    isPlayingMusic: false
   }
 })
