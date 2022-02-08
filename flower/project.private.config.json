@@ -23,6 +23,12 @@
           "pathName": "pages/post-detail/index",
           "query": "pid=0",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/movies/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

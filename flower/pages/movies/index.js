@@ -1,4 +1,4 @@
-// pages/welcome/index.js
+// pages/movies/index.js
 Page({
 
   /**
@@ -13,12 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-
-  onTap() {
-    wx.switchTab({
-      url: '../posts/index',
-    })
   },
 
   /**
