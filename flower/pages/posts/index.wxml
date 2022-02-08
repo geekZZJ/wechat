@@ -1,9 +1,9 @@
 <!--pages/posts/index.wxml-->
 <view>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-    <block wx:for="{{background}}" wx:key="*this">
+    <block wx:for="{{background}}" wx:key="id">
       <swiper-item>
-        <image src="/images/post/bl.png"></image>
+        <image src="{{item.imgSrc}}" data-id="{{item.id}}" bindtap="onJumpToDetail"></image>
       </swiper-item>
     </block>
   </swiper>

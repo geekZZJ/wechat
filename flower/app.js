@@ -2,6 +2,7 @@
 App({
   onLaunch() {},
   globalData: {
-    isPlayingMusic: false
+    isPlayingMusic: false,
+    isPlayingId: -1
   }
 })

@@ -8,7 +8,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    background: [1, 2, 3],
+    background: [{
+        imgSrc: "/images/post/crab.png",
+        id: 0
+      },
+      {
+        imgSrc: "/images/post/bl.png",
+        id: 1
+      },
+      {
+        imgSrc: "/images/post/sls.jpg",
+        id: 2
+      },
+    ],
     indicatorDots: true,
     autoplay: true,
     interval: 2000,
