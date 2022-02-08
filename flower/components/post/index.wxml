@@ -1,0 +1,16 @@
+<!--components/post/index.wxml-->
+<view class="post-container">
+  <view class="post-author-date">
+    <image class="post-author" src="{{post.avatar}}"></image>
+    <text class="post-date">{{post.date}}</text>
+  </view>
+  <view class="post-title">{{post.title}}</view>
+  <image src="{{post.imgSrc}}" class="post-image"></image>
+  <view class="post-content">{{post.content}}</view>
+  <view class="post-like">
+    <l-icon class="post-like-image" color="#666" size="28" name="favor"></l-icon>
+    <text class="post-like-font">{{post.collection}}</text>
+    <l-icon class="post-like-image" color="#666" size="28" name="eye"></l-icon>
+    <text class="post-like-font">{{post.reading}}</text>
+  </view>
+</view>
