@@ -1,2 +1,2 @@
 <!--pages/movies/index.wxml-->
-<text>pages/movies/index.wxml</text>
+<movie-list></movie-list>
