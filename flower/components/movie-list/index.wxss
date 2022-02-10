@@ -1,6 +1,7 @@
 /* components/movie-list/index.wxss */
 .container{
   padding: 36rpx 28rpx;
+  background-color: #fff;
 }
 
 .title-container{
@@ -12,4 +13,8 @@
 .movie-container{
   display: flex;
   justify-content: space-between;
+}
+
+.more-text{
+  color: #1f4ba5;
 }

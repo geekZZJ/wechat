@@ -1,5 +1,6 @@
 // components/movie-list/index.js
 Component({
+  externalClasses: ['my-class'],
   /**
    * 组件的属性列表
    */
