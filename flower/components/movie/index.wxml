@@ -1,9 +1,9 @@
 <!--components/movie/index.wxml-->
 <view class="container">
-  <image class="poster" src="/images/iqiyi.png"></image>
-  <text class="title">盗梦空间</text>
+  <image class="poster" src="{{movie.images.large}}"></image>
+  <text class="title">{{movie.title}}</text>
   <view class="rate-container">
-    <l-rate score="3" size="22" disabled />
-    <text class="score">3.0</text>
+    <l-rate score="{{movie.rating.stars/10}}" size="22" disabled />
+    <text class="score">{{movie.rating.average}}</text>
   </view>
 </view>

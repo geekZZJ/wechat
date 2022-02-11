@@ -1,4 +1,4 @@
 <!--pages/movies/index.wxml-->
-<movie-list my-class="movie-list"></movie-list>
-<movie-list my-class="movie-list"></movie-list>
-<movie-list my-class="movie-list"></movie-list>
+<movie-list movies="{{inTheaters}}" my-class="movie-list" title="正在热映"></movie-list>
+<movie-list movies="{{comingSoon}}" my-class="movie-list" title="即将上映"></movie-list>
+<movie-list movies="{{top250}}" my-class="movie-list" title="豆瓣Top250"></movie-list>
