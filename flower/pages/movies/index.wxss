@@ -6,3 +6,7 @@ page{
 .movie-list{
   margin-bottom: 30rpx;
 }
+
+.ex-search-bar{
+  height: 90rpx !important;
+}

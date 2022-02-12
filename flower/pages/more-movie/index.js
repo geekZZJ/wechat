@@ -1,4 +1,4 @@
-// pages/movies/index.js
+// pages/more-movie/index.js
 const app = getApp()
 Page({
 
@@ -6,49 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    inTheaters: [],
-    comingSoon: [],
-    top250: []
+    movies:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getMovies()
+    const type = options.type
+    this.getMovies(type)
   },
 
-  getMovies() {
+  getMovies(type){
+    console.log(type)
     wx.request({
-      url: `${app.globalData.baseUrl}in_theaters?start=0&count=3`,
+      url: `${app.globalData.baseUrl}${type}?start=0&count=12`,
       success: res => {
+        console.log(res)
         this.setData({
-          inTheaters: res.data.subjects
+          movies: res.data.subjects
         })
       }
-    })
-    wx.request({
-      url: `${app.globalData.baseUrl}coming_soon?start=0&count=3`,
-      success: res => {
-        this.setData({
-          comingSoon: res.data.subjects
-        })
-      }
-    })
-    wx.request({
-      url: `${app.globalData.baseUrl}top250?start=0&count=3`,
-      success: res => {
-        this.setData({
-          top250: res.data.subjects
-        })
-      }
-    })
-  },
-
-  gotoMore(e){
-    const type = e.currentTarget.dataset.type
-    wx.navigateTo({
-      url: `/pages/more-movie/index?type=${type}`,
     })
   },
 

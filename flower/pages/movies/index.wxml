@@ -1,4 +1,5 @@
 <!--pages/movies/index.wxml-->
-<movie-list movies="{{inTheaters}}" my-class="movie-list" title="正在热映"></movie-list>
-<movie-list movies="{{comingSoon}}" my-class="movie-list" title="即将上映"></movie-list>
-<movie-list movies="{{top250}}" my-class="movie-list" title="豆瓣Top250"></movie-list>
+<l-search-bar l-class="ex-search-bar" placeholder="盗梦空间" show-cancel="{{false}}"></l-search-bar>
+<movie-list movies="{{inTheaters}}" my-class="movie-list" title="正在热映" bindtap="gotoMore" data-type="in_theaters"></movie-list>
+<movie-list movies="{{comingSoon}}" my-class="movie-list" title="即将上映" bindtap="gotoMore" data-type="coming_soon"></movie-list>
+<movie-list movies="{{top250}}" my-class="movie-list" title="豆瓣Top250" bindtap="gotoMore" data-type="top250"></movie-list>

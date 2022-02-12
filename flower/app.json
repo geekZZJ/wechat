@@ -3,7 +3,8 @@
     "pages/welcome/index",
     "pages/posts/index",
     "pages/post-detail/index",
-    "pages/movies/index"
+    "pages/movies/index",
+    "pages/more-movie/index"
   ],
   "requiredBackgroundModes": [
     "audio",
