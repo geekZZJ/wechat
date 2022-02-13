@@ -33,7 +33,7 @@
         {
           "name": "",
           "pathName": "pages/more-movie/index",
-          "query": "",
+          "query": "type=in_theaters",
           "scene": null
         }
       ]
