@@ -35,6 +35,12 @@
           "pathName": "pages/more-movie/index",
           "query": "type=in_theaters",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/movie-detail/index",
+          "query": "mid=313",
+          "scene": null
         }
       ]
     }

@@ -4,7 +4,8 @@
     "pages/posts/index",
     "pages/post-detail/index",
     "pages/movies/index",
-    "pages/more-movie/index"
+    "pages/more-movie/index",
+    "pages/movie-detail/index"
   ],
   "requiredBackgroundModes": [
     "audio",

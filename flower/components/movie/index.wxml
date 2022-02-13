@@ -1,5 +1,5 @@
 <!--components/movie/index.wxml-->
-<view class="container">
+<view class="container" bindtap="onGoDetail">
   <image class="poster" src="{{movie.images.large}}"></image>
   <text class="title">{{movie.title}}</text>
   <view class="rate-container">
