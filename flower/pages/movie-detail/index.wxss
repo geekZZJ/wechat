@@ -121,3 +121,34 @@
   line-height: 40rpx;
   letter-spacing: 1px;
 }
+
+.cast{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+}
+
+.cast-font{
+  color: #999;
+  margin-bottom: 40rpx;
+}
+
+.cast-img{
+  width: 170rpx;
+  height: 210rpx;
+  margin-bottom: 10rpx;
+}
+
+.cast-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 40rpx;
+}
+
+.cast-imgs{
+  display: flex;
+  margin-bottom: 50rpx;
+  height: 300rpx;
+}
